@@ -2,7 +2,7 @@
   "name": "odin-todo-list",
   "version": "1.0.0",
   "description": "A small To-Do web app project for The Odin Project",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
