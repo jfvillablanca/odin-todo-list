@@ -50,3 +50,39 @@ const todoNote = (title, dueDate, priority, description, isStarred) => {
   }
   return Object.assign(Object.create(proto));
 }
+
+const folderTodo = () => {
+  let _name      = "Folder Name";
+  let _isDefault = false;
+  const _notes   = [];
+
+  return {
+    get name() {
+      return _name;
+    },
+    set setName(value) {
+    // logic / error handling
+      _name = value;
+    },
+    get isDefault() {
+      return _isDefault;
+    },
+    set setDefault(value) {
+    // logic / error handling
+      _isDefault = value;
+    },
+    set addTodo(value) {
+      _notes.push(value);
+    },
+    get countTodo() {
+      return _notes.length;
+    },
+    get firstTodo() {
+      return _notes[0];
+    },
+    get lastTodo() {
+      return _notes[_notes.length - 1];
+    },
+  }
+}
+
