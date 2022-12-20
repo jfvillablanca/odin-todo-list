@@ -48,7 +48,6 @@ const todoNote = (title, dueDate, priority, description, isStarred) => {
       _isStarred = value;
     },
   }
-  return Object.assign(Object.create(proto));
 }
 
 const folderTodo = () => {
