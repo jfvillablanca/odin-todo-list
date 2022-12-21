@@ -17,7 +17,16 @@ const objFactory = () => {
   }
 }
 
+const folderFactory = Object.assign({}, objFactory, {
+  name: "Folder Name",
+  isDefault: false,
+  notes: [],
+})
+
+const defaultFolder = Object.assign({}, folderFactory);
+
 const todoNoteFactory = Object.assign({}, objFactory(), {
+  folder: defaultFolder,
   title: "What are you trying to accomplish today?",
   dueDate: new Date(Date.now()),
   priority: "low",
@@ -25,8 +34,3 @@ const todoNoteFactory = Object.assign({}, objFactory(), {
   isStarred: false,
 });
 
-const folderFactory = Object.assign({}, objFactory, {
-  name: "Folder Name",
-  isDefault: false,
-  notes: [],
-})
