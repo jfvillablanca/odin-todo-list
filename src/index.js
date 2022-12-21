@@ -1,23 +1,24 @@
-// TODO: 
-// 1. fn: new todo note
+// TODO:
+// Try syntax: return () => {} (or nah?)
+// 1/ fn: new todo note
 // 2. fn: delete todo note
-// 3. fn: modify todo note
-// 4* fn: store note in folder
+// 3/ fn: modify todo note
+// 4/ fn: store note in folder
+// 5. fn: all notes need to be stored in a folder, no exception
+//
 
 const objFactory = () => {
   const attrs = {};
 
   return {
-    get (name) {
+    get(name) {
       return attrs[name];
     },
-    set (name, value) {
+    set(name, value) {
       attrs[name] = value;
     },
-  }
-}
-
-const folderDirectory = [];
+  };
+};
 
 const folderFactory = Object.assign({}, objFactory, {
   name: "Folder Name",
@@ -25,14 +26,7 @@ const folderFactory = Object.assign({}, objFactory, {
   notes: [],
 });
 
-const defaultFolder = Object.assign({}, folderFactory, {
-  name: "Default Folder",
-});
-
-folderDirectory.push(defaultFolder);
-
 const todoNoteFactory = Object.assign({}, objFactory(), {
-  folder: defaultFolder,
   title: "What are you trying to accomplish today?",
   dueDate: new Date(Date.now()),
   priority: "low",
@@ -50,11 +44,12 @@ function Folder() {
   const removeFolderByName = (folderName) => {
     folderDirectory.splice(
       folderDirectory.indexOf(
-        folderDirectory.find(folder => {
+        folderDirectory.find((folder) => {
           folder.name == folderName;
         })
-      ),1
-    )
+      ),
+      1
+    );
   };
 
   const getFolderList = () => {
@@ -65,16 +60,20 @@ function Folder() {
     addFolder,
     removeFolderByName,
     getFolderList,
-  }
+  };
 }
 
 // Controller Logic
 //
 // These are just tests
+
+const defaultFolder = Object.assign({}, folderFactory, {
+  name: "Default Folder",
+});
+
 const dir = Folder();
 dir.addFolder(defaultFolder);
 console.log(dir.getFolderList());
 
 dir.removeFolderByName("Default Folder");
 console.log(dir.getFolderList());
-
