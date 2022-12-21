@@ -30,7 +30,6 @@ const defaultFolder = Object.assign({}, folderFactory, {
 });
 
 folderDirectory.push(defaultFolder);
-console.log(folderDirectory);
 
 const todoNoteFactory = Object.assign({}, objFactory(), {
   folder: defaultFolder,
