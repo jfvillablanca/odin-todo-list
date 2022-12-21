@@ -20,19 +20,19 @@ const objFactory = () => {
   };
 };
 
-const folderFactory = Object.assign({}, objFactory, {
+const folderDefaultProps = {
   name: "Folder Name",
   isStarred: false,
   notes: [],
-});
+};
 
-const todoNoteFactory = Object.assign({}, objFactory(), {
+const todoNoteDefaultProps = {
   title: "What are you trying to accomplish today?",
   dueDate: new Date(Date.now()),
   priority: "low",
   description: "Feel free to describe :)",
   isStarred: false,
-});
+};
 
 function Folder() {
   const folderDirectory = [];
