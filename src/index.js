@@ -7,7 +7,7 @@
 // 5. fn: all notes need to be stored in a folder, no exception
 //
 
-const objFactory = () => {
+const objGetterSetter = () => {
   const attrs = {};
 
   return {
