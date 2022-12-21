@@ -19,11 +19,13 @@ const objFactory = () => {
 
 const folderFactory = Object.assign({}, objFactory, {
   name: "Folder Name",
-  isDefault: false,
+  isStarred: false,
   notes: [],
-})
+});
 
-const defaultFolder = Object.assign({}, folderFactory);
+const defaultFolder = Object.assign({}, folderFactory, {
+  name: "Default Folder",
+});
 
 const todoNoteFactory = Object.assign({}, objFactory(), {
   folder: defaultFolder,
