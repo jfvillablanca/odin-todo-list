@@ -34,7 +34,7 @@ const todoNoteDefaultProps = {
   isStarred: false,
 };
 
-function Folder() {
+function DirectoryUtils() {
   const folderDirectory = [];
 
   const addFolder = (folder) => {
