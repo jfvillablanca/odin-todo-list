@@ -40,3 +40,41 @@ const todoNoteFactory = Object.assign({}, objFactory(), {
   isStarred: false,
 });
 
+function Folder() {
+  const folderDirectory = [];
+
+  const addFolder = (folder) => {
+    folderDirectory.push(folder);
+  };
+
+  const removeFolderByName = (folderName) => {
+    folderDirectory.splice(
+      folderDirectory.indexOf(
+        folderDirectory.find(folder => {
+          folder.name == folderName;
+        })
+      ),1
+    )
+  };
+
+  const getFolderList = () => {
+    return Object.freeze([...folderDirectory]);
+  };
+
+  return {
+    addFolder,
+    removeFolderByName,
+    getFolderList,
+  }
+}
+
+// Controller Logic
+//
+// These are just tests
+const dir = Folder();
+dir.addFolder(defaultFolder);
+console.log(dir.getFolderList());
+
+dir.removeFolderByName("Default Folder");
+console.log(dir.getFolderList());
+
