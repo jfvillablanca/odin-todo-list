@@ -11,6 +11,10 @@ function rename(value) {
   this.name = value;
 }
 
+function toggleStar() {
+  (this.isStarred == false) ? this.isStarred = true : this.isStarred = false;
+}
+
 const folderDefaultProps = {
   name: "Folder Name",
   isStarred: false,
@@ -19,6 +23,7 @@ const folderDefaultProps = {
 
 const folderMethods = {
   rename,
+  toggleStar,
 };
 
 const todoNoteDefaultProps = {
