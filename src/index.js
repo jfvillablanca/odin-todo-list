@@ -7,18 +7,9 @@
 // 5. fn: all notes need to be stored in a folder, no exception
 //
 
-const objGetterSetter = () => {
-  const attrs = {};
-
-  return {
-    get(name) {
-      return attrs[name];
-    },
-    set(name, value) {
-      attrs[name] = value;
-    },
-  };
-};
+function rename(value) {
+  this.name = value;
+}
 
 const folderDefaultProps = {
   name: "Folder Name",
