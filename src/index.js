@@ -27,7 +27,7 @@ const folderDefaultProps = {
 };
 
 const todoNoteDefaultProps = {
-  title: "What are you trying to accomplish today?",
+  name: "What are you trying to accomplish today?",
   dueDate: new Date(Date.now()),
   priority: "low",
   description: "Feel free to describe :)",
