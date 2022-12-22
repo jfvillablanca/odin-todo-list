@@ -58,6 +58,10 @@ function DirectoryUtils() {
   };
 }
 
+const defaultFolder = Object.freeze({}, folderDefaultProps, folderMethods, {
+  name: "Default Folder",
+});
+
 // Controller Logic
 //
 // These are just tests
