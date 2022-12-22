@@ -17,6 +17,10 @@ const folderDefaultProps = {
   notes: [],
 };
 
+const folderMethods = {
+  rename,
+};
+
 const todoNoteDefaultProps = {
   name: "What are you trying to accomplish today?",
   dueDate: new Date(Date.now()),
