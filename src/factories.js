@@ -42,11 +42,11 @@ function DirectoryUtils() {
   };
 }
 
-export function createFolder() {
+export function createFolder({name = "Folder Name", isStarred = false} = {}) {
 
   const fields = {
-    name: "Folder Name",
-    isStarred: false,
+    name: name,
+    isStarred: isStarred,
     notes: [],
   };
 
@@ -80,6 +80,4 @@ export function createTodoNote() {
 
 export const dir = DirectoryUtils();
 
-export const defaultFolder = Object.assign(Object.create(folderDefaultProps), folderMethods, {
-  name: "Default Folder",
-});
+export const defaultFolder = createFolder({name: "Default Folder"});
