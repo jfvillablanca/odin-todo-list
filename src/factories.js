@@ -63,6 +63,14 @@ function DirectoryUtils() {
   };
 }
 
+export function createFolder() {
+  return Object.assign({}, folderDefaultProps, folderMethods,) 
+}
+
+export function createTodoNote() {
+  return Object.assign({}, todoNoteDefaultProps, todoNoteMethods,) 
+}
+
 export const dir = DirectoryUtils();
 
 export const defaultFolder = Object.assign(Object.create(folderDefaultProps), folderMethods, {
