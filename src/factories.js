@@ -13,7 +13,6 @@ function addNote(note) {
 const folderDefaultProps = {
   name: "Folder Name",
   isStarred: false,
-  notes: [],
 };
 
 const folderMethods = {
