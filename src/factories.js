@@ -73,6 +73,7 @@ export function createTodoNote({
   priority = "low",
   description = "Feel free to describe :)",
   isStarred = false,
+  isCompleted = false,
   folder = defaultFolder,
   } = {}) {
   
@@ -82,6 +83,7 @@ export function createTodoNote({
     priority: priority,
     description: description,
     isStarred: isStarred,
+    isCompleted: isCompleted,
     folder: folder,
   };
 
@@ -101,6 +103,14 @@ export function createTodoNote({
     (fields.isStarred == false) ? fields.isStarred = true : fields.isStarred = false;
   }
 
+  const getCompletedStatus = () => {
+    return fields.isCompleted;
+  }
+
+  const toggleCompleted = () => {
+    (fields.isCompleted == false) ? fields.isCompleted = true : fields.isCompleted = false;
+  }
+
   const getFolder = () => {
     return fields.folder;
   }
@@ -114,6 +124,8 @@ export function createTodoNote({
     setName,
     getStarStatus,
     toggleStar,
+    getCompletedStatus,
+    toggleCompleted,
     getFolder,
     setFolder,
   }
