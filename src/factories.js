@@ -1,25 +1,5 @@
-function rename(value) {
-  this.name = value;
-}
-
-function toggleStar() {
-  (this.isStarred == false) ? this.isStarred = true : this.isStarred = false;
-}
-
-function addNote(note) {
-  this.notes.push(note);
-}
-
-const folderDefaultProps = {
-  name: "Folder Name",
-  isStarred: false,
-};
-
-const folderMethods = {
-  rename,
-  toggleStar,
-  addNote,
-};
+// TODO: 
+// - Refactor to a more functional vibe, remove constructor functions
 
 const todoNoteDefaultProps = {
   name: "What are you trying to accomplish today?",
@@ -63,10 +43,35 @@ function DirectoryUtils() {
 }
 
 export function createFolder() {
+
   const fields = {
+    name: "Folder Name",
+    isStarred: false,
     notes: [],
+  };
+
+  const getName = () => {
+    return fields.name;
   }
-  return Object.assign({}, folderDefaultProps, folderMethods, fields) 
+
+  const setName = (value) => {
+    fields.name = value;
+  };
+
+  const toggleStar = () => {
+    (fields.isStarred == false) ? fields.isStarred = true : fields.isStarred = false;
+  }
+
+  const addNote = (note) => {
+    fields.notes.push(note);
+  }
+
+  return {
+    getName,
+    setName,
+    toggleStar,
+    addNote,
+  }
 }
 
 export function createTodoNote() {
