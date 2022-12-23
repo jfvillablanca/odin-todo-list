@@ -64,7 +64,10 @@ function DirectoryUtils() {
 }
 
 export function createFolder() {
-  return Object.assign({}, folderDefaultProps, folderMethods,) 
+  const fields = {
+    notes: [],
+  }
+  return Object.assign({}, folderDefaultProps, folderMethods, fields) 
 }
 
 export function createTodoNote() {
