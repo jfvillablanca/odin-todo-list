@@ -58,6 +58,10 @@ export function createFolder({name = "Folder Name", isStarred = false} = {}) {
     fields.name = value;
   };
 
+  const getStarStatus = () => {
+    return fields.isStarred;
+  }
+
   const toggleStar = () => {
     (fields.isStarred == false) ? fields.isStarred = true : fields.isStarred = false;
   }
@@ -69,6 +73,7 @@ export function createFolder({name = "Folder Name", isStarred = false} = {}) {
   return {
     getName,
     setName,
+    getStarStatus,
     toggleStar,
     addNote,
   }
