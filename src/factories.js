@@ -1,5 +1,13 @@
 // TODO: 
-// - Refactor to a more functional vibe, remove constructor functions
+// / Refactor to a more functional vibe, remove constructor functions
+// / Add isComplete to createTodoNote
+// - Add deleteNote to createFolder
+// / Add unique ID to folders and todo notes
+
+// HACK: This generates pseudo-random strings
+// Collisions are bound to happen with this function.
+// Use Node's crypto module or random.org's API lol
+const generateID = () => (Math.random() + 1).toString(36).substring(2)
 
 function DirectoryUtils() {
   const folderDirectory = [];
@@ -35,8 +43,13 @@ export function createFolder({name = "Folder Name", isStarred = false} = {}) {
   const fields = {
     name: name,
     isStarred: isStarred,
+    id: generateID(),
     notes: [],
   };
+
+  const getID = () => {
+    return fields.id;
+  }
 
   const getName = () => {
     return fields.name;
@@ -59,6 +72,7 @@ export function createFolder({name = "Folder Name", isStarred = false} = {}) {
   }
 
   return {
+    getID,
     getName,
     setName,
     getStarStatus,
@@ -84,8 +98,13 @@ export function createTodoNote({
     description: description,
     isStarred: isStarred,
     isCompleted: isCompleted,
+    id: generateID(),
     folder: folder,
   };
+
+  const getID = () => {
+    return fields.id;
+  }
 
   const getName = () => {
     return fields.name;
@@ -120,6 +139,7 @@ export function createTodoNote({
   };
 
   return {
+    getID,
     getName,
     setName,
     getStarStatus,
