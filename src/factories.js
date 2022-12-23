@@ -34,7 +34,7 @@ const todoNoteMethods = {
   rename,
 }
 
-export function DirectoryUtils() {
+function DirectoryUtils() {
   const folderDirectory = [];
 
   const addFolder = (folder) => {
@@ -62,6 +62,8 @@ export function DirectoryUtils() {
     getFolderList,
   };
 }
+
+export const dir = DirectoryUtils();
 
 export const defaultFolder = Object.assign(Object.create(folderDefaultProps), folderMethods, {
   name: "Default Folder",

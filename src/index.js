@@ -6,7 +6,7 @@
 // 4/ fn: store note in folder
 // 5. fn: all notes need to be stored in a folder, no exception
 //
-import { DirectoryUtils, defaultFolder } from './factories.js';
+import { dir, defaultFolder } from './factories.js';
 
 function rename(value) {
   this.name = value;
