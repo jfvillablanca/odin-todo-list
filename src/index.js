@@ -6,6 +6,7 @@
 // 4/ fn: store note in folder
 // 5. fn: all notes need to be stored in a folder, no exception
 //
+import { DirectoryUtils, defaultFolder } from './factories.js';
 
 function rename(value) {
   this.name = value;
@@ -33,39 +34,6 @@ const todoNoteDefaultProps = {
   description: "Feel free to describe :)",
   isStarred: false,
 };
-
-function DirectoryUtils() {
-  const folderDirectory = [];
-
-  const addFolder = (folder) => {
-    folderDirectory.push(folder);
-  };
-
-  const removeFolderByName = (folderName) => {
-    folderDirectory.splice(
-      folderDirectory.indexOf(
-        folderDirectory.find((folder) => {
-          folder.name == folderName;
-        })
-      ),
-      1
-    );
-  };
-
-  const getFolderList = () => {
-    return Object.freeze([...folderDirectory]);
-  };
-
-  return {
-    addFolder,
-    removeFolderByName,
-    getFolderList,
-  };
-}
-
-const defaultFolder = Object.freeze({}, folderDefaultProps, folderMethods, {
-  name: "Default Folder",
-});
 
 // Controller Logic
 //
