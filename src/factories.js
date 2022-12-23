@@ -1,18 +1,6 @@
 // TODO: 
 // - Refactor to a more functional vibe, remove constructor functions
 
-const todoNoteDefaultProps = {
-  name: "What are you trying to accomplish today?",
-  dueDate: new Date(Date.now()),
-  priority: "low",
-  description: "Feel free to describe :)",
-  isStarred: false,
-};
-
-const todoNoteMethods = {
-  rename,
-}
-
 function DirectoryUtils() {
   const folderDirectory = [];
 
