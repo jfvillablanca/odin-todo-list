@@ -1,5 +1,5 @@
 // TODO:
-import { dir, defaultFolder, createNewFolder, } from './factories.js';
+import { dir, defaultFolder, } from './factories.js';
 
 // Controller Logic
 //
