@@ -82,6 +82,22 @@ const starToggle = (instance) => ({
 
 // NOTE: Folder instance methods
 
+const noteCreator = (instance) => ({
+  addNewTodo: ({
+    name = "What are you trying to accomplish today?",
+    dueDate = new Date(Date.now()),
+    priority = "low",
+    description = "Feel free to describe :)",
+    isStarred = false,
+    isCompleted = false,
+    folder = instance,
+  } = {}) => {
+    const newTodo = createNewTodo({name, dueDate, priority, description, isStarred, isCompleted, folder});
+    instance.get("notes").push(newTodo);
+    return newTodo;
+  }
+});
+
 const noteAdder = (instance) => ({
   addNote: (note) => {
     instance.get("notes").push(note);
@@ -114,6 +130,7 @@ export const createNewFolder = ({
     starToggle,
     noteAdder,
     noteRemover,
+    noteCreator,
   );
 };
 
@@ -128,7 +145,9 @@ export const defaultFolder = newInstance(
   },
   objGetter,
   objSetter,
-  noteAdder
+  noteAdder,
+  noteRemover,
+  noteCreator,
 );
 
 // NOTE: Todo Note instance methods
