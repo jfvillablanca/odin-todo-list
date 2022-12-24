@@ -1,13 +1,10 @@
-// TODO: 
-// / Refactor to a more functional vibe, remove constructor functions
-// / Add isComplete to createTodoNote
-// - Add deleteNote to createFolder
-// / Add unique ID to folders and todo notes
+// TODO:
+// - folder method to create new note
 
 // HACK: This generates pseudo-random strings
 // Collisions are bound to happen with this function.
 // Use Node's crypto module or random.org's API lol
-const generateID = () => (Math.random() + 1).toString(36).substring(2)
+const generateID = () => (Math.random() + 1).toString(36).substring(2);
 
 function DirectoryUtils() {
   const folderDirectory = [];
@@ -37,6 +34,8 @@ function DirectoryUtils() {
     getFolderList,
   };
 }
+
+// NOTE: Instance creation essentials
 
 const objGetter = (dataObject) => ({
   get: (key) => {
@@ -71,6 +70,8 @@ const newInstance = (defaultProperties, ...behaviors) => {
   );
 };
 
+// NOTE: Folder and Todo Note instance methods
+
 const starToggle = (instance) => ({
   toggleStarStatus: () => {
     instance.get("isStarred") === false
@@ -79,19 +80,15 @@ const starToggle = (instance) => ({
   },
 });
 
-const completedToggle = (instance) => ({
-  toggleCompletedStatus: () => {
-    instance.get("isCompleted") === false
-      ? instance.set("isCompleted", true)
-      : instance.set("isCompleted", false);
-  },
-});
+// NOTE: Folder instance methods
 
 const noteAdder = (instance) => ({
   addNote: (note) => {
     instance.get("notes").push(note);
   },
 });
+
+// NOTE: (Export Function) createNewFolder instance
 
 export const createNewFolder = ({
   name = "Folder Name",
@@ -111,6 +108,8 @@ export const createNewFolder = ({
   );
 };
 
+// NOTE: Default Folder declaration
+
 export const defaultFolder = newInstance(
   {
     name: "Default Folder",
@@ -122,6 +121,18 @@ export const defaultFolder = newInstance(
   objSetter,
   noteAdder
 );
+
+// NOTE: Todo Note instance methods
+
+const completedToggle = (instance) => ({
+  toggleCompletedStatus: () => {
+    instance.get("isCompleted") === false
+      ? instance.set("isCompleted", true)
+      : instance.set("isCompleted", false);
+  },
+});
+
+// NOTE: (Function) createNewTodo instance
 
 const createNewTodo = (
   name = "What are you trying to accomplish today?",
