@@ -123,66 +123,23 @@ export function createTodoNote({
   isStarred = false,
   isCompleted = false,
   folder = defaultFolder,
-  } = {}) {
-  
-  const fields = {
-    name,
-    dueDate,
-    priority,
-    description,
-    isStarred,
-    isCompleted,
-    id: generateID(),
-    folder,
-  };
-
-  const getID = () => {
-    return fields.id;
-  }
-
-  const getName = () => {
-    return fields.name;
-  }
-
-  const setName = (value) => {
-    fields.name = value;
-  };
-
-  const getStarStatus = () => {
-    return fields.isStarred;
-  }
-
-  const toggleStar = () => {
-    (fields.isStarred == false) ? fields.isStarred = true : fields.isStarred = false;
-  }
-
-  const getCompletedStatus = () => {
-    return fields.isCompleted;
-  }
-
-  const toggleCompleted = () => {
-    (fields.isCompleted == false) ? fields.isCompleted = true : fields.isCompleted = false;
-  }
-
-  const getFolder = () => {
-    return fields.folder;
-  }
-
-  const setFolder = (value) => {
-    fields.folder = value;
-  };
-
-  return {
-    getID,
-    getName,
-    setName,
-    getStarStatus,
-    toggleStar,
-    getCompletedStatus,
-    toggleCompleted,
-    getFolder,
-    setFolder,
-  }
-}
+) => {
+  return newInstance(
+    {
+      name,
+      dueDate,
+      priority,
+      description,
+      isStarred,
+      isCompleted,
+      folder,
+      id: generateID(),
+    },
+    objGetter,
+    objSetter,
+    starToggle,
+    // toggleCompleted
+  );
+};
 
 export const dir = DirectoryUtils();
