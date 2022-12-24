@@ -25,7 +25,7 @@ function DirectoryUtils() {
     folderDirectory.splice(
       folderDirectory.indexOf(
         folderDirectory.find((folder) => {
-          folder.get("id") == id;
+          folder.get("id") === id;
         })
       ),
       1
