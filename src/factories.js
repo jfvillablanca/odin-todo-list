@@ -101,10 +101,18 @@ const noteCreator = (instance) => ({
     isCompleted = false,
     folder = instance,
   } = {}) => {
-    const newTodo = createNewTodo({name, dueDate, priority, description, isStarred, isCompleted, folder});
+    const newTodo = createNewTodo({
+      name,
+      dueDate,
+      priority,
+      description,
+      isStarred,
+      isCompleted,
+      folder,
+    });
     instance.get("notes").push(newTodo);
     return newTodo;
-  }
+  },
 });
 
 const noteAdder = (instance) => ({
