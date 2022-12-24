@@ -38,48 +38,82 @@ function DirectoryUtils() {
   };
 }
 
-export function createFolder({name = "Folder Name", isStarred = false} = {}) {
+const objGetter = (dataObject) => ({
+  get: (key) => {
+    return dataObject[key];
+  },
+});
 
-  const fields = {
-    name,
-    isStarred,
-    id: generateID(),
+const objSetter = (dataObject) => ({
+  set: (key, value) => {
+    dataObject[key] = value;
+  },
+});
+
+const newInstance = (defaultProperties, ...behaviors) => {
+  const instance = {};
+  const fields = Object.assign({}, defaultProperties);
+
+  return Object.assign(
+    instance,
+    behaviors.reduce((accumulator, current) => {
+      switch (current.name) {
+        case "objGetter":
+        case "objSetter":
+          Object.assign(accumulator, current(fields));
+          break;
+        default:
+          Object.assign(accumulator, current(instance));
+          break;
+      }
+      return accumulator;
+    }, {})
+  );
+};
+
+const starToggle = (instance) => ({
+  toggleStarStatus: () => {
+    instance.get("isStarred") === false
+      ? instance.set("isStarred", true)
+      : instance.set("isStarred", false);
+  },
+});
+
+const noteAdder = (instance) => ({
+  addNote: (note) => {
+    instance.get("notes").push(note);
+  },
+});
+
+export const createNewFolder = ({
+  name = "Folder Name",
+  isStarred = false,
+} = {}) => {
+  return newInstance(
+    {
+      name,
+      isStarred,
+      id: generateID(),
+      notes: [],
+    },
+    objGetter,
+    objSetter,
+    starToggle,
+    noteAdder
+  );
+};
+
+export const defaultFolder = newInstance(
+  {
+    name: "Default Folder",
+    isStarred: false,
+    id: "_default_",
     notes: [],
-  };
-
-  const getID = () => {
-    return fields.id;
-  }
-
-  const getName = () => {
-    return fields.name;
-  }
-
-  const setName = (value) => {
-    fields.name = value;
-  };
-
-  const getStarStatus = () => {
-    return fields.isStarred;
-  }
-
-  const toggleStar = () => {
-    (fields.isStarred == false) ? fields.isStarred = true : fields.isStarred = false;
-  }
-
-  const addNote = (note) => {
-    fields.notes.push(note);
-  }
-
-  return {
-    getID,
-    getName,
-    setName,
-    getStarStatus,
-    toggleStar,
-    addNote,
-  }
-}
+  },
+  objGetter,
+  objSetter,
+  noteAdder
+);
 
 export function createTodoNote({
   name = "What are you trying to accomplish today?",
@@ -152,5 +186,3 @@ export function createTodoNote({
 }
 
 export const dir = DirectoryUtils();
-
-export const defaultFolder = createFolder({name: "Default Folder"});
