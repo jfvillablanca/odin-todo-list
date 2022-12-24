@@ -41,8 +41,8 @@ function DirectoryUtils() {
 export function createFolder({name = "Folder Name", isStarred = false} = {}) {
 
   const fields = {
-    name: name,
-    isStarred: isStarred,
+    name,
+    isStarred,
     id: generateID(),
     notes: [],
   };
@@ -92,14 +92,14 @@ export function createTodoNote({
   } = {}) {
   
   const fields = {
-    name: name,
-    dueDate: dueDate,
-    priority: priority,
-    description: description,
-    isStarred: isStarred,
-    isCompleted: isCompleted,
+    name,
+    dueDate,
+    priority,
+    description,
+    isStarred,
+    isCompleted,
     id: generateID(),
-    folder: folder,
+    folder,
   };
 
   const getID = () => {
