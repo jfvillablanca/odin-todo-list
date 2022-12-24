@@ -88,6 +88,19 @@ const noteAdder = (instance) => ({
   },
 });
 
+const noteRemover = (instance) => ({
+  removeNoteByID: (id) => {
+    instance.get("notes").splice(
+      instance.get("notes").getIndexOf(
+        instance.get("notes").filter((note) => {
+          note.id === id;
+        })
+      ),
+      1
+    );
+  },
+});
+
 // NOTE: (Export Function) createNewFolder instance
 
 export const createNewFolder = ({
@@ -104,7 +117,8 @@ export const createNewFolder = ({
     objGetter,
     objSetter,
     starToggle,
-    noteAdder
+    noteAdder,
+    noteRemover,
   );
 };
 
