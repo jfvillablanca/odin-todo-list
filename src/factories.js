@@ -79,6 +79,14 @@ const starToggle = (instance) => ({
   },
 });
 
+const completedToggle = (instance) => ({
+  toggleCompletedStatus: () => {
+    instance.get("isCompleted") === false
+      ? instance.set("isCompleted", true)
+      : instance.set("isCompleted", false);
+  },
+});
+
 const noteAdder = (instance) => ({
   addNote: (note) => {
     instance.get("notes").push(note);
@@ -115,7 +123,7 @@ export const defaultFolder = newInstance(
   noteAdder
 );
 
-export function createTodoNote({
+const createNewTodo = (
   name = "What are you trying to accomplish today?",
   dueDate = new Date(Date.now()),
   priority = "low",
@@ -138,7 +146,7 @@ export function createTodoNote({
     objGetter,
     objSetter,
     starToggle,
-    // toggleCompleted
+    completedToggle,
   );
 };
 
