@@ -2,7 +2,7 @@
 // / folder method to create new note
 // / folder method to delete note
 // / note: folder and todo note id values can still be "set" (unsecure)
-// - todo note method: move to another folder
+// / todo note method: move to another folder
 
 // HACK: This generates pseudo-random strings
 // Collisions are bound to happen with this function.
@@ -184,6 +184,19 @@ const completedToggle = (instance) => ({
   },
 });
 
+const folderTransfer = (instance) => ({
+  transferToFolderByID: (targetFolderID) => {
+    const currentNoteID = instance.get("id");
+
+    const currentFolder = instance.get("folder");
+    const targetFolder = dir.getFolderByID(targetFolderID);    
+
+    currentFolder.removeNoteByID(currentNoteID);
+    targetFolder.addNote(instance);
+    instance.set("folder", targetFolder);
+  },
+});
+
 // NOTE: (Function) createNewTodo instance
 
 const createNewTodo = ({
@@ -210,6 +223,7 @@ const createNewTodo = ({
     objSetter,
     starToggle,
     completedToggle,
+    folderTransfer,
   );
 };
 
