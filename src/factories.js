@@ -131,9 +131,9 @@ const noteRemover = (instance) => ({
   },
 });
 
-// NOTE: (Export Function) createNewFolder instance
+// NOTE: (Function) createNewFolder instance
 
-export const createNewFolder = ({
+const createNewFolder = ({
   name = "Folder Name",
   isStarred = false,
 } = {}) => {
