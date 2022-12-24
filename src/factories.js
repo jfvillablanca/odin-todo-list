@@ -143,7 +143,7 @@ const completedToggle = (instance) => ({
 
 // NOTE: (Function) createNewTodo instance
 
-const createNewTodo = (
+const createNewTodo = ({
   name = "What are you trying to accomplish today?",
   dueDate = new Date(Date.now()),
   priority = "low",
@@ -151,7 +151,7 @@ const createNewTodo = (
   isStarred = false,
   isCompleted = false,
   folder = defaultFolder,
-) => {
+}) => {
   return newInstance(
     {
       name,
