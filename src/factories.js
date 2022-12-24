@@ -123,7 +123,9 @@ const noteAdder = (instance) => ({
 
 const noteRemover = (instance) => ({
   removeNoteByID: (id) => {
-    const [noteToBeSpliced] = instance.get("notes").filter( note => note.get("id") === id );
+    const [noteToBeSpliced] = instance
+      .get("notes")
+      .filter((note) => note.get("id") === id);
     const indexOfNote = instance.get("notes").indexOf(noteToBeSpliced);
     instance.get("notes").splice(indexOfNote, 1);
   },
