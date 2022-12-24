@@ -32,13 +32,18 @@ function DirectoryUtils() {
     );
   };
 
+  const getFolderByID = (id) => {
+    return folderDirectory.find((folder) => folder.get("id") === id);
+  }
+
   const getFolderList = () => {
     return Object.freeze([...folderDirectory]);
   };
 
   return {
     addFolder,
-    removeFolderByName,
+    removeFolderByID,
+    getFolderByID,
     getFolderList,
   };
 }
