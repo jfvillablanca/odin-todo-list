@@ -12,8 +12,12 @@ const generateID = () => (Math.random() + 1).toString(36).substring(2);
 function DirectoryUtils() {
   const folderDirectory = [];
 
-  const addFolder = (folder) => {
+  folderDirectory.push(defaultFolder);
+
+  const addFolder = ({ name = "Folder Name", isStarred = false } = {}) => {
+    const folder = createNewFolder({ name, isStarred });
     folderDirectory.push(folder);
+    return folder;
   };
 
   const removeFolderByID = (id) => {
