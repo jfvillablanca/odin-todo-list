@@ -1,5 +1,8 @@
 // TODO:
-// - folder method to create new note
+// / folder method to create new note
+// / folder method to delete note
+// / note: folder and todo note id values can still be "set" (unsecure)
+// - todo note method: move to another folder
 
 // HACK: This generates pseudo-random strings
 // Collisions are bound to happen with this function.
