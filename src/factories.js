@@ -16,11 +16,12 @@ function DirectoryUtils() {
     folderDirectory.push(folder);
   };
 
-  const removeFolderByName = (folderName) => {
+  const removeFolderByID = (id) => {
+    if (id === defaultFolder.get("id")) throw "Error: Default folder cannot be removed";
     folderDirectory.splice(
       folderDirectory.indexOf(
         folderDirectory.find((folder) => {
-          folder.name == folderName;
+          folder.get("id") == id;
         })
       ),
       1
