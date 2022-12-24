@@ -45,6 +45,7 @@ const objGetter = (dataObject) => ({
 
 const objSetter = (dataObject) => ({
   set: (key, value) => {
+    if (key === "id") throw "Overwriting an instance ID is not allowed.";
     dataObject[key] = value;
   },
 });
