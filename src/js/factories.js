@@ -84,6 +84,31 @@ const newInstance = (defaultProperties, ...behaviors) => {
   );
 };
 
+const newImmutInstance = (defaultProperties, ...behaviors) => {
+  const instance = {};
+  const fields = Object.assign({}, defaultProperties);
+
+  return Object.assign(
+    instance,
+    behaviors.reduce((accumulator, current) => {
+      switch (current.name) {
+        case "objGetter":
+        case "objSetter":
+          "use strict";
+          Object.defineProperty(fields, "name", {writable: false});
+          Object.defineProperty(fields, "id", {writable: false});
+          Object.defineProperty(fields, "isStarred", {writable: false});
+          Object.assign(accumulator, current(fields));
+          break;
+        default:
+          Object.assign(accumulator, current(instance));
+          break;
+      }
+      return accumulator;
+    }, {})
+  );
+};
+
 // NOTE: Folder and Todo Note instance methods
 
 const starToggle = (instance) => ({
@@ -160,7 +185,7 @@ const createNewFolder = ({
 
 // NOTE: Default Folder declaration
 
-export const defaultFolder = newInstance(
+export const defaultFolder = newImmutInstance(
   {
     name: "Default Folder",
     isStarred: false,
