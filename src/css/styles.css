@@ -11,17 +11,18 @@
   font-size: 62.5%;
 
   /* Dracula Theme */
-  --color-background: rgb(40, 42, 54);     /* #282a36 */
-  --color-current-line: rgb(68, 71, 90);   /* #44475a */
-  --color-foreground: rgb(248, 248, 242);  /* #f8f8f2 */
-  --color-comment: rgb(98, 114, 164);      /* #6272a4 */
-  --color-cyan: rgb(139, 233, 253);        /* #8be9fd */
-  --color-green: rgb(80, 250, 123);        /* #50fa7b */
-  --color-orange: rgb(255, 184, 108);      /* #ffb86c */
-  --color-pink: rgb(255, 121, 198);        /* #ff79c6 */
-  --color-purple: rgb(189, 147, 249);      /* #bd93f9 */
-  --color-red: rgb(255, 85, 85);           /* #ff5555 */
-  --color-yellow: rgb(241, 250, 140);      /* #f1fa8c */
+  --color-background-blk: rgb(31, 31, 31);   /* #1F1F1F */
+  --color-background: rgb(40, 42, 54);       /* #282a36 */
+  --color-background-alt: rgb(68, 71, 90);   /* #44475a */
+  --color-foreground: rgb(248, 248, 242);    /* #f8f8f2 */
+  --color-comment: rgb(98, 114, 164);        /* #6272a4 */
+  --color-cyan: rgb(139, 233, 253);          /* #8be9fd */
+  --color-green: rgb(80, 250, 123);          /* #50fa7b */
+  --color-orange: rgb(255, 184, 108);        /* #ffb86c */
+  --color-pink: rgb(255, 121, 198);          /* #ff79c6 */
+  --color-purple: rgb(189, 147, 249);        /* #bd93f9 */
+  --color-red: rgb(255, 85, 85);             /* #ff5555 */
+  --color-yellow: rgb(241, 250, 140);        /* #f1fa8c */
 }
 
 body {
