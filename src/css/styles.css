@@ -27,8 +27,33 @@
 
 body {
   font-size: 1.6rem;
-  width: 100vw;
-  background-color: var(--color-background);
+  background-color: var(--color-background-blk);
   font-family: 'Fira Code VF','Courier New', Courier, monospace;
   color: var(--color-foreground);
+  width: 100vw;
+
+  display: grid;
+  justify-items: center;
+}
+
+.container {
+  margin: 0;
+  min-width: 80%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-flow: column;
+}
+
+.project-sidebar {
+  background-color: var(--color-background-alt);
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
 }
