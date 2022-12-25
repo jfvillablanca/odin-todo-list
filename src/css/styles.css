@@ -1,3 +1,5 @@
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,4 +28,7 @@ body {
   font-size: 1.6rem;
   height: 100vh;
   width: 100vw;
+  background-color: var(--color-background);
+  font-family: 'Fira Code VF','Courier New', Courier, monospace;
+  color: var(--color-foreground);
 }
