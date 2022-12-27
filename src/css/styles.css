@@ -121,6 +121,15 @@ body {
   right: 0;
   transform: translateY(-50%);
 }
+/* background color in inline style */
+.project-add {
+  display: grid;
+  place-items: center;
+  height: 4rem;
+}
+.project-add > img {
+  height: 100%;
+}
 
 .main {
   width: 100%;
