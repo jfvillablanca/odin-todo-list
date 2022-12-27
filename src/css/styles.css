@@ -58,18 +58,13 @@ body {
   font-size: 3rem;
 }
 
-.logo-name-wrapper {
-  margin-bottom: 2.1rem;
-  display: grid;
-  font-size: 4rem;
-  font-weight: 600;
-  place-items: center;
-}
 .logo-name {
   margin-top: 1rem;
+  margin-bottom: 2.1rem;
+  font-size: 4rem;
+  font-weight: 600;
 
   display: grid;
-  align-items: center;
   grid-template-columns: 1fr 3fr; 
   place-items: center;
 }
