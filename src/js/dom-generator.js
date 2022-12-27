@@ -3,7 +3,7 @@ import './../css/normalize.css';
 import './../css/styles.css';
 import LogoIcon from '../images/coffee.svg';
 
-const projItem = (itemText, itemNumber) => {
+const projItemLI = (itemText, itemNumber) => {
   const projectItemStatus = document.createElement("div");
   projectItemStatus.classList.add("project-item-status");
   // Add dynamic id assignment
