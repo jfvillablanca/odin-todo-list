@@ -120,10 +120,8 @@ body {
   background-color: var(--color-orange);
 }
 .project-item-number {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  display: grid;
+  justify-items: end;
 }
 /* background color in inline style */
 .project-add {
