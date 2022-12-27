@@ -54,6 +54,29 @@ body {
   /* transition: all 0.5s ease; */
   top: 0;
   color: var(--color-foreground);
+  font-size: 3rem;
+}
+
+.logo-name-wrapper {
+  margin-bottom: 2.1rem;
+  display: grid;
+  font-size: 4rem;
+  place-items: center;
+}
+.logo-name {
+  margin-top: 1rem;
+
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 3fr; 
+  place-items: center;
+}
+.logo-name__name {
+  margin-left: 0.9rem;
+  white-space: nowrap;
+}
+.logo-name__icon {
+  height: 80%;
 }
 
 .main {
