@@ -30,6 +30,12 @@ const projItemLI = (itemText, itemNumber) => {
   return projectItem;
 }
 
+const defaultProjectLI = () => {
+  const defaultProject = projItemLI("Uncategorized", "69"); 
+  defaultProject.firstElementChild.remove();
+  return defaultProject;
+}
+
 // NOTE: Logo Name
 const logoNameContainer = document.createElement("div");
 logoNameContainer.classList.add("logo-name");
