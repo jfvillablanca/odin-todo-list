@@ -80,6 +80,11 @@ const container = document.querySelector(".container");
 // NOTE: projectSidebar
 const projectSidebar = document.createElement("div");
 projectSidebar.classList.add("project-sidebar");
+projectSidebar.appendChild(logoNameContainer);
+projectSidebar.appendChild(projectHeader);
+projectSidebar.appendChild(projectListUL);
+projectSidebar.appendChild(projectAddButton);
+
 const main = document.createElement("div");
 main.classList.add("main");
 container.appendChild(projectSidebar);
