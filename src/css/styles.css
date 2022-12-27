@@ -99,17 +99,17 @@ body {
   margin-bottom: 1.3rem;
   white-space: nowrap;
 }
-.project-item,
-.project-item-uncategorized {
+.project-item{
   padding: 0.9rem 1.1rem;
   line-height: 1.8rem;
   cursor: pointer;
   white-space: nowrap;
-}
-.project-item {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   align-items: center;
+}
+.project-list :first-child > .project-item-text {
+  grid-column: 1 / span 2;
 }
 .project-item-status {
   height: 1.2rem;
