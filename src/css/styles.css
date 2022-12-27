@@ -61,6 +61,7 @@ body {
   margin-bottom: 2.1rem;
   display: grid;
   font-size: 4rem;
+  font-weight: 600;
   place-items: center;
 }
 .logo-name {
