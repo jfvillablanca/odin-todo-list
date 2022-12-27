@@ -66,6 +66,14 @@ projectListUL.appendChild(defaultProjectLI());
 projectListUL.appendChild(projItemLI("Project 1", "22"));
 projectListUL.appendChild(projItemLI("Project 2", "33"));
 
+// NOTE: Project Add Button
+const projectAddButton = document.createElement("div");
+projectAddButton.classList.add("project-add");
+const projectAddButtonImg = document.createElement("img");
+projectAddButtonImg.classList.add("add-item-icon");
+projectAddButtonImg.setAttribute("src", AddIcon);
+projectAddButton.appendChild(projectAddButtonImg);
+
 // NOTE: Container
 const container = document.querySelector(".container");
 
