@@ -24,7 +24,11 @@ const projectHeader = document.createElement("div");
 projectHeader.classList.add("project-header");
 projectHeader.textContent = "Projects";
 
+
+// NOTE: Container
 const container = document.querySelector(".container");
+
+// NOTE: projectSidebar
 const projectSidebar = document.createElement("div");
 projectSidebar.classList.add("project-sidebar");
 const main = document.createElement("div");
