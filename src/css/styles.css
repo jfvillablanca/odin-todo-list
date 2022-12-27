@@ -98,6 +98,28 @@ body {
   margin-bottom: 1.3rem;
   white-space: nowrap;
 }
+.project-item {
+  position: relative;
+  padding: 0.9rem 1.1rem;
+  line-height: 1.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.project-item-status {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  border: none;
+  /* NOTE: bgcolor to be override via inline style from dom-controller */
+  background-color: var(--color-orange);
+  display: inline-block;
+}
+.project-item-number {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
 
 .main {
   width: 100%;
