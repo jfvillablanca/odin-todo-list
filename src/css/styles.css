@@ -79,6 +79,21 @@ body {
 .logo-name__icon {
   height: 80%;
 }
+.project-list {
+  padding-top: 2.1rem;
+  padding-bottom: 0.9rem;
+  padding-left: 0.9rem;
+  list-style: none;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.project-header {
+  font-size: 3rem;
+  text-transform: uppercase;
+  line-height: 1.8rem;
+  margin-bottom: 1.3rem;
+  white-space: nowrap;
+}
 
 .main {
   width: 100%;
