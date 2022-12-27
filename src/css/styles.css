@@ -52,8 +52,7 @@ body {
   background-color: var(--color-background-alt);
   width: 100%;
   height: 100%;
-  /* transition: all 0.5s ease; */
-  top: 0;
+  transition: all 0.5s ease;
   color: var(--color-foreground);
   font-size: 3rem;
 }
