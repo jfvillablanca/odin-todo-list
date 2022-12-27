@@ -3,7 +3,34 @@ import './../css/normalize.css';
 import './../css/styles.css';
 import LogoIcon from '../images/coffee.svg';
 
-// NOTE: Logo Name div
+const projItem = (itemText, itemNumber) => {
+  const projectItemStatus = document.createElement("div");
+  projectItemStatus.classList.add("project-item-status");
+  // Add dynamic id assignment
+
+  const projectItemText = document.createElement("div");
+  projectItemText.classList.add("project-item-text");
+  projectItemText.textContent = itemText;
+
+  const projectItemNum = document.createElement("div");
+  projectItemNum.classList.add("project-item-number");
+  projectItemNum.textContent = itemNumber;
+
+  const projectItemTooltip = document.createElement("div");
+  projectItemTooltip.classList.add("tooltip");
+  projectItemTooltip.textContent = itemText;
+
+  const projectItem = document.createElement("li");
+  projectItem.classList.add("project-item");
+  projectItem.appendChild(projectItemStatus);
+  projectItem.appendChild(projectItemText);
+  projectItem.appendChild(projectItemNum);
+  projectItem.appendChild(projectItemTooltip);
+
+  return projectItem;
+}
+
+// NOTE: Logo Name
 const logoNameContainer = document.createElement("div");
 logoNameContainer.classList.add("logo-name");
 
