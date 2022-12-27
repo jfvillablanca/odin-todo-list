@@ -19,6 +19,11 @@ logoName.textContent = "Todo List";
 logoNameContainer.appendChild(logoIcon);
 logoNameContainer.appendChild(logoName);
 
+// NOTE: Project Header
+const projectHeader = document.createElement("div");
+projectHeader.classList.add("project-header");
+projectHeader.textContent = "Projects";
+
 const container = document.querySelector(".container");
 const projectSidebar = document.createElement("div");
 projectSidebar.classList.add("project-sidebar");
