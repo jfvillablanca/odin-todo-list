@@ -1,8 +1,8 @@
-import './../css/skeleton.css';
-import './../css/normalize.css';
-import './../css/styles.css';
-import LogoIcon from '../images/coffee.svg';
-import AddIcon from './../images/plus-square.svg';
+import "./../css/skeleton.css";
+import "./../css/normalize.css";
+import "./../css/styles.css";
+import LogoIcon from "../images/coffee.svg";
+import AddIcon from "./../images/plus-square.svg";
 
 const projItemLI = (itemText, itemNumber) => {
   const projectItemStatus = document.createElement("div");
