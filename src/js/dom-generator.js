@@ -29,64 +29,68 @@ const projItemLI = (itemText, itemNumber) => {
   projectItem.appendChild(projectItemTooltip);
 
   return projectItem;
-}
+};
 
-const defaultProjectLI = () => {
-  const defaultProject = projItemLI("Uncategorized", "69"); 
-  defaultProject.firstElementChild.remove();
-  return defaultProject;
-}
+const loadDOM = () => {
+  const defaultProjectLI = () => {
+    const defaultProject = projItemLI("Uncategorized", "69");
+    defaultProject.firstElementChild.remove();
+    return defaultProject;
+  };
 
-// NOTE: Logo Name
-const logoNameContainer = document.createElement("div");
-logoNameContainer.classList.add("logo-name");
+  // NOTE: Logo Name
+  const logoNameContainer = document.createElement("div");
+  logoNameContainer.classList.add("logo-name");
 
-const logoIcon = document.createElement("img");
-logoIcon.classList.add("logo-name__icon");
-logoIcon.setAttribute("src", LogoIcon);
-logoIcon.setAttribute("alt", "todo logo");
+  const logoIcon = document.createElement("img");
+  logoIcon.classList.add("logo-name__icon");
+  logoIcon.setAttribute("src", LogoIcon);
+  logoIcon.setAttribute("alt", "todo logo");
 
-const logoName = document.createElement("span");
-logoName.classList.add("logo-name__name");
-logoName.textContent = "Todo List";
+  const logoName = document.createElement("span");
+  logoName.classList.add("logo-name__name");
+  logoName.textContent = "Todo List";
 
-logoNameContainer.appendChild(logoIcon);
-logoNameContainer.appendChild(logoName);
+  logoNameContainer.appendChild(logoIcon);
+  logoNameContainer.appendChild(logoName);
 
-// NOTE: Project Header
-const projectHeader = document.createElement("div");
-projectHeader.classList.add("project-header");
-projectHeader.textContent = "Projects";
+  // NOTE: Project Header
+  const projectHeader = document.createElement("div");
+  projectHeader.classList.add("project-header");
+  projectHeader.textContent = "Projects";
 
-// NOTE: Project List
-const projectListUL = document.createElement("ul");
-projectListUL.classList.add("project-list");
+  // NOTE: Project List
+  const projectListUL = document.createElement("ul");
+  projectListUL.classList.add("project-list");
 
-projectListUL.appendChild(defaultProjectLI());
-// Dynamic folder creation
-projectListUL.appendChild(projItemLI("Project 1", "22"));
-projectListUL.appendChild(projItemLI("Project 2", "33"));
+  projectListUL.appendChild(defaultProjectLI());
+  // Dynamic folder creation
+  projectListUL.appendChild(projItemLI("Project 1", "22"));
+  projectListUL.appendChild(projItemLI("Project 2", "33"));
 
-// NOTE: Project Add Button
-const projectAddButton = document.createElement("div");
-projectAddButton.classList.add("project-add");
-const projectAddButtonImg = document.createElement("img");
-projectAddButtonImg.classList.add("add-item-icon");
-projectAddButtonImg.setAttribute("src", AddIcon);
-projectAddButton.appendChild(projectAddButtonImg);
+  // NOTE: Project Add Button
+  const projectAddButton = document.createElement("div");
+  projectAddButton.classList.add("project-add");
+  const projectAddButtonImg = document.createElement("img");
+  projectAddButtonImg.classList.add("add-item-icon");
+  projectAddButtonImg.setAttribute("src", AddIcon);
+  projectAddButton.appendChild(projectAddButtonImg);
 
-// NOTE: Container
-const container = document.querySelector(".container");
+  // NOTE: Container
+  const container = document.querySelector(".container");
 
-// NOTE: projectSidebar
-const projectSidebar = document.createElement("div");
-projectSidebar.classList.add("project-sidebar");
-projectSidebar.appendChild(logoNameContainer);
-projectSidebar.appendChild(projectHeader);
-projectSidebar.appendChild(projectListUL);
-projectSidebar.appendChild(projectAddButton);
+  // NOTE: projectSidebar
+  const projectSidebar = document.createElement("div");
+  projectSidebar.classList.add("project-sidebar");
+  projectSidebar.appendChild(logoNameContainer);
+  projectSidebar.appendChild(projectHeader);
+  projectSidebar.appendChild(projectListUL);
+  projectSidebar.appendChild(projectAddButton);
 
-const main = document.createElement("div");
-main.classList.add("main");
-container.appendChild(projectSidebar);
-container.appendChild(main);
+  const main = document.createElement("div");
+  main.classList.add("main");
+  container.appendChild(projectSidebar);
+  container.appendChild(main);
+};
+
+loadDOM();
