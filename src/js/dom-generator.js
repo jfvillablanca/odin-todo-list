@@ -57,6 +57,14 @@ const projectHeader = document.createElement("div");
 projectHeader.classList.add("project-header");
 projectHeader.textContent = "Projects";
 
+// NOTE: Project List
+const projectListUL = document.createElement("ul");
+projectListUL.classList.add("project-list");
+
+projectListUL.appendChild(defaultProjectLI());
+// Dynamic folder creation
+projectListUL.appendChild(projItemLI("Project 1", "22"));
+projectListUL.appendChild(projItemLI("Project 2", "33"));
 
 // NOTE: Container
 const container = document.querySelector(".container");
