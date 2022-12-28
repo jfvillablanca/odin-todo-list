@@ -164,8 +164,7 @@ body {
   opacity: 1;
 }
 .project-sidebar.collapse {
-  /* width: 6.4rem; */
-  width: calc(0.3 * var(--dims-sidebar-width));
+  max-width: calc(0.2 * var(--dims-sidebar-width));
 }
 .project-sidebar.collapse .project-header {
   visibility: hidden;
