@@ -56,6 +56,8 @@ body {
   background-color: var(--color-background-alt);
   width: 100%;
   height: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
   transition: all 0.5s ease;
   color: var(--color-foreground);
   font-size: 3rem;
@@ -165,6 +167,8 @@ body {
 }
 .project-sidebar.collapse {
   max-width: calc(0.2 * var(--dims-sidebar-width));
+  padding-left: 0;
+  padding-right: 0;
 }
 .project-sidebar.collapse .project-header {
   visibility: hidden;
