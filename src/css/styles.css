@@ -169,8 +169,10 @@ body {
   display: block;
 }
 .project-sidebar.collapse .logo-name {
-  opacity: 0;
   pointer-events: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
 }
 .main {
   width: 100%;
