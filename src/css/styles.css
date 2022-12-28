@@ -13,6 +13,7 @@
   /* Dimension vars */
   --dims-container-width: 80vw;
   --dims-sidebar-width: calc(var(--dims-container-width)*0.25);
+  --dims-sidebar-collapse-width: calc(0.2 * var(--dims-sidebar-width));
 
   /* Dracula Theme */
   --color-background-blk: rgb(31, 31, 31);   
@@ -50,6 +51,9 @@ body {
   display: grid;
   grid-template-columns: var(--dims-sidebar-width) 1fr;
   grid-auto-flow: column;
+}
+.container.collapse {
+  grid-template-columns: var(--dims-sidebar-collapse-width) 1fr;
 }
 
 .project-sidebar {
@@ -186,20 +190,20 @@ body {
   display: block;
 }
 .project-sidebar.collapse .logo-name {
-  max-width: calc(0.2 * var(--dims-sidebar-width));
+  max-width: var(--dims-sidebar-collapse-width);
   pointer-events: none;
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
 }
 .project-sidebar.collapse .project-item {
-  max-width: calc(0.2 * var(--dims-sidebar-width));
+  max-width: var(--dims-sidebar-collapse-width); 
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
 }
 .project-sidebar.collapse .project-add {
-  max-width: calc(0.2 * var(--dims-sidebar-width));
+  max-width: var(--dims-sidebar-collapse-width); 
 }
 .main {
   width: 100%;
