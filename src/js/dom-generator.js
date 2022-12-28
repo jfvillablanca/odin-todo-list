@@ -31,7 +31,7 @@ const projItemLI = (itemText, itemNumber) => {
   return projectItem;
 };
 
-const loadDOM = () => {
+export const loadDOM = () => {
   const defaultProjectLI = () => {
     const defaultProject = projItemLI("Uncategorized", "69");
     defaultProject.firstElementChild.remove();
