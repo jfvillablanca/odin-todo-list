@@ -182,10 +182,20 @@ body {
   display: block;
 }
 .project-sidebar.collapse .logo-name {
+  max-width: calc(0.2 * var(--dims-sidebar-width));
   pointer-events: none;
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
+}
+.project-sidebar.collapse .project-item {
+  max-width: calc(0.2 * var(--dims-sidebar-width));
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+.project-sidebar.collapse .project-add {
+  max-width: calc(0.2 * var(--dims-sidebar-width));
 }
 .main {
   width: 100%;
