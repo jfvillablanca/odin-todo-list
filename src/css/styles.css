@@ -163,7 +163,13 @@ body {
 }
 .project-sidebar.collapse {
   /* width: 6.4rem; */
-  width: 30%;
+  width: calc(0.3 * var(--dims-sidebar-width));
+}
+.project-sidebar.collapse .project-header {
+  visibility: hidden;
+}
+.project-sidebar.collapse .logo-name__name {
+  display: none;
 }
 .project-sidebar.collapse .project-item:hover .tooltip {
   display: block;
