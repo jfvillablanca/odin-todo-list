@@ -71,6 +71,7 @@ body {
   margin-bottom: 2.1rem;
   font-size: 4rem;
   font-weight: 600;
+  min-height: 100%;
 
   display: grid;
   grid-template-columns: 1fr 3fr; 
