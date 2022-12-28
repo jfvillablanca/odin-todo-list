@@ -169,8 +169,14 @@ body {
 .project-sidebar.collapse .project-header {
   visibility: hidden;
 }
+.project-sidebar.collapse .project-item-text,
+.project-sidebar.collapse .project-item-number,
 .project-sidebar.collapse .logo-name__name {
   display: none;
+}
+.project-sidebar.collapse .project-list :first-child > .project-item-text {
+  visibility: hidden;
+  display: block;
 }
 .project-sidebar.collapse .project-item:hover .tooltip {
   display: block;
