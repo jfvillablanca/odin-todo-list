@@ -111,10 +111,11 @@ body {
   position: relative;
   padding: 0.9rem 1.1rem;
   line-height: 1.8rem;
+  height: 3.6rem;
   cursor: pointer;
   white-space: nowrap;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: calc(0.2 * var(--dims-sidebar-width)) 2fr 1fr;
   align-items: center;
 }
 .project-list :first-child > .project-item-text {
