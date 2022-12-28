@@ -128,6 +128,8 @@ body {
   border: none;
   /* NOTE: bgcolor to be override via inline style from dom-controller */
   background-color: var(--color-orange);
+
+  place-self: center;
 }
 .project-item-number {
   display: grid;
