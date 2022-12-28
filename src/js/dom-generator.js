@@ -47,7 +47,7 @@ const loadDOM = () => {
   logoIcon.setAttribute("src", LogoIcon);
   logoIcon.setAttribute("alt", "todo logo");
 
-  const logoName = document.createElement("span");
+  const logoName = document.createElement("div");
   logoName.classList.add("logo-name__name");
   logoName.textContent = "Todo List";
 
