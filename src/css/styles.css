@@ -153,6 +153,17 @@ body {
   transition: all 0.5s ease;
   opacity: 1;
 }
+.project-sidebar.collapse {
+  /* width: 6.4rem; */
+  width: 30%;
+}
+.project-sidebar.collapse .project-item:hover .tooltip {
+  display: block;
+}
+.project-sidebar.collapse .logo-name {
+  opacity: 0;
+  pointer-events: none;
+}
 .main {
   width: 100%;
   height: 100%;
