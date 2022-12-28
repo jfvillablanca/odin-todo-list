@@ -93,8 +93,6 @@ export const loadDOM = () => {
   container.appendChild(main);
 };
 
-loadDOM();
-
 export const sidebarCollapse = () => {
   const sideBar = document.querySelector(".project-sidebar");
   // const arrowCollapse = document.querySelector(".logo-name__icon");
