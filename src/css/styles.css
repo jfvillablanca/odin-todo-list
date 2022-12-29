@@ -226,6 +226,11 @@ body {
   max-width: var(--dims-sidebar-collapsed-width);
 }
 .main {
-  width: 100%;
+  width: calc(var(--dims-container-width) - var(--dims-sidebar-width));
   height: 100%;
+  transition: all 0.5s ease;
+}
+.main.collapse {
+  width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
+  transition: 0;
 }
