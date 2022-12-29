@@ -70,6 +70,7 @@ body {
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 .logo-name {
+  position: relative;
   margin-top: 1rem;
   margin-bottom: 2.1rem;
   font-size: 4rem;
