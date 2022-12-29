@@ -108,16 +108,23 @@ export const loadDOM = () => {
 };
 
 export const sidebarCollapse = () => {
+  const container = document.querySelector(".container");
   const sideBar = document.querySelector(".project-sidebar");
-  // const arrowCollapse = document.querySelector(".logo-name__icon");
-  sideBar.onclick = () => {
-    sideBar.classList.toggle("collapse");
-    // arrowCollapse.classList.toggle("collapse");
-    // if (arrowCollapse.classList.contains("collapse")) {
-    //   arrowCollapse.classList =
-    //     "bx bx-arrow-from-left logo-name__icon collapse";
-    // } else {
-    //   arrowCollapse.classList = "bx bx-arrow-from-right logo-name__icon";
-    // }
-  };
+  const main = document.querySelector(".main");
+
+  const collapser = document.querySelector(".collapse__icon");
+  const expander = document.querySelector(".expand__icon");
+
+  collapser.addEventListener("click", (event) => {
+    console.log(event.target);
+    sideBar.classList.add("collapse");
+    main.classList.add("collapse");
+    container.classList.add("collapse");
+  });
+  expander.addEventListener("click", (event) => {
+    console.log(event.target);
+    sideBar.classList.remove("collapse");
+    main.classList.remove("collapse");
+    container.classList.remove("collapse");
+  });
 };
