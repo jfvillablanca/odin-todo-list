@@ -207,7 +207,6 @@ body {
 }
 .project-sidebar.collapse .logo-name {
   max-width: var(--dims-sidebar-collapsed-width);
-  pointer-events: none;
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
