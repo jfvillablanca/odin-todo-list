@@ -170,7 +170,6 @@ body {
   border-radius: 0.4rem;
   padding: 0.5rem 0.9rem;
   font-size: 1.4rem;
-  transition: 0s;
   opacity: 0;
   display: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -178,7 +177,6 @@ body {
 .project-sidebar.collapse .tooltip {
   top: 50%;
   transform: translateY(-50%);
-  transition: all 0.5s ease;
   opacity: 1;
 }
 .project-sidebar.collapse {
