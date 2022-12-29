@@ -83,6 +83,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 3fr;
   place-items: center;
+
+  transition: 0.5s ease;
+  opacity: 1;
 }
 .logo-name__name {
   margin-left: 0.9rem;
@@ -94,9 +97,11 @@ body {
 }
 .collapse__icon {
   transform: translateX(calc((var(--dims-sidebar-width) / 2) + 2rem)) scaleY(200%);
+  transition: 0.5s ease;
 }
 .expand__icon {
   transform: translateX(calc((var(--dims-sidebar-collapsed-width) / 2) + 2rem)) scaleY(200%);
+  transition: 0.5s ease;
 }
 .project-sidebar .collapse__icon {
   cursor: pointer;
@@ -124,6 +129,9 @@ body {
   line-height: 1.8rem;
   margin-bottom: 1.3rem;
   white-space: nowrap;
+
+  transition: 0.5s ease;
+  opacity: 1;
 }
 .project-item {
   position: relative;
@@ -135,6 +143,9 @@ body {
   display: grid;
   grid-template-columns: calc(0.2 * var(--dims-sidebar-width)) 2fr 1fr;
   align-items: center;
+
+  transition: 0.5s ease;
+  opacity: 1;
 }
 .project-list :first-child > .project-item-text {
   grid-column: 1 / span 2;
@@ -152,6 +163,9 @@ body {
 .project-item-number {
   display: grid;
   justify-items: end;
+
+  transition: 0.5s ease;
+  opacity: 1;
 }
 /* background color in inline style */
 .project-add {
@@ -186,10 +200,12 @@ body {
 }
 .project-sidebar.collapse .project-header {
   visibility: hidden;
+  opacity: 0;
 }
 .project-sidebar.collapse .project-item-text,
 .project-sidebar.collapse .project-item-number,
 .project-sidebar.collapse .logo-name__name {
+  opacity: 0;
   display: none;
 }
 .project-sidebar.collapse .collapse__icon {
