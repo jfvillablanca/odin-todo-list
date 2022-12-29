@@ -3,6 +3,8 @@ import "./../css/normalize.css";
 import "./../css/styles.css";
 import LogoIcon from "../images/coffee.svg";
 import AddIcon from "./../images/plus-square.svg";
+import ExpandIcon from "../images/chevrons-right.svg";
+import CollapseIcon from "../images/chevrons-left.svg";
 
 const projItemLI = (itemText, itemNumber) => {
   const projectItemStatus = document.createElement("div");
@@ -51,8 +53,20 @@ export const loadDOM = () => {
   logoName.classList.add("logo-name__name");
   logoName.textContent = "Todo List";
 
+  const expandIcon = document.createElement("img");
+  expandIcon.classList.add("expand__icon");
+  expandIcon.setAttribute("src", ExpandIcon);
+  expandIcon.setAttribute("alt", "expand sidebar");
+
+  const collapseIcon = document.createElement("img");
+  collapseIcon.classList.add("collapse__icon");
+  collapseIcon.setAttribute("src", CollapseIcon);
+  collapseIcon.setAttribute("alt", "collapse sidebar");
+
   logoNameContainer.appendChild(logoIcon);
   logoNameContainer.appendChild(logoName);
+  logoNameContainer.appendChild(expandIcon);
+  logoNameContainer.appendChild(collapseIcon);
 
   // NOTE: Project Header
   const projectHeader = document.createElement("div");
