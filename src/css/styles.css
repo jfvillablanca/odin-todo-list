@@ -12,35 +12,33 @@
 
   /* Dimension vars */
   --dims-container-width: 80vw;
-  --dims-sidebar-width: calc(var(--dims-container-width)*0.25);
+  --dims-sidebar-width: calc(var(--dims-container-width) * 0.25);
 
   /* Dracula Theme */
-  --color-background-blk: rgb(31, 31, 31);   
-  --color-background: rgb(40, 42, 54);       
-  --color-background-alt: rgb(68, 71, 90);   
-  --color-foreground: rgb(248, 248, 242);    
-  --color-button: rgb(183, 206, 206);        
-  --color-comment: rgb(98, 114, 164);        
-  --color-cyan: rgb(139, 233, 253);          
-  --color-green: rgb(80, 250, 123);          
-  --color-orange: rgb(255, 184, 108);        
-  --color-pink: rgb(255, 121, 198);          
-  --color-purple: rgb(189, 147, 249);        
-  --color-red: rgb(255, 85, 85);             
-  --color-yellow: rgb(241, 250, 140);        
+  --color-background-blk: rgb(31, 31, 31);
+  --color-background: rgb(40, 42, 54);
+  --color-background-alt: rgb(68, 71, 90);
+  --color-foreground: rgb(248, 248, 242);
+  --color-button: rgb(183, 206, 206);
+  --color-comment: rgb(98, 114, 164);
+  --color-cyan: rgb(139, 233, 253);
+  --color-green: rgb(80, 250, 123);
+  --color-orange: rgb(255, 184, 108);
+  --color-pink: rgb(255, 121, 198);
+  --color-purple: rgb(189, 147, 249);
+  --color-red: rgb(255, 85, 85);
+  --color-yellow: rgb(241, 250, 140);
 }
-
 body {
   font-size: 1.6rem;
   background-color: var(--color-background-blk);
-  font-family: 'Fira Code VF','Courier New', Courier, monospace;
+  font-family: "Fira Code VF", "Courier New", Courier, monospace;
   color: var(--color-foreground);
   width: 100vw;
 
   display: grid;
   justify-items: center;
 }
-
 .container {
   margin: 0;
   min-width: var(--dims-container-width);
@@ -51,7 +49,6 @@ body {
   grid-template-columns: var(--dims-sidebar-width) 1fr;
   grid-auto-flow: column;
 }
-
 .project-sidebar {
   background-color: var(--color-background-alt);
   width: 100%;
@@ -65,13 +62,12 @@ body {
   grid-template-rows: 8rem 8rem min-content 4rem;
 
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
-
 .logo-name {
   margin-top: 1rem;
   margin-bottom: 2.1rem;
@@ -80,7 +76,7 @@ body {
   min-height: 100%;
 
   display: grid;
-  grid-template-columns: 1fr 3fr; 
+  grid-template-columns: 1fr 3fr;
   place-items: center;
 }
 .logo-name__name {
@@ -109,7 +105,7 @@ body {
   margin-bottom: 1.3rem;
   white-space: nowrap;
 }
-.project-item{
+.project-item {
   position: relative;
   padding: 0.9rem 1.1rem;
   line-height: 1.8rem;
