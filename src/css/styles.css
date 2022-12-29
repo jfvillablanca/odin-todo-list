@@ -55,7 +55,7 @@ body {
 }
 .project-sidebar {
   background-color: var(--color-background-alt);
-  width: 100%;
+  width: var(--dims-sidebar-width);
   height: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
