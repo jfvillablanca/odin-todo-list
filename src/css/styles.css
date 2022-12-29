@@ -89,6 +89,20 @@ body {
 .logo-name__icon {
   height: 80%;
 }
+.collapse__icon {
+  transform: translateX(calc((var(--dims-sidebar-width) / 2) + 2rem)) scaleY(200%);
+}
+.expand__icon {
+  transform: translateX(calc((var(--dims-sidebar-collapsed-width) / 2) + 2rem)) scaleY(200%);
+}
+.project-sidebar .collapse__icon {
+  display: inline-block;
+  position: absolute;
+}
+.project-sidebar .expand__icon {
+  display: none;
+  position: absolute;
+}
 .project-list {
   padding-top: 2.1rem;
   padding-bottom: 0.9rem;
@@ -175,6 +189,14 @@ body {
 .project-sidebar.collapse .project-item-number,
 .project-sidebar.collapse .logo-name__name {
   display: none;
+}
+.project-sidebar.collapse .collapse__icon {
+  display: none;
+  position: absolute;
+}
+.project-sidebar.collapse .expand__icon {
+  display: inline-block;
+  position: absolute;
 }
 .project-sidebar.collapse .project-list :first-child > .project-item-text {
   visibility: hidden;
