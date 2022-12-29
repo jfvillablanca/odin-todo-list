@@ -50,6 +50,9 @@ body {
   grid-template-columns: var(--dims-sidebar-width) 1fr;
   grid-auto-flow: column;
 }
+.container.collapse {
+  grid-template-columns: var(--dims-sidebar-collapsed-width) 1fr;
+}
 .project-sidebar {
   background-color: var(--color-background-alt);
   width: 100%;
