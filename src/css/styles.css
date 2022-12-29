@@ -147,8 +147,10 @@ body {
   transition: 0.5s ease;
   opacity: 1;
 }
-.project-list :first-child > .project-item-text {
-  grid-column: 1 / span 2;
+.project-list :first-child > .project-item-status {
+  height: 1.2rem;
+  width: 1.2rem;
+  box-shadow: 0 0 5px 1px var(--color-button)
 }
 .project-item-status {
   height: 1.2rem;
