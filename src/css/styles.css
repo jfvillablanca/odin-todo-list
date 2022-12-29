@@ -182,7 +182,7 @@ body {
   opacity: 1;
 }
 .project-sidebar.collapse {
-  max-width: calc(0.2 * var(--dims-sidebar-width));
+  width: var(--dims-sidebar-collapsed-width);
   padding-left: 0;
   padding-right: 0;
 }
