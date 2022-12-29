@@ -173,6 +173,7 @@ body {
   height: 4rem;
 }
 .project-add > img {
+  cursor: pointer;
   height: 100%;
 }
 .tooltip {
