@@ -2,7 +2,9 @@ import "./../css/skeleton.css";
 import "./../css/normalize.css";
 import "./../css/styles.css";
 import LogoIcon from "../images/coffee.svg";
-import AddIcon from "../images/plus-square.svg";
+import AddIcon from "./../images/plus-square.svg";
+import ExpandIcon from "../images/chevrons-right.svg";
+import CollapseIcon from "../images/chevrons-left.svg";
 
 const projItemLI = (itemText, itemNumber) => {
   const projectItemStatus = document.createElement("div");
@@ -34,7 +36,6 @@ const projItemLI = (itemText, itemNumber) => {
 export const loadDOM = () => {
   const defaultProjectLI = () => {
     const defaultProject = projItemLI("Uncategorized", "69");
-    defaultProject.firstElementChild.remove();
     return defaultProject;
   };
 
@@ -51,8 +52,20 @@ export const loadDOM = () => {
   logoName.classList.add("logo-name__name");
   logoName.textContent = "Todo List";
 
+  const expandIcon = document.createElement("img");
+  expandIcon.classList.add("expand__icon");
+  expandIcon.setAttribute("src", ExpandIcon);
+  expandIcon.setAttribute("alt", "expand sidebar");
+
+  const collapseIcon = document.createElement("img");
+  collapseIcon.classList.add("collapse__icon");
+  collapseIcon.setAttribute("src", CollapseIcon);
+  collapseIcon.setAttribute("alt", "collapse sidebar");
+
   logoNameContainer.appendChild(logoIcon);
   logoNameContainer.appendChild(logoName);
+  logoNameContainer.appendChild(expandIcon);
+  logoNameContainer.appendChild(collapseIcon);
 
   // NOTE: Project Header
   const projectHeader = document.createElement("div");
@@ -94,16 +107,23 @@ export const loadDOM = () => {
 };
 
 export const sidebarCollapse = () => {
+  const container = document.querySelector(".container");
   const sideBar = document.querySelector(".project-sidebar");
-  // const arrowCollapse = document.querySelector(".logo-name__icon");
-  sideBar.onclick = () => {
-    sideBar.classList.toggle("collapse");
-    // arrowCollapse.classList.toggle("collapse");
-    // if (arrowCollapse.classList.contains("collapse")) {
-    //   arrowCollapse.classList =
-    //     "bx bx-arrow-from-left logo-name__icon collapse";
-    // } else {
-    //   arrowCollapse.classList = "bx bx-arrow-from-right logo-name__icon";
-    // }
-  };
+  const main = document.querySelector(".main");
+
+  const collapser = document.querySelector(".collapse__icon");
+  const expander = document.querySelector(".expand__icon");
+
+  collapser.addEventListener("click", (event) => {
+    console.log(event.target);
+    sideBar.classList.add("collapse");
+    main.classList.add("collapse");
+    container.classList.add("collapse");
+  });
+  expander.addEventListener("click", (event) => {
+    console.log(event.target);
+    sideBar.classList.remove("collapse");
+    main.classList.remove("collapse");
+    container.classList.remove("collapse");
+  });
 };
