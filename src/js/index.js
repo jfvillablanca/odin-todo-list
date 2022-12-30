@@ -7,8 +7,8 @@
 // - Add folder || note ID to DOM as data-id
 // - PubSub
 
-import { dir, defaultFolder, } from "./factories.js";
-import { loadDOM, sidebarCollapse } from "./dom-generator.js";
+import { defaultFolder, dir } from "./factories.js";
+import { loadDOM, projItemLI, sidebarCollapse } from "./dom-generator.js";
 const PubSub = require("vanilla-pubsub");
 
 // Controller Logic
