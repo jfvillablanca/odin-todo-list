@@ -19,6 +19,11 @@ sidebarCollapse();
 
 (function domLogic() {
   const projectList = document.querySelector(".project-list");
+  const addFolderButton = document.querySelector(".project-add .add-item-icon");
+
+  addFolderButton.addEventListener("click", () => {
+    PubSub.publish("push-new-folder-to-DOM");
+  });
 
   PubSub.subscribe("new-note-to-project", (obj) => {
     const projectItem = document.querySelector(
@@ -70,6 +75,10 @@ sidebarCollapse();
     });
     return newProject;
   };
+
+  PubSub.subscribe("push-new-folder-to-DOM", () => {
+    addNewProject();
+  });
 
   // Filler data:
 
