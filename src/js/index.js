@@ -18,11 +18,24 @@ loadDOM();
 sidebarCollapse();
 
 (function domLogic() {
+  const projectList = document.querySelector(".project-list");
+
   PubSub.subscribe("new-note-to-project", (obj) => {
     const projectItem = document.querySelector(
       `.project-item[data-id=${obj.projectID}] .project-item-number`
     );
     projectItem.textContent = obj.projectNoteCount;
+  });
+
+  PubSub.subscribe("new-project-to-directory", (obj) => {
+    const newProjectDOMLI = projItemLI(obj.projectName, obj.projectNoteCount);
+    newProjectDOMLI.setAttribute("data-id", obj.projectID);
+
+    PubSub.publish("add-project-to-DOM", newProjectDOMLI);
+  });
+  
+  PubSub.subscribe("add-project-to-DOM", (newProject) => {
+    projectList.append(newProject);
   });
 })();
 
