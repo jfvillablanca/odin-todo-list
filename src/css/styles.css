@@ -144,12 +144,12 @@ body {
   transition: 0.5s ease;
   opacity: 1;
 }
-.project-list :first-child > .project-item-status {
+.project-list :first-child > .project-item-color {
   height: 1.2rem;
   width: 1.2rem;
   box-shadow: 0 0 5px 1px var(--color-button)
 }
-.project-item-status {
+.project-item-color {
   height: 1.2rem;
   width: 1.2rem;
   border-radius: 50%;

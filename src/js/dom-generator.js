@@ -7,8 +7,8 @@ import ExpandIcon from "../images/chevrons-right.svg";
 import CollapseIcon from "../images/chevrons-left.svg";
 
 export const projItemLI = (itemText, itemNumber) => {
-  const projectItemStatus = document.createElement("div");
-  projectItemStatus.classList.add("project-item-status");
+  const projectItemColor = document.createElement("div");
+  projectItemColor.classList.add("project-item-color");
   // Add dynamic id assignment
 
   const projectItemText = document.createElement("div");
@@ -26,7 +26,7 @@ export const projItemLI = (itemText, itemNumber) => {
   const projectItem = document.createElement("li");
   projectItem.setAttribute("data-id", "");
   projectItem.classList.add("project-item");
-  projectItem.appendChild(projectItemStatus);
+  projectItem.appendChild(projectItemColor);
   projectItem.appendChild(projectItemText);
   projectItem.appendChild(projectItemNum);
   projectItem.appendChild(projectItemTooltip);
