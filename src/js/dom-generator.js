@@ -81,9 +81,6 @@ export const loadDOM = () => {
   projectListUL.classList.add("project-list");
 
   projectListUL.appendChild(defaultProjectLI());
-  // Dynamic folder creation
-  projectListUL.appendChild(projItemLI("Project 1", "22"));
-  projectListUL.appendChild(projItemLI("Project 2", "33"));
 
   // NOTE: Project Add Button
   const projectAddButton = document.createElement("div");
