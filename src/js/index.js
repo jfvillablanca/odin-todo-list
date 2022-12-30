@@ -17,6 +17,15 @@ const PubSub = require("vanilla-pubsub");
 loadDOM();
 sidebarCollapse();
 
+(function domLogic() {
+  PubSub.subscribe("new-note-to-project", (obj) => {
+    const projectItem = document.querySelector(
+      `.project-item[data-id=${obj.projectID}] .project-item-number`
+    );
+    projectItem.textContent = obj.projectNoteCount;
+  });
+})();
+
 (function storageLogic() {
   const addNewNote = (project) => {
     const newNote = project.addNewTodo();
