@@ -45,4 +45,22 @@ sidebarCollapse();
     });
     return newProject;
   };
+
+  // Filler data:
+
+  addNewNote(defaultFolder);
+  addNewNote(defaultFolder);
+  addNewNote(defaultFolder);
+  addNewNote(defaultFolder);
+  addNewNote(defaultFolder);
+
+  const folder1 = addNewProject({ name: "Work" });
+  const folder2 = addNewProject({ name: "Personal" });
+
+  addNewNote(folder1);
+  addNewNote(folder1);
+  addNewNote(folder1);
+  addNewNote(folder1);
+
+  addNewNote(folder2);
 })();
