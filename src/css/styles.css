@@ -154,8 +154,6 @@ body {
   width: 1.2rem;
   border-radius: 50%;
   border: none;
-  /* NOTE: bgcolor to be override via inline style from dom-controller */
-  background-color: var(--color-orange);
 
   place-self: center;
 }
@@ -166,7 +164,6 @@ body {
   transition: 0.5s ease;
   opacity: 1;
 }
-/* background color in inline style */
 .project-add {
   display: grid;
   place-items: center;
