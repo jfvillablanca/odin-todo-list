@@ -13,11 +13,11 @@ export const projItemLI = (itemText, itemNumber) => {
 
   const projectItemText = document.createElement("div");
   projectItemText.classList.add("project-item-text");
-  projectItemText.textContent = itemText;
+  projectItemText.textContent = itemText || "New Project";
 
   const projectItemNum = document.createElement("div");
   projectItemNum.classList.add("project-item-number");
-  projectItemNum.textContent = itemNumber;
+  projectItemNum.textContent = itemNumber || "0";
 
   const projectItemTooltip = document.createElement("div");
   projectItemTooltip.classList.add("tooltip");
