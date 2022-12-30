@@ -21,7 +21,8 @@ function DirectoryUtils() {
   };
 
   const removeFolderByID = (id) => {
-    if (id === defaultFolder.get("id")) throw "Error: Default folder cannot be removed";
+    if (id === defaultFolder.get("id"))
+      throw "Error: Default folder cannot be removed";
     folderDirectory.splice(
       folderDirectory.indexOf(
         folderDirectory.find((folder) => {
@@ -34,7 +35,7 @@ function DirectoryUtils() {
 
   const getFolderByID = (id) => {
     return folderDirectory.find((folder) => folder.get("id") === id);
-  }
+  };
 
   const getFolderList = () => {
     return Object.freeze([...folderDirectory]);
@@ -95,9 +96,9 @@ const newImmutInstance = (defaultProperties, ...behaviors) => {
         case "objGetter":
         case "objSetter":
           "use strict";
-          Object.defineProperty(fields, "name", {writable: false});
-          Object.defineProperty(fields, "id", {writable: false});
-          Object.defineProperty(fields, "isStarred", {writable: false});
+          Object.defineProperty(fields, "name", { writable: false });
+          Object.defineProperty(fields, "id", { writable: false });
+          Object.defineProperty(fields, "isStarred", { writable: false });
           Object.assign(accumulator, current(fields));
           break;
         default:
@@ -163,10 +164,7 @@ const noteRemover = (instance) => ({
 
 // NOTE: (Function) createNewFolder instance
 
-const createNewFolder = ({
-  name = "Folder Name",
-  isStarred = false,
-} = {}) => {
+const createNewFolder = ({ name = "Folder Name", isStarred = false } = {}) => {
   return newInstance(
     {
       name,
@@ -179,7 +177,7 @@ const createNewFolder = ({
     starToggle,
     noteAdder,
     noteRemover,
-    noteCreator,
+    noteCreator
   );
 };
 
@@ -196,7 +194,7 @@ export const defaultFolder = newImmutInstance(
   objSetter,
   noteAdder,
   noteRemover,
-  noteCreator,
+  noteCreator
 );
 
 // NOTE: Todo Note instance methods
@@ -214,7 +212,7 @@ const folderTransfer = (instance) => ({
     const currentNoteID = instance.get("id");
 
     const currentFolder = instance.get("folder");
-    const targetFolder = dir.getFolderByID(targetFolderID);    
+    const targetFolder = dir.getFolderByID(targetFolderID);
 
     currentFolder.removeNoteByID(currentNoteID);
     targetFolder.addNote(instance);
@@ -248,7 +246,7 @@ const createNewTodo = ({
     objSetter,
     starToggle,
     completedToggle,
-    folderTransfer,
+    folderTransfer
   );
 };
 
