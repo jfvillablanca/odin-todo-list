@@ -12,12 +12,20 @@ import { loadDOM, sidebarCollapse } from './dom-generator.js';
 loadDOM();
 sidebarCollapse();
 
+const addNewNote = (folder) => {
+  const newNote = folder.addNewTodo();
+  PubSub.publish("new-note-to-folder", {
+    folder: folder,
+    note: newNote,
+  });
+};
 // Filler data:
-defaultFolder.addNewTodo();
-defaultFolder.addNewTodo();
-defaultFolder.addNewTodo();
-defaultFolder.addNewTodo();
-defaultFolder.addNewTodo();
+
+addNewNote(defaultFolder);
+addNewNote(defaultFolder);
+addNewNote(defaultFolder);
+addNewNote(defaultFolder);
+addNewNote(defaultFolder);
 
 const folder1 = dir.addFolder({ name: "Work" });
 const folder2 = dir.addFolder({ name: "Personal" });
