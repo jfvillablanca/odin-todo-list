@@ -11,42 +11,42 @@ const generateID = () =>
   "_" + (Math.random() + 1).toString(36).substring(2) + "_";
 
 function DirectoryUtils() {
-  const folderDirectory = [];
+  const projectDirectory = [];
 
-  folderDirectory.push(defaultFolder);
+  projectDirectory.push(defaultProject);
 
-  const addFolder = ({ name = "Folder Name", isStarred = false } = {}) => {
-    const folder = createNewFolder({ name, isStarred });
-    folderDirectory.push(folder);
-    return folder;
+  const addProject = ({ name = "Project Name", isStarred = false } = {}) => {
+    const project = createNewProject({ name, isStarred });
+    projectDirectory.push(project);
+    return project;
   };
 
-  const removeFolderByID = (id) => {
-    if (id === defaultFolder.get("id"))
+  const removeProjectByID = (id) => {
+    if (id === defaultProject.get("id"))
       throw "Error: Default folder cannot be removed";
-    folderDirectory.splice(
-      folderDirectory.indexOf(
-        folderDirectory.find((folder) => {
-          folder.get("id") === id;
+    projectDirectory.splice(
+      projectDirectory.indexOf(
+        projectDirectory.find((project) => {
+          project.get("id") === id;
         })
       ),
       1
     );
   };
 
-  const getFolderByID = (id) => {
-    return folderDirectory.find((folder) => folder.get("id") === id);
+  const getProjectByID = (id) => {
+    return projectDirectory.find((project) => project.get("id") === id);
   };
 
-  const getFolderList = () => {
-    return Object.freeze([...folderDirectory]);
+  const getProjectList = () => {
+    return Object.freeze([...projectDirectory]);
   };
 
   return {
-    addFolder,
-    removeFolderByID,
-    getFolderByID,
-    getFolderList,
+    addProject,
+    removeProjectByID,
+    getProjectByID,
+    getProjectList,
   };
 }
 
@@ -111,7 +111,7 @@ const newImmutInstance = (defaultProperties, ...behaviors) => {
   );
 };
 
-// NOTE: Folder and Todo Note instance methods
+// NOTE: Project and Todo Note instance methods
 
 const starToggle = (instance) => ({
   toggleStarStatus: () => {
@@ -121,7 +121,7 @@ const starToggle = (instance) => ({
   },
 });
 
-// NOTE: Folder instance methods
+// NOTE: Project instance methods
 
 const noteCreator = (instance) => ({
   addNewTodo: ({
@@ -131,7 +131,7 @@ const noteCreator = (instance) => ({
     description = "Feel free to describe :)",
     isStarred = false,
     isCompleted = false,
-    folder = instance,
+    project = instance,
   } = {}) => {
     const newTodo = createNewTodo({
       name,
@@ -140,7 +140,7 @@ const noteCreator = (instance) => ({
       description,
       isStarred,
       isCompleted,
-      folder,
+      project,
     });
     instance.get("notes").push(newTodo);
     return newTodo;
@@ -163,9 +163,12 @@ const noteRemover = (instance) => ({
   },
 });
 
-// NOTE: (Function) createNewFolder instance
+// NOTE: (Function) createNewProject instance
 
-const createNewFolder = ({ name = "Folder Name", isStarred = false } = {}) => {
+const createNewProject = ({
+  name = "Project Name",
+  isStarred = false,
+} = {}) => {
   return newInstance(
     {
       name,
@@ -182,9 +185,9 @@ const createNewFolder = ({ name = "Folder Name", isStarred = false } = {}) => {
   );
 };
 
-// NOTE: Default Folder declaration
+// NOTE: Default Project declaration
 
-export const defaultFolder = newImmutInstance(
+export const defaultProject = newImmutInstance(
   {
     name: "Uncategorized",
     isStarred: false,
@@ -208,16 +211,16 @@ const completedToggle = (instance) => ({
   },
 });
 
-const folderTransfer = (instance) => ({
-  transferToFolderByID: (targetFolderID) => {
+const projectTransfer = (instance) => ({
+  transferToProjectByID: (targetProjectID) => {
     const currentNoteID = instance.get("id");
 
-    const currentFolder = instance.get("folder");
-    const targetFolder = dir.getFolderByID(targetFolderID);
+    const currentProject = instance.get("project");
+    const targetProject = dir.getProjectByID(targetProjectID);
 
-    currentFolder.removeNoteByID(currentNoteID);
-    targetFolder.addNote(instance);
-    instance.set("folder", targetFolder);
+    currentProject.removeNoteByID(currentNoteID);
+    targetProject.addNote(instance);
+    instance.set("project", targetProject);
   },
 });
 
@@ -230,7 +233,7 @@ const createNewTodo = ({
   description,
   isStarred,
   isCompleted,
-  folder,
+  project,
 }) => {
   return newInstance(
     {
@@ -240,14 +243,14 @@ const createNewTodo = ({
       description,
       isStarred,
       isCompleted,
-      folder,
+      project,
       id: generateID(),
     },
     objGetter,
     objSetter,
     starToggle,
     completedToggle,
-    folderTransfer
+    projectTransfer
   );
 };
 

@@ -7,7 +7,7 @@
 // - Dynamic project-item-status coloration
 // - Refactor dom-generator, rename all instances of "folder" to "project"
 
-import { defaultFolder, dir } from "./factories.js";
+import { defaultProject, dir } from "./factories.js";
 import { loadDOM, projItemLI, sidebarCollapse } from "./dom-generator.js";
 const PubSub = require("vanilla-pubsub");
 
@@ -19,10 +19,12 @@ sidebarCollapse();
 
 (function domLogic() {
   const projectList = document.querySelector(".project-list");
-  const addFolderButton = document.querySelector(".project-add .add-item-icon");
+  const addProjectButton = document.querySelector(
+    ".project-add .add-item-icon"
+  );
 
-  addFolderButton.addEventListener("click", () => {
-    PubSub.publish("push-new-folder-to-DOM");
+  addProjectButton.addEventListener("click", () => {
+    PubSub.publish("push-new-project-to-DOM");
   });
 
   PubSub.subscribe("new-note-to-project", (obj) => {
@@ -36,6 +38,12 @@ sidebarCollapse();
 
     appendToProjectList(newProjectDOMLI);
   });
+
+  const generateProjectColor = () => {
+    const projectItemStatus = document.querySelector(
+      `.project-item[data-id=${id}] .project-item-number`
+    );
+  };
 
   const updateProjectNoteCount = (id, count) => {
     const projectItemNumber = document.querySelector(
@@ -71,8 +79,8 @@ sidebarCollapse();
     });
   };
 
-  const addNewProject = ({ name = "Folder Name", isStarred = false } = {}) => {
-    const newProject = dir.addFolder();
+  const addNewProject = ({ name = "Project Name", isStarred = false } = {}) => {
+    const newProject = dir.addProject();
     newProject.set("name", name);
     newProject.set("isStarred", isStarred);
 
@@ -87,25 +95,25 @@ sidebarCollapse();
     return newProject;
   };
 
-  PubSub.subscribe("push-new-folder-to-DOM", () => {
+  PubSub.subscribe("push-new-project-to-DOM", () => {
     addNewProject();
   });
 
   // Filler data:
 
-  addNewNote(defaultFolder);
-  addNewNote(defaultFolder);
-  addNewNote(defaultFolder);
-  addNewNote(defaultFolder);
-  addNewNote(defaultFolder);
+  addNewNote(defaultProject);
+  addNewNote(defaultProject);
+  addNewNote(defaultProject);
+  addNewNote(defaultProject);
+  addNewNote(defaultProject);
 
-  const folder1 = addNewProject({ name: "Work" });
-  const folder2 = addNewProject({ name: "Personal" });
+  const project1 = addNewProject({ name: "Work" });
+  const project2 = addNewProject({ name: "Personal" });
 
-  addNewNote(folder1);
-  addNewNote(folder1);
-  addNewNote(folder1);
-  addNewNote(folder1);
+  addNewNote(project1);
+  addNewNote(project1);
+  addNewNote(project1);
+  addNewNote(project1);
 
-  addNewNote(folder2);
+  addNewNote(project2);
 })();
