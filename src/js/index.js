@@ -2,9 +2,9 @@
 // Application-level Features:
 // - 
 // Low-level (immediate) features:
-// - 
-import { dir, defaultFolder, } from './factories.js';
-import { loadDOM, sidebarCollapse } from './dom-generator.js';
+import { dir, defaultFolder, } from "./factories.js";
+import { loadDOM, sidebarCollapse } from "./dom-generator.js";
+const PubSub = require("vanilla-pubsub");
 
 // Controller Logic
 //
