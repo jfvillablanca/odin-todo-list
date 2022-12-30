@@ -4,8 +4,8 @@
 // - npm js-vim-command (vim parser)
 // - tags, search/filter by tags
 // Low-level (immediate) features:
-// - Dynamic project-item-status coloration
-// - Refactor dom-generator, rename all instances of "folder" to "project"
+// / Dynamic project-item-color coloration
+// / Refactor dom-generator, rename all instances of "folder" to "project"
 
 import { defaultProject, dir } from "./factories.js";
 import { loadDOM, projItemLI, sidebarCollapse } from "./dom-generator.js";
