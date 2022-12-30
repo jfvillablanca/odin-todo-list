@@ -186,7 +186,7 @@ const createNewFolder = ({ name = "Folder Name", isStarred = false } = {}) => {
 
 export const defaultFolder = newImmutInstance(
   {
-    name: "Default Folder",
+    name: "Uncategorized",
     isStarred: false,
     id: "_default_",
     notes: [],
