@@ -41,9 +41,6 @@ sidebarCollapse();
 
   const appendToProjectList = (newProjectDOMLI) => {
     projectList.append(newProjectDOMLI);
-    console.log(
-      `new folder appended, id = ${newProjectDOMLI.getAttribute("data-id")}`
-    );
   };
 })();
 
