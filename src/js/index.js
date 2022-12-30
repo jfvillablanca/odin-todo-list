@@ -29,4 +29,20 @@ sidebarCollapse();
       newNote,
     });
   };
+
+  const addNewProject = ({ name = "Folder Name", isStarred = false } = {}) => {
+    const newProject = dir.addFolder();
+    newProject.set("name", name);
+    newProject.set("isStarred", isStarred);
+
+    const projectID = newProject.get("id");
+    const projectName = newProject.get("name");
+    const projectNoteCount = newProject.get("notes").length;
+    PubSub.publish("new-project-to-directory", {
+      projectID,
+      projectName,
+      projectNoteCount,
+    });
+    return newProject;
+  };
 })();
