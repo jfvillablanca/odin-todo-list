@@ -27,6 +27,7 @@ sidebarCollapse();
 
   PubSub.subscribe("new-note-to-project", (obj) => {
     updateProjectNoteCount(obj.projectID, obj.projectNoteCount);
+    updateToolTip(obj.projectID, obj.projectName, obj.projectNoteCount);
   });
 
   PubSub.subscribe("new-project-to-directory", (obj) => {
@@ -41,6 +42,13 @@ sidebarCollapse();
       `.project-item[data-id=${id}] .project-item-number`
     );
     projectItemNumber.textContent = count;
+  };
+
+  const updateToolTip = (id, name, count) => {
+    const projectItemTooltip = document.querySelector(
+      `.project-item[data-id=${id}] .tooltip`
+    );
+    projectItemTooltip.textContent = `${name} | ${count}`;
   };
 
   const appendToProjectList = (newProjectDOMLI) => {
