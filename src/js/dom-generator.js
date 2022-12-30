@@ -115,14 +115,12 @@ export const sidebarCollapse = () => {
   const collapser = document.querySelector(".collapse__icon");
   const expander = document.querySelector(".expand__icon");
 
-  collapser.addEventListener("click", (event) => {
-    console.log(event.target);
+  collapser.addEventListener("click", () => {
     sideBar.classList.add("collapse");
     main.classList.add("collapse");
     container.classList.add("collapse");
   });
-  expander.addEventListener("click", (event) => {
-    console.log(event.target);
+  expander.addEventListener("click", () => {
     sideBar.classList.remove("collapse");
     main.classList.remove("collapse");
     container.classList.remove("collapse");
