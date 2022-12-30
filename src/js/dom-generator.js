@@ -6,7 +6,7 @@ import AddIcon from "./../images/plus-square.svg";
 import ExpandIcon from "../images/chevrons-right.svg";
 import CollapseIcon from "../images/chevrons-left.svg";
 
-const projItemLI = (itemText, itemNumber) => {
+export const projItemLI = (itemText, itemNumber) => {
   const projectItemStatus = document.createElement("div");
   projectItemStatus.classList.add("project-item-status");
   // Add dynamic id assignment
