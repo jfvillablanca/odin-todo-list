@@ -31,12 +31,15 @@ sidebarCollapse();
     const newProjectDOMLI = projItemLI(obj.projectName, obj.projectNoteCount);
     newProjectDOMLI.setAttribute("data-id", obj.projectID);
 
-    PubSub.publish("add-project-to-DOM", newProjectDOMLI);
+    appendToProjectList(newProjectDOMLI);
   });
-  
-  PubSub.subscribe("add-project-to-DOM", (newProject) => {
-    projectList.append(newProject);
-  });
+
+  const appendToProjectList = (newProjectDOMLI) => {
+    projectList.append(newProjectDOMLI);
+    console.log(
+      `new folder appended, id = ${newProjectDOMLI.getAttribute("data-id")}`
+    );
+  };
 })();
 
 (function storageLogic() {
