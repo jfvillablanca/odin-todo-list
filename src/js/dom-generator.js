@@ -35,14 +35,6 @@ export const projItemLI = (itemText, itemNumber) => {
 };
 
 export const loadDOM = () => {
-  const defaultProjectLI = () => {
-    const defaultProject = projItemLI("Uncategorized", "0");
-    // HACK: Kind of tightly-coupled with 'factories.js' since defaultFolder/defaultProject/Uncategorized is set to have an ID of "_default_"
-    defaultProject.setAttribute("data-id", "_default_");
-    defaultProject.classList.add("default");
-    return defaultProject;
-  };
-
   // NOTE: Logo Name
   const logoNameContainer = document.createElement("div");
   logoNameContainer.classList.add("logo-name");
@@ -79,8 +71,6 @@ export const loadDOM = () => {
   // NOTE: Project List
   const projectListUL = document.createElement("ul");
   projectListUL.classList.add("project-list");
-
-  projectListUL.appendChild(defaultProjectLI());
 
   // NOTE: Project Add Button
   const projectAddButton = document.createElement("div");
