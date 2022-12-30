@@ -52,10 +52,12 @@ sidebarCollapse();
   const addNewNote = (project) => {
     const newNote = project.addNewTodo();
     const projectID = project.get("id");
+    const projectName = project.get("name");
     const projectNoteCount = project.get("notes").length;
     PubSub.publish("new-note-to-project", {
       project,
       projectID,
+      projectName,
       projectNoteCount,
       newNote,
     });
