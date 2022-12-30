@@ -35,7 +35,10 @@ const projItemLI = (itemText, itemNumber) => {
 
 export const loadDOM = () => {
   const defaultProjectLI = () => {
-    const defaultProject = projItemLI("Uncategorized", "69");
+    const defaultProject = projItemLI("Uncategorized", "0");
+    // HACK: Kind of tightly-coupled with 'factories.js' since defaultFolder/defaultProject/Uncategorized is set to have an ID of "_default_"
+    defaultProject.setAttribute("data-id", "_default_");
+    defaultProject.classList.add("default");
     return defaultProject;
   };
 
