@@ -21,7 +21,7 @@ export const projItemLI = (itemText, itemNumber) => {
 
   const projectItemTooltip = document.createElement("div");
   projectItemTooltip.classList.add("tooltip");
-  projectItemTooltip.textContent = itemText;
+  projectItemTooltip.textContent = `${itemText} | ${itemNumber}`;
 
   const projectItem = document.createElement("li");
   projectItem.setAttribute("data-id", "");
