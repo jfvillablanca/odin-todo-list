@@ -26,10 +26,7 @@ sidebarCollapse();
   });
 
   PubSub.subscribe("new-note-to-project", (obj) => {
-    const projectItem = document.querySelector(
-      `.project-item[data-id=${obj.projectID}] .project-item-number`
-    );
-    projectItem.textContent = obj.projectNoteCount;
+    updateProjectNoteCount(obj.projectID, obj.projectNoteCount);
   });
 
   PubSub.subscribe("new-project-to-directory", (obj) => {
@@ -38,6 +35,13 @@ sidebarCollapse();
 
     appendToProjectList(newProjectDOMLI);
   });
+
+  const updateProjectNoteCount = (id, count) => {
+    const projectItemNumber = document.querySelector(
+      `.project-item[data-id=${id}] .project-item-number`
+    );
+    projectItemNumber.textContent = count;
+  };
 
   const appendToProjectList = (newProjectDOMLI) => {
     projectList.append(newProjectDOMLI);
