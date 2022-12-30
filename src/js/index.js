@@ -37,12 +37,24 @@ sidebarCollapse();
     newProjectDOMLI.setAttribute("data-id", obj.projectID);
 
     appendToProjectList(newProjectDOMLI);
+    generateProjectColor(obj.projectID);
   });
 
-  const generateProjectColor = () => {
-    const projectItemStatus = document.querySelector(
-      `.project-item[data-id=${id}] .project-item-number`
+  const generateProjectColor = (id) => {
+    const colors = [
+      "rgb(139, 233, 253)", // --color-cyan
+      "rgb(80, 250, 123)", // --color-green
+      "rgb(255, 184, 108)", // --color-orange
+      "rgb(255, 121, 198)", // --color-pink
+      "rgb(189, 147, 249)", // --color-purple
+      "rgb(255, 85, 85)", // --color-red
+      "rgb(241, 250, 140)", // --color-yellow
+    ];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    const projectItemColor = document.querySelector(
+      `.project-item[data-id=${id}] .project-item-color`
     );
+    projectItemColor.style.cssText = `background-color: ${randomColor}`;
   };
 
   const updateProjectNoteCount = (id, count) => {
