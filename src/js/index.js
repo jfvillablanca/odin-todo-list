@@ -101,7 +101,7 @@ sidebarCollapse();
 
   PubSub.publish("new-project-to-directory", {
     projectID: defaultProject.get("id"),
-    projectName: defaultProject.get("name") + " 123",
+    projectName: defaultProject.get("name"),
     projectNoteCount: defaultProject.get("notes").length,
   });
 
