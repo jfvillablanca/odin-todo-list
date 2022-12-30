@@ -7,7 +7,8 @@
 // HACK: This generates pseudo-random strings
 // Collisions are bound to happen with this function.
 // Use Node's crypto module or random.org's API lol
-const generateID = () => (Math.random() + 1).toString(36).substring(2);
+const generateID = () =>
+  "_" + (Math.random() + 1).toString(36).substring(2) + "_";
 
 function DirectoryUtils() {
   const folderDirectory = [];
