@@ -99,6 +99,12 @@ sidebarCollapse();
     addNewProject();
   });
 
+  PubSub.publish("new-project-to-directory", {
+    projectID: defaultProject.get("id"),
+    projectName: defaultProject.get("name") + " 123",
+    projectNoteCount: defaultProject.get("notes").length,
+  });
+
   // Filler data:
 
   addNewNote(defaultProject);
