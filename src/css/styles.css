@@ -242,6 +242,15 @@ body {
   grid-template-rows: 1fr;
   place-items: center;
 }
+.notes-list {
+  background-color: var(--color-background-alt);
+  height: 80%;
+  width: 90%;
+  list-style: none;
+  border-radius: var(--dims-window-border-radius);
+
+  display: grid;
+}
 .main.collapse {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
   transition: 0;
