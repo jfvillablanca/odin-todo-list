@@ -277,6 +277,14 @@ body {
 .note-item-description {
   display: none;
 }
+.note-item-priority {
+  width: min-content;
+  border-radius: var(--dims-window-border-radius);
+  padding: 1rem;
+  font-weight: 600;
+
+  justify-self: center;
+}
 .main.collapse {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
   transition: 0;
