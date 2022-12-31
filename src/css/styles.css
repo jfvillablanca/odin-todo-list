@@ -285,6 +285,18 @@ body {
 
   justify-self: center;
 }
+.note-item-priority.low {
+  background-color: var(--color-green);
+  color: var(--color-green-dark);
+}
+.note-item-priority.medium {
+  background-color: var(--color-yellow);
+  color: var(--color-yellow-dark);
+}
+.note-item-priority.high {
+  background-color: var(--color-red);
+  color: var(--color-red-dark);
+}
 .main.collapse {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
   transition: 0;
