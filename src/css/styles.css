@@ -268,6 +268,15 @@ body {
   grid-template-columns: 3rem 3fr 2fr 1fr;
   align-items: center;
 }
+.note-item-name {
+  padding-left: 1rem;
+}
+.note-item-iscompleted {
+  display: none;
+}
+.note-item-description {
+  display: none;
+}
 .main.collapse {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
   transition: 0;
