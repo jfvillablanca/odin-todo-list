@@ -11,6 +11,7 @@
   font-size: 62.5%;
 
   /* Dimension vars */
+  --dims-window-border-radius: 2rem;
   --dims-container-width: 80vw;
   --dims-sidebar-width: calc(var(--dims-container-width) * 0.25);
   --dims-sidebar-collapsed-width: calc(0.2 * var(--dims-sidebar-width));
