@@ -256,9 +256,17 @@ body {
   grid-template-rows: repeat(auto-fill, minmax(10rem, 1fr));
   gap: 1rem;
 }
+.note-item {
+  padding-right: 5rem;
+  padding-left: 2rem;
+  margin: 0;
+  background-color: var(--color-background-alt);
   border-radius: var(--dims-window-border-radius);
+  font-size: 2rem;
 
   display: grid;
+  grid-template-columns: 3rem 3fr 2fr 1fr;
+  align-items: center;
 }
 .main.collapse {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
