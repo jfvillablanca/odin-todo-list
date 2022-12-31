@@ -25,11 +25,14 @@
   --color-comment: rgb(98, 114, 164);
   --color-cyan: rgb(139, 233, 253);
   --color-green: rgb(80, 250, 123);
+  --color-green-dark: rgb(2, 96, 26);
   --color-orange: rgb(255, 184, 108);
   --color-pink: rgb(255, 121, 198);
   --color-purple: rgb(189, 147, 249);
   --color-red: rgb(255, 85, 85);
+  --color-red-dark: rgb(102, 0, 0);
   --color-yellow: rgb(241, 250, 140);
+  --color-yellow-dark: rgb(103, 112, 4);
 }
 body {
   font-size: 1.6rem;
