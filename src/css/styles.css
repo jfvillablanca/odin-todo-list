@@ -151,7 +151,7 @@ body {
 .project-list :first-child > .project-item-color {
   height: 1.2rem;
   width: 1.2rem;
-  box-shadow: 0 0 5px 1px var(--color-button)
+  box-shadow: 0 0 5px 1px var(--color-button);
 }
 .project-item-color {
   height: 1.2rem;
