@@ -100,11 +100,13 @@ body {
   height: 80%;
 }
 .collapse__icon {
-  transform: translateX(calc((var(--dims-sidebar-width) / 2) + 2rem)) scaleY(200%);
+  transform: translateX(calc((var(--dims-sidebar-width) / 2) + 2rem))
+    scaleY(200%);
   transition: 0.5s ease;
 }
 .expand__icon {
-  transform: translateX(calc((var(--dims-sidebar-collapsed-width) / 2) + 2rem)) scaleY(200%);
+  transform: translateX(calc((var(--dims-sidebar-collapsed-width) / 2) + 2rem))
+    scaleY(200%);
   transition: 0.5s ease;
 }
 .project-sidebar .collapse__icon {
