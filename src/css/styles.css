@@ -239,6 +239,8 @@ body {
   transition: all 0.5s ease;
 
   display: grid;
+  grid-template-rows: 1fr;
+  place-items: center;
 }
 .main.collapse {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
