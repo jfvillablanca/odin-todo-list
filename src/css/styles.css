@@ -242,7 +242,7 @@ body {
   grid-template-rows: 1fr;
   place-items: center;
 }
-.notes-list {
+.note-list {
   background-color: var(--color-background-alt);
   height: 80%;
   width: 90%;
