@@ -236,6 +236,8 @@ body {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-width));
   height: 100%;
   transition: all 0.5s ease;
+
+  display: grid;
 }
 .main.collapse {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
