@@ -366,6 +366,12 @@ body {
   gap: 1rem;
 }
 
+.note-view input {
+  margin: 0;
+  background-color: var(--color-background-alt);
+  border: none;
+}
+
 .note-view > * {
   padding-left: 2rem;
   padding-right: 2rem;
