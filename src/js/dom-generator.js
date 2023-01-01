@@ -101,6 +101,32 @@ export const loadNoteList = () => {
   return noteList;
 };
 export const loadNoteView = () => {
+  // NOTE: navPrev
+  const navPrev = document.createElement("div");
+  navPrev.classList.add("note-nav-previous-todo");
+  navPrev.textContent = "Prev Todo";
+
+  // NOTE: navList
+  const navList = document.createElement("div");
+  navList.classList.add("note-nav-back-to-list");
+  navList.textContent = "Back to Todo List";
+
+  // NOTE: navNext
+  const navNext = document.createElement("div");
+  navNext.classList.add("note-nav-next-todo");
+  navNext.textContent = "Next Todo";
+
+  // NOTE: noteNav
+  const noteNav = document.createElement("div");
+  noteNav.classList.add("note-nav");
+  noteNav.appendChild(navPrev);
+  noteNav.appendChild(navList);
+  noteNav.appendChild(navNext);
+
+  const noteView = document.createElement("div");
+  noteView.classList.add("note-view");
+  noteView.appendChild(noteNav);
+  return noteView;
 };
 const loadSidebar = () => {
   // NOTE: Logo Name
