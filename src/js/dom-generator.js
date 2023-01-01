@@ -57,7 +57,37 @@ export const projItemLI = (itemText, itemNumber) => {
 };
 
 export const noteItemLI = () => {
+  // NOTE: noteItemStar
+  const noteItemStar = imgStarOff;
+
+  // NOTE: noteItemName
+  const noteItemName = document.createElement("div");
+  noteItemName.classList.add("note-item-name");
+
+  // NOTE: noteItemDueDate
+  const noteItemDueDate = document.createElement("div");
+  noteItemDueDate.classList.add("note-item-duedate");
+
+  // NOTE: noteItemDuePriority
+  const noteItemPriority = document.createElement("div");
+  noteItemPriority.classList.add("note-item-priority");
+  noteItemPriority.classList.add("low");
+
+  // WARN: Filler data
+  noteItemName.textContent = "TODO ME";
+  noteItemDueDate.textContent = formatDueDate(Date.now());
+  noteItemPriority.textContent = "low";
+
+  const noteItem = document.createElement("li");
+  noteItem.classList.add("note-item");
+  noteItem.appendChild(noteItemStar);
+  noteItem.appendChild(noteItemName);
+  noteItem.appendChild(noteItemDueDate);
+  noteItem.appendChild(noteItemPriority);
+
+  return noteItem;
 };
+
 export const loadNoteList = () => {
   // NOTE: noteList
   const noteList = document.createElement("ul");
