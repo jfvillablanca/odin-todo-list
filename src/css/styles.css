@@ -298,6 +298,8 @@ body {
   color: var(--color-red-dark);
 }
 .main.collapse {
-  width: calc(var(--dims-container-width) - var(--dims-sidebar-collapsed-width));
+  width: calc(
+    var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
+  );
   transition: 0;
 }
