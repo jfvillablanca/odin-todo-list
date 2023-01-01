@@ -171,6 +171,15 @@ body {
   box-shadow: 0 0 5px 1px var(--color-button);
 }
 
+.project-item-star {
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.project-item:hover .project-item-star {
+  opacity: 1;
+}
+
 .project-item-color {
   height: 1.2rem;
   width: 1.2rem;
