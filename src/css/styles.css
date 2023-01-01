@@ -424,6 +424,9 @@ body {
 }
 
 .note-description {
+  padding: 2rem;
+
+  align-items: start;
   grid-area: desc;
 }
 
