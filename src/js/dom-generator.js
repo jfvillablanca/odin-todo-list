@@ -140,15 +140,25 @@ export const loadNoteView = () => {
   noteDueDate.setAttribute("contenteditable", "true");
   noteDueDate.appendChild(noteDueDateInput);
 
+  // NOTE: noteProject
+  const noteProjectText = document.createElement("div");
+  noteProjectText.classList.add("note-project__project");
+  const noteProject = document.createElement("div");
+  noteProject.classList.add("note-project");
+  noteProject.setAttribute("contenteditable", "true");
+  noteProject.appendChild(noteProjectText);
+
   // WARN: Filler data
   noteNameText.textContent = "Title";
   noteDueDateInput.value = "2025-06-12";
+  noteProjectText.textContent = "Default Project";
 
   const noteView = document.createElement("div");
   noteView.classList.add("note-view");
   noteView.appendChild(noteNav);
   noteView.appendChild(noteName);
   noteView.appendChild(noteDueDate);
+  noteView.appendChild(noteProject);
   return noteView;
 };
 const loadSidebar = () => {
