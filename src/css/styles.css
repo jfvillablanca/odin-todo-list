@@ -357,11 +357,12 @@ body {
 
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 9fr;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "nav  nav"
-                       "name name"
-                       "date fold"
-                       "desc desc";
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "nav  nav  nav"
+                       "name name name"
+                       "date fold star"
+                       "desc desc desc"
+                       "warn warn warn";
   gap: 1rem;
 }
 
