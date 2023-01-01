@@ -34,7 +34,7 @@ export const projItemLI = (itemText, itemNumber) => {
   return projectItem;
 };
 
-export const loadDOM = () => {
+const loadSidebar = () => {
   // NOTE: Logo Name
   const logoNameContainer = document.createElement("div");
   logoNameContainer.classList.add("logo-name");
@@ -80,9 +80,6 @@ export const loadDOM = () => {
   projectAddButtonImg.setAttribute("src", AddIcon);
   projectAddButton.appendChild(projectAddButtonImg);
 
-  // NOTE: Container
-  const container = document.querySelector(".container");
-
   // NOTE: projectSidebar
   const projectSidebar = document.createElement("div");
   projectSidebar.classList.add("project-sidebar");
@@ -91,10 +88,22 @@ export const loadDOM = () => {
   projectSidebar.appendChild(projectListUL);
   projectSidebar.appendChild(projectAddButton);
 
+  return projectSidebar;
+};
+
+const loadMain = () => {
+  // NOTE: main
   const main = document.createElement("div");
   main.classList.add("main");
-  container.appendChild(projectSidebar);
-  container.appendChild(main);
+
+  return main;
+};
+
+export const loadDOM = () => {
+  // NOTE: Container
+  const container = document.querySelector(".container");
+  container.appendChild(loadSidebar());
+  container.appendChild(loadMain());
 };
 
 export const sidebarCollapse = () => {
