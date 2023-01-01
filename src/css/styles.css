@@ -178,6 +178,7 @@ body {
 
 .project-item:hover .project-item-star {
   opacity: 1;
+  cursor: pointer;
 }
 
 .project-item-color {
