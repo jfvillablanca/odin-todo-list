@@ -59,6 +59,16 @@ export const projItemLI = (itemText, itemNumber) => {
 export const noteItemLI = () => {
 };
 export const loadNoteList = () => {
+  // NOTE: noteList
+  const noteList = document.createElement("ul");
+  noteList.classList.add("note-list");
+
+  // WARN: Filler data
+  noteList.appendChild(noteItemLI());
+  noteList.appendChild(noteItemLI());
+  noteList.appendChild(noteItemLI());
+  noteList.appendChild(noteItemLI());
+  return noteList;
 };
 export const loadNoteView = () => {
 };
