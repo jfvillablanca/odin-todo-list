@@ -396,6 +396,22 @@ body {
   justify-self: end;
 }
 
+.note-name {
+  grid-area: name;
+}
+
+.note-duedate {
+  grid-area: date;
+}
+
+.note-folder {
+  grid-area: fold;
+}
+
+.note-description {
+  grid-area: desc;
+}
+
 .main.collapse {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
