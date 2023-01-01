@@ -155,10 +155,19 @@ export const loadNoteView = () => {
   noteStarToggle.classList.add("note-startoggle");
   noteStarToggle.appendChild(noteStarToggleImg);
 
+  // NOTE: noteDescription
+  const noteDescriptionText = document.createElement("div");
+  noteDescriptionText.classList.add("note-description__description");
+  const noteDescription = document.createElement("div");
+  noteDescription.classList.add("note-description");
+  noteDescription.setAttribute("contenteditable", "true");
+  noteDescription.appendChild(noteDescriptionText);
+
   // WARN: Filler data
   noteNameText.textContent = "Title";
   noteDueDateInput.value = "2025-06-12";
   noteProjectText.textContent = "Default Project";
+  noteDescriptionText.textContent = "DESCRIPTionasdhsdjh";
 
   const noteView = document.createElement("div");
   noteView.classList.add("note-view");
@@ -167,6 +176,7 @@ export const loadNoteView = () => {
   noteView.appendChild(noteDueDate);
   noteView.appendChild(noteProject);
   noteView.appendChild(noteStarToggle);
+  noteView.appendChild(noteDescription);
   return noteView;
 };
 const loadSidebar = () => {
