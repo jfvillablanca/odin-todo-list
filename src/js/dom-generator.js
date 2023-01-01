@@ -131,13 +131,24 @@ export const loadNoteView = () => {
   noteName.setAttribute("contenteditable", "true");
   noteName.appendChild(noteNameText);
 
+  // NOTE: noteDueDate
+  const noteDueDateInput = document.createElement("input");
+  noteDueDateInput.classList.add("note-duedate__date");
+  noteDueDateInput.setAttribute("type", "date");
+  const noteDueDate = document.createElement("div");
+  noteDueDate.classList.add("note-duedate");
+  noteDueDate.setAttribute("contenteditable", "true");
+  noteDueDate.appendChild(noteDueDateInput);
+
   // WARN: Filler data
   noteNameText.textContent = "Title";
+  noteDueDateInput.value = "2025-06-12";
 
   const noteView = document.createElement("div");
   noteView.classList.add("note-view");
   noteView.appendChild(noteNav);
   noteView.appendChild(noteName);
+  noteView.appendChild(noteDueDate);
   return noteView;
 };
 const loadSidebar = () => {
