@@ -349,6 +349,22 @@ body {
   border: none;
 }
 
+.note-view {
+  height: 90%;
+  width: 70%;
+  margin: 0;
+  font-size: 2rem;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 9fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "nav  nav"
+                       "name name"
+                       "date fold"
+                       "desc desc";
+  gap: 1rem;
+}
+
 .main.collapse {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
