@@ -16,6 +16,18 @@ export const imgStarOff = document.createElement("img");
 imgStarOff.setAttribute("src", StarOff);
 imgStarOff.setAttribute("alt", "todo note is not starred");
 
+export const formatDueDate = (dueDate) => {
+  const options = {
+    // weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return `${new Intl.DateTimeFormat("en-US", options).format(
+    new Date(dueDate)
+  )}`;
+};
+
 export const projItemLI = (itemText, itemNumber) => {
   const projectItemColor = document.createElement("div");
   projectItemColor.classList.add("project-item-color");
