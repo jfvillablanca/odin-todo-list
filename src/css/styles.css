@@ -365,6 +365,13 @@ body {
   gap: 1rem;
 }
 
+.note-view > * {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: var(--color-background-alt);
+  border-radius: var(--dims-window-border-radius);
+}
+
 .main.collapse {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
