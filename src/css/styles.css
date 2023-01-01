@@ -152,13 +152,14 @@ body {
 
 .project-item {
   position: relative;
-  padding: 0.9rem 1.1rem;
+  padding: 0.9rem 0;
   line-height: 1.8rem;
   height: 3.6rem;
   white-space: nowrap;
   display: grid;
-  grid-template-columns: calc(0.2 * var(--dims-sidebar-width)) 2fr 1fr;
+  grid-template-columns: min-content min-content 3fr 1fr;
   align-items: center;
+  gap: 2rem;
 
   transition: 0.5s ease;
   opacity: 1;
