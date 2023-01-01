@@ -148,6 +148,13 @@ export const loadNoteView = () => {
   noteProject.setAttribute("contenteditable", "true");
   noteProject.appendChild(noteProjectText);
 
+  // NOTE: noteStarToggle
+  const noteStarToggleImg = imgStarOff;
+  noteStarToggleImg.classList.add("note-startoggle__star");
+  const noteStarToggle = document.createElement("div");
+  noteStarToggle.classList.add("note-startoggle");
+  noteStarToggle.appendChild(noteStarToggleImg);
+
   // WARN: Filler data
   noteNameText.textContent = "Title";
   noteDueDateInput.value = "2025-06-12";
@@ -159,6 +166,7 @@ export const loadNoteView = () => {
   noteView.appendChild(noteName);
   noteView.appendChild(noteDueDate);
   noteView.appendChild(noteProject);
+  noteView.appendChild(noteStarToggle);
   return noteView;
 };
 const loadSidebar = () => {
