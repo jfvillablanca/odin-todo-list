@@ -381,6 +381,21 @@ body {
   align-items: center;
 }
 
+.note-nav-previous-todo {
+  cursor: pointer;
+  justify-self: start;
+}
+
+.note-nav-back-to-list {
+  cursor: pointer;
+  justify-self: center;
+}
+
+.note-nav-next-todo {
+  cursor: pointer;
+  justify-self: end;
+}
+
 .main.collapse {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
