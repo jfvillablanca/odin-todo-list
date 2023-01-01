@@ -163,11 +163,17 @@ export const loadNoteView = () => {
   noteDescription.setAttribute("contenteditable", "true");
   noteDescription.appendChild(noteDescriptionText);
 
+  // NOTE: noteButtonWarning
+  const noteButtonWarning = document.createElement("div");
+  noteButtonWarning.classList.add("note-button-warning");
+
   // WARN: Filler data
   noteNameText.textContent = "Title";
   noteDueDateInput.value = "2025-06-12";
   noteProjectText.textContent = "Default Project";
   noteDescriptionText.textContent = "DESCRIPTionasdhsdjh";
+  // WARN: text content should switch between "Delete Note" and "Discard Changes"
+  noteButtonWarning.textContent = "Delete Note";
 
   const noteView = document.createElement("div");
   noteView.classList.add("note-view");
@@ -177,6 +183,7 @@ export const loadNoteView = () => {
   noteView.appendChild(noteProject);
   noteView.appendChild(noteStarToggle);
   noteView.appendChild(noteDescription);
+  noteView.appendChild(noteButtonWarning);
   return noteView;
 };
 const loadSidebar = () => {
