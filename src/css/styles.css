@@ -372,6 +372,15 @@ body {
   border-radius: var(--dims-window-border-radius);
 }
 
+.note-nav {
+  background-color: var(--color-background);
+
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
 .main.collapse {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
