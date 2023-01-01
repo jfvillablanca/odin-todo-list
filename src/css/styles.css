@@ -256,6 +256,7 @@ body {
   grid-template-rows: repeat(auto-fill, minmax(10rem, 1fr));
   gap: 1rem;
 }
+.add-note-item,
 .note-item {
   padding-right: 5rem;
   padding-left: 2rem;
@@ -277,6 +278,7 @@ body {
 .note-item-description {
   display: none;
 }
+.add-note-item-priority,
 .note-item-priority {
   width: min-content;
   border-radius: var(--dims-window-border-radius);
@@ -285,14 +287,17 @@ body {
 
   justify-self: center;
 }
+.add-note-item-priority.low,
 .note-item-priority.low {
   background-color: var(--color-green);
   color: var(--color-green-dark);
 }
+.add-note-item-priority.medium,
 .note-item-priority.medium {
   background-color: var(--color-yellow);
   color: var(--color-yellow-dark);
 }
+.add-note-item-priority.high,
 .note-item-priority.high {
   background-color: var(--color-red);
   color: var(--color-red-dark);
