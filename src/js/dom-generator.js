@@ -123,9 +123,21 @@ export const loadNoteView = () => {
   noteNav.appendChild(navList);
   noteNav.appendChild(navNext);
 
+  // NOTE: noteName
+  const noteNameText = document.createElement("div");
+  noteNameText.classList.add("note-name__name");
+  const noteName = document.createElement("div");
+  noteName.classList.add("note-name");
+  noteName.setAttribute("contenteditable", "true");
+  noteName.appendChild(noteNameText);
+
+  // WARN: Filler data
+  noteNameText.textContent = "Title";
+
   const noteView = document.createElement("div");
   noteView.classList.add("note-view");
   noteView.appendChild(noteNav);
+  noteView.appendChild(noteName);
   return noteView;
 };
 const loadSidebar = () => {
