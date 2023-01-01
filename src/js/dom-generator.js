@@ -56,6 +56,12 @@ export const projItemLI = (itemText, itemNumber) => {
   return projectItem;
 };
 
+export const noteItemLI = () => {
+};
+export const loadNoteList = () => {
+};
+export const loadNoteView = () => {
+};
 const loadSidebar = () => {
   // NOTE: Logo Name
   const logoNameContainer = document.createElement("div");
