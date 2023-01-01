@@ -302,6 +302,11 @@ body {
   background-color: var(--color-red);
   color: var(--color-red-dark);
 }
+.add-note-item input {
+  margin: 0;
+  background-color: var(--color-background-alt);
+  border: none;
+}
 .main.collapse {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
