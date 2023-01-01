@@ -414,7 +414,7 @@ body {
   grid-area: date;
 }
 
-.note-folder {
+.note-project {
   grid-area: fold;
 }
 
