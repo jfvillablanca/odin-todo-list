@@ -3,6 +3,7 @@
 // - archive note (persistence of previous folder holder)
 // - npm js-vim-command (vim parser)
 // - tags, search/filter by tags
+// - draggable notes/projects
 // Low-level (immediate) features:
 // / Dynamic project-item-color coloration
 // / Refactor dom-generator, rename all instances of "folder" to "project"
