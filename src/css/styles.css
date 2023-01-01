@@ -418,6 +418,11 @@ body {
   grid-area: fold;
 }
 
+.note-startoggle {
+  grid-area: star;
+  justify-items: center;
+}
+
 .note-description {
   grid-area: desc;
 }
