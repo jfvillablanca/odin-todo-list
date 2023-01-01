@@ -5,6 +5,8 @@ import LogoIcon from "../images/coffee.svg";
 import AddIcon from "./../images/plus-square.svg";
 import ExpandIcon from "../images/chevrons-right.svg";
 import CollapseIcon from "../images/chevrons-left.svg";
+import StarOn from "../images/star-clicked.svg";
+import StarOff from "../images/star.svg";
 
 export const projItemLI = (itemText, itemNumber) => {
   const projectItemColor = document.createElement("div");
