@@ -430,6 +430,20 @@ body {
   grid-area: desc;
 }
 
+.note-button-warning {
+  width: max-content;
+  border-radius: var(--dims-window-border-radius);
+  padding: 1rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  font-weight: 600;
+  background-color: var(--color-red);
+  color: var(--color-red-dark);
+
+  justify-self: center;
+  grid-area: warn;
+}
+
 .main.collapse {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
