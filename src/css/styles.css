@@ -120,7 +120,6 @@ body {
 }
 
 .project-sidebar .collapse__icon {
-  cursor: pointer;
   display: inline-block;
   position: absolute;
 }
@@ -178,7 +177,6 @@ body {
 
 .project-item:hover .project-item-star {
   opacity: 1;
-  cursor: pointer;
 }
 
 .project-item-color {
@@ -188,10 +186,6 @@ body {
   border: none;
 
   place-self: center;
-}
-
-.project-item-text {
-  cursor: pointer;
 }
 
 .project-item-number {
@@ -209,7 +203,6 @@ body {
 }
 
 .project-add > img {
-  cursor: pointer;
   height: 100%;
 }
 
@@ -256,7 +249,6 @@ body {
 }
 
 .project-sidebar.collapse .expand__icon {
-  cursor: pointer;
   display: inline-block;
   position: absolute;
 }
@@ -406,17 +398,14 @@ body {
 }
 
 .note-nav-previous-todo {
-  cursor: pointer;
   justify-self: start;
 }
 
 .note-nav-back-to-list {
-  cursor: pointer;
   justify-self: center;
 }
 
 .note-nav-next-todo {
-  cursor: pointer;
   justify-self: end;
 }
 
@@ -453,7 +442,6 @@ body {
   font-weight: 600;
   background-color: var(--color-red);
   color: var(--color-red-dark);
-  cursor: pointer;
 
   justify-self: center;
   grid-area: warn;
@@ -464,4 +452,17 @@ body {
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
   );
   transition: 0;
+}
+
+.project-sidebar .collapse__icon,
+.project-sidebar.collapse .expand__icon,
+.project-item:hover .project-item-star,
+.project-add > img,
+.project-item-text,
+.note-nav-back-to-list,
+.note-nav-previous-todo,
+.note-nav-next-todo,
+.note-button-warning,
+.note-startoggle {
+  cursor: pointer;
 }
