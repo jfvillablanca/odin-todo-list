@@ -25,6 +25,9 @@ export const formatDueDate = (dueDate) => {
 };
 
 export const projItemLI = (itemText, itemNumber) => {
+  const projectItemStar = document.createElement("img");
+  projectItemStar.classList.add("project-item-star");
+  projectItemStar.classList.add("listen-to-stars");
   const projectItemColor = document.createElement("div");
   projectItemColor.classList.add("project-item-color");
   // Add dynamic id assignment
@@ -44,6 +47,7 @@ export const projItemLI = (itemText, itemNumber) => {
   const projectItem = document.createElement("li");
   projectItem.setAttribute("data-id", "");
   projectItem.classList.add("project-item");
+  projectItem.appendChild(projectItemStar);
   projectItem.appendChild(projectItemColor);
   projectItem.appendChild(projectItemText);
   projectItem.appendChild(projectItemNum);
@@ -53,8 +57,10 @@ export const projItemLI = (itemText, itemNumber) => {
 };
 
 export const noteItemLI = () => {
-  // NOTE: noteItemStar
-  const noteItemStar = imgStarOff;
+  // NOTE: noteItemStar -> set src attrib on fetch from storageLogic()
+  const noteItemStar = document.createElement("img");
+  noteItemStar.classList.add("note-item-star");
+  noteItemStar.classList.add("listen-to-stars");
 
   // NOTE: noteItemName
   const noteItemName = document.createElement("div");
@@ -144,8 +150,8 @@ export const loadNoteView = () => {
   noteProject.setAttribute("contenteditable", "true");
   noteProject.appendChild(noteProjectText);
 
-  // NOTE: noteStarToggle
-  const noteStarToggleImg = imgStarOff;
+  // NOTE: noteStarToggle -> set src attrib on fetch from storageLogic()
+  const noteStarToggleImg = document.createElement("img");
   noteStarToggleImg.classList.add("note-startoggle__star");
   const noteStarToggle = document.createElement("div");
   noteStarToggle.classList.add("note-startoggle");
@@ -277,3 +283,21 @@ const sidebarCollapse = () => {
   });
 };
 sidebarCollapse();
+const starToggle = (asset) => {
+  asset.getAttribute("src") === StarOn
+    ? asset.setAttribute("src", StarOff)
+    : asset.setAttribute("src", StarOn);
+};
+export const starListeners = () => {
+  const stars = document.querySelectorAll(".listen-to-stars");
+  console.log("listener load");
+  console.table(stars);
+  stars.forEach((star) => {
+    star.addEventListener("click", (event) => {
+      if (event.target.tagName === "DIV") {
+        starToggle(event.target.firstChild);
+      }
+      starToggle(event.target);
+    });
+  });
+};
