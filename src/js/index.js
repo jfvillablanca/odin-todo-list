@@ -9,7 +9,12 @@
 // / Refactor dom-generator, rename all instances of "folder" to "project"
 
 import { defaultProject, dir } from "./factories.js";
-import { projItemLI, noteItemLI, starListeners } from "./dom-generator.js";
+import {
+  projItemLI,
+  noteItemLI,
+  changeProjectStarOpacity,
+  starListeners,
+} from "./dom-generator.js";
 const PubSub = require("vanilla-pubsub");
 
 // Controller Logic
