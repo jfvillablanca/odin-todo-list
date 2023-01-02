@@ -36,7 +36,7 @@ const PubSub = require("vanilla-pubsub");
     updateToolTip(obj.projectID, obj.projectName, obj.projectNoteCount);
   });
 
-  PubSub.subscribe("new-project-to-directory", (obj) => {
+  PubSub.subscribe("new-project-to-DOM", (obj) => {
     const newProjectDOMLI = projItemLI(obj.projectName, obj.projectNoteCount);
     newProjectDOMLI.setAttribute("data-id", obj.projectID);
 
@@ -103,7 +103,7 @@ const PubSub = require("vanilla-pubsub");
     const projectID = newProject.get("id");
     const projectName = newProject.get("name");
     const projectNoteCount = newProject.get("notes").length;
-    PubSub.publish("new-project-to-directory", {
+    PubSub.publish("new-project-to-DOM", {
       projectID,
       projectName,
       projectNoteCount,
@@ -115,7 +115,7 @@ const PubSub = require("vanilla-pubsub");
     addNewProject();
   });
 
-  PubSub.publish("new-project-to-directory", {
+  PubSub.publish("new-project-to-DOM", {
     projectID: defaultProject.get("id"),
     projectName: defaultProject.get("name"),
     projectNoteCount: defaultProject.get("notes").length,
