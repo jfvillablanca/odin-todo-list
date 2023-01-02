@@ -37,7 +37,11 @@ const PubSub = require("vanilla-pubsub");
   });
 
   PubSub.subscribe("new-project-to-DOM", (obj) => {
-    const newProjectDOMLI = projItemLI(obj.projectName, obj.projectNoteCount);
+    const newProjectDOMLI = projItemLI(
+      obj.projectName,
+      obj.projectNoteCount,
+      obj.projectStar
+    );
     newProjectDOMLI.setAttribute("data-id", obj.projectID);
 
     appendToProjectList(newProjectDOMLI);
@@ -102,10 +106,12 @@ const PubSub = require("vanilla-pubsub");
 
     const projectID = newProject.get("id");
     const projectName = newProject.get("name");
+    const projectStar = newProject.get("isStarred");
     const projectNoteCount = newProject.get("notes").length;
     PubSub.publish("new-project-to-DOM", {
       projectID,
       projectName,
+      projectStar,
       projectNoteCount,
     });
     return newProject;

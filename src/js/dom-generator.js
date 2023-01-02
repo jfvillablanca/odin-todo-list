@@ -24,12 +24,13 @@ export const formatDueDate = (dueDate) => {
   )}`;
 };
 
-export const projItemLI = (itemText, itemNumber) => {
+export const projItemLI = (itemText, itemNumber, itemStarStatus) => {
   const projectItemStar = document.createElement("img");
   projectItemStar.classList.add("project-item-star");
   projectItemStar.classList.add("listen-to-stars");
-  // WARN: Debugging
-  projectItemStar.setAttribute("src", StarOn);
+  itemStarStatus
+    ? projectItemStar.setAttribute("src", StarOn)
+    : projectItemStar.setAttribute("src", StarOff);
 
   const projectItemColor = document.createElement("div");
   projectItemColor.classList.add("project-item-color");
