@@ -115,11 +115,17 @@ const PubSub = require("vanilla-pubsub");
     addNewProject();
   });
 
-  PubSub.publish("new-project-to-DOM", {
-    projectID: defaultProject.get("id"),
-    projectName: defaultProject.get("name"),
-    projectNoteCount: defaultProject.get("notes").length,
-  });
+  (function readFromDirectory() {
+    const projects = dir.getProjectList();
+    projects.map((project) => {
+      PubSub.publish("new-project-to-DOM", {
+        projectID: project.get("id"),
+        projectName: project.get("name"),
+        projectStar: project.get("isStarred"),
+        projectNoteCount: project.get("notes").length,
+      });
+    });
+  })();
 
   // Filler data:
 
