@@ -1,6 +1,6 @@
 /* TODO:  
   - Fix collapse/expand icon transitions with keyframes.
-  - Fix main collapse transition
+  / Fix main collapse transition
 */
 
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
@@ -113,12 +113,14 @@ body {
   transform: translateX(calc((var(--dims-sidebar-width) / 2) + 2rem))
     scaleY(200%);
   transition: 0.5s ease;
+  z-index: 1;
 }
 
 .expand__icon {
   transform: translateX(calc((var(--dims-sidebar-collapsed-width) / 2) + 2rem))
     scaleY(200%);
   transition: 0.5s ease;
+  z-index: 1;
 }
 
 .project-sidebar .collapse__icon {
@@ -291,6 +293,8 @@ body {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-width));
   height: 100%;
   transition: all 0.5s ease;
+  position: fixed;
+  right: 10%;
 
   display: grid;
   grid-template-rows: 1fr;
@@ -463,7 +467,6 @@ body {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
   );
-  transition: 0;
 }
 
 .project-sidebar .collapse__icon,
