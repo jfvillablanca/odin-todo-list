@@ -259,7 +259,9 @@ export const loadDOM = () => {
   container.appendChild(loadMain());
 };
 
-export const sidebarCollapse = () => {
+loadDOM();
+
+const sidebarCollapse = () => {
   const container = document.querySelector(".container");
   const sideBar = document.querySelector(".project-sidebar");
   const main = document.querySelector(".main");
@@ -278,3 +280,4 @@ export const sidebarCollapse = () => {
     container.classList.remove("collapse");
   });
 };
+sidebarCollapse();

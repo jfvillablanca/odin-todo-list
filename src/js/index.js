@@ -10,18 +10,14 @@
 
 import { defaultProject, dir } from "./factories.js";
 import {
-  loadDOM,
   projItemLI,
   noteItemLI,
-  sidebarCollapse,
 } from "./dom-generator.js";
 const PubSub = require("vanilla-pubsub");
 
 // Controller Logic
 //
 // These are just tests
-loadDOM();
-sidebarCollapse();
 
 (function domLogic() {
   const projectList = document.querySelector(".project-list");
