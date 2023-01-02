@@ -171,6 +171,10 @@ body {
   transition: 0.3s ease;
 }
 
+.project-list :first-child > .project-item-star {
+  visibility: hidden;
+}
+
 .project-item-star.starred,
 .project-item:hover .project-item-star {
   opacity: 1;
