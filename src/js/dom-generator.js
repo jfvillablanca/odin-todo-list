@@ -12,14 +12,6 @@ import CollapseIcon from "../images/chevrons-left.svg";
 import StarOn from "../images/star-clicked.svg";
 import StarOff from "../images/star.svg";
 
-export const imgStarOn = document.createElement("img");
-imgStarOn.setAttribute("src", StarOn);
-imgStarOn.setAttribute("alt", "todo note is starred");
-
-export const imgStarOff = document.createElement("img");
-imgStarOff.setAttribute("src", StarOff);
-imgStarOff.setAttribute("alt", "todo note is not starred");
-
 export const formatDueDate = (dueDate) => {
   const options = {
     // weekday: "long",
