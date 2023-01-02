@@ -28,6 +28,10 @@ export const projItemLI = (itemText, itemNumber) => {
   const projectItemStar = document.createElement("img");
   projectItemStar.classList.add("project-item-star");
   projectItemStar.classList.add("listen-to-stars");
+  // WARN: Debugging
+  projectItemStar.setAttribute("src", StarOn);
+  console.log("projectstar loaded");
+
   const projectItemColor = document.createElement("div");
   projectItemColor.classList.add("project-item-color");
   // Add dynamic id assignment
@@ -75,6 +79,8 @@ export const noteItemLI = () => {
   noteItemPriority.classList.add("note-item-priority");
   noteItemPriority.classList.add("low");
 
+  // WARN: Debugging
+  noteItemStar.setAttribute("src", StarOff);
   // WARN: Filler data
   noteItemName.textContent = "TODO ME";
   noteItemDueDate.textContent = formatDueDate(Date.now());
@@ -100,8 +106,10 @@ export const loadNoteList = () => {
   noteList.appendChild(noteItemLI());
   noteList.appendChild(noteItemLI());
   noteList.appendChild(noteItemLI());
+
   return noteList;
 };
+
 export const loadNoteView = () => {
   // NOTE: navPrev
   const navPrev = document.createElement("div");
@@ -155,7 +163,9 @@ export const loadNoteView = () => {
   noteStarToggleImg.classList.add("note-startoggle__star");
   const noteStarToggle = document.createElement("div");
   noteStarToggle.classList.add("note-startoggle");
+  noteStarToggle.classList.add("listen-to-stars");
   noteStarToggle.appendChild(noteStarToggleImg);
+  console.log("notestar load");
 
   // NOTE: noteDescription
   const noteDescriptionText = document.createElement("div");
@@ -174,6 +184,8 @@ export const loadNoteView = () => {
   noteDueDateInput.value = "2025-06-12";
   noteProjectText.textContent = "Default Project";
   noteDescriptionText.textContent = "DESCRIPTionasdhsdjh";
+  // WARN: Debugging
+  noteStarToggleImg.setAttribute("src", StarOff);
   // WARN: text content should switch between "Delete Note" and "Discard Changes"
   noteButtonWarning.textContent = "Delete Note";
 
@@ -186,8 +198,10 @@ export const loadNoteView = () => {
   noteView.appendChild(noteStarToggle);
   noteView.appendChild(noteDescription);
   noteView.appendChild(noteButtonWarning);
+
   return noteView;
 };
+
 const loadSidebar = () => {
   // NOTE: Logo Name
   const logoNameContainer = document.createElement("div");
@@ -283,11 +297,13 @@ const sidebarCollapse = () => {
   });
 };
 sidebarCollapse();
+
 const starToggle = (asset) => {
   asset.getAttribute("src") === StarOn
     ? asset.setAttribute("src", StarOff)
     : asset.setAttribute("src", StarOn);
 };
+
 export const starListeners = () => {
   const stars = document.querySelectorAll(".listen-to-stars");
   console.log("listener load");
