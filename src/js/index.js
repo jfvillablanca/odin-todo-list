@@ -3,19 +3,23 @@
 // - archive note (persistence of previous folder holder)
 // - npm js-vim-command (vim parser)
 // - tags, search/filter by tags
+// - draggable notes/projects
 // Low-level (immediate) features:
 // / Dynamic project-item-color coloration
 // / Refactor dom-generator, rename all instances of "folder" to "project"
 
 import { defaultProject, dir } from "./factories.js";
-import { loadDOM, projItemLI, sidebarCollapse } from "./dom-generator.js";
+import {
+  projItemLI,
+  noteItemLI,
+  changeProjectStarOpacity,
+  starListeners,
+} from "./dom-generator.js";
 const PubSub = require("vanilla-pubsub");
 
 // Controller Logic
 //
 // These are just tests
-loadDOM();
-sidebarCollapse();
 
 (function domLogic() {
   const projectList = document.querySelector(".project-list");
@@ -135,3 +139,5 @@ sidebarCollapse();
 
   addNewNote(project2);
 })();
+changeProjectStarOpacity();
+starListeners();
