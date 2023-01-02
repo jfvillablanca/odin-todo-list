@@ -304,6 +304,16 @@ const starToggle = (asset) => {
     : asset.setAttribute("src", StarOn);
 };
 
+// WARN: Refactor this, move invocation of this fn from index.js to dom-generator.js (ideally)
+export const changeProjectStarOpacity = () => {
+  const projItemStars = document.querySelectorAll(".project-item-star");
+  projItemStars.forEach((projItemStar) => {
+    if (projItemStar.getAttribute("src") === StarOn) {
+      projItemStar.classList.add("starred");
+    }
+  });
+};
+
 export const starListeners = () => {
   const stars = document.querySelectorAll(".listen-to-stars");
   console.log("listener load");

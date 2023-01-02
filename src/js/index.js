@@ -134,4 +134,5 @@ const PubSub = require("vanilla-pubsub");
 
   addNewNote(project2);
 })();
+changeProjectStarOpacity();
 starListeners();
