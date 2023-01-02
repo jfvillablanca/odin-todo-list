@@ -30,7 +30,6 @@ export const projItemLI = (itemText, itemNumber) => {
   projectItemStar.classList.add("listen-to-stars");
   // WARN: Debugging
   projectItemStar.setAttribute("src", StarOn);
-  console.log("projectstar loaded");
 
   const projectItemColor = document.createElement("div");
   projectItemColor.classList.add("project-item-color");
@@ -165,7 +164,6 @@ export const loadNoteView = () => {
   noteStarToggle.classList.add("note-startoggle");
   noteStarToggle.classList.add("listen-to-stars");
   noteStarToggle.appendChild(noteStarToggleImg);
-  console.log("notestar load");
 
   // NOTE: noteDescription
   const noteDescriptionText = document.createElement("div");
@@ -316,8 +314,6 @@ export const changeProjectStarOpacity = () => {
 
 export const starListeners = () => {
   const stars = document.querySelectorAll(".listen-to-stars");
-  console.log("listener load");
-  console.table(stars);
   stars.forEach((star) => {
     star.addEventListener("click", (event) => {
       if (event.target.tagName === "DIV") {
