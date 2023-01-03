@@ -13,6 +13,17 @@ const generateID = () =>
 export const callLocalStorage = () => {
   const now = new Date();
 
+  const sortByTimestamp = (unsortedProjects) => {
+    const sortedProjects = unsortedProjects
+      .sort((a, b) => {
+        return a.timestamp - b.timestamp;
+      })
+      .map((sortedProject) => {
+        return sortedProject.value;
+      });
+    return sortedProjects;
+  };
+
   const set = (instanceType, id, value) => {
     const store = {
       value,
