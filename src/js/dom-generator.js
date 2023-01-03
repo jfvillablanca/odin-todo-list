@@ -313,27 +313,31 @@ export const changeProjectStarOpacity = () => {
   });
 };
 
+const clickEvent = (event) => {
+  // NOTE: For note-startoggle__star
+  if (event.target.tagName === "DIV") {
+    starToggle(event.target.firstChild);
+  }
+  // NOTE: For project-item-star
+  if (
+    [...event.target.classList].includes("project-item-star") &&
+    event.target.getAttribute("src") === StarOn
+  ) {
+    event.target.classList.remove("starred");
+  } else if (
+    [...event.target.classList].includes("project-item-star") &&
+    event.target.getAttribute("src") === StarOff
+  ) {
+    event.target.classList.add("starred");
+  }
+  starToggle(event.target);
+};
+
 export const starListeners = () => {
   const stars = document.querySelectorAll(".listen-to-stars");
-  const clickEvent = (event) => {
-    // NOTE: For note-startoggle__star
-    if (event.target.tagName === "DIV") {
-      starToggle(event.target.firstChild);
-    }
-    // NOTE: For project-item-star
-    if (
-      [...event.target.classList].includes("project-item-star") &&
-      event.target.getAttribute("src") === StarOn
-    ) {
-      event.target.classList.remove("starred");
-    } else if (
-      [...event.target.classList].includes("project-item-star") &&
-      event.target.getAttribute("src") === StarOff
-    ) {
-      event.target.classList.add("starred");
-    }
-    starToggle(event.target);
-  };
+  stars.forEach((star) => {
+    star.removeEventListener("click", clickEvent);
+  });
   stars.forEach((star) => {
     star.addEventListener("click", clickEvent);
   });

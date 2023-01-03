@@ -6,7 +6,7 @@
 // - draggable notes/projects
 // Low-level (immediate) features:
 // / PubSub add classlist starred on new projects
-// - Fix multiple logging of events onclick of project-item star
+// / Fix multiple logging of events onclick of project-item star
 // - highlight note-duedate on click on note-duedate__date
 // - write to local storage on current state
 // - read from local storage to render DOM
