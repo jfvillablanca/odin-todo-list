@@ -138,14 +138,12 @@ const PubSub = require("vanilla-pubsub");
     });
   };
 
-  const addNewProject = ({ name = "Project Name", isStarred = false } = {}) => {
-    const projectInstance = dir.addProject();
-    projectInstance.set("name", name);
-    projectInstance.set("isStarred", isStarred);
+  const addNewProject = () => {
+      const projectInstance = dir.addProject();
 
-    PubSub.publish("new-project-to-DOM", getProjectDetails(projectInstance));
-    writeToStorage("project", getProjectDetails(projectInstance));
-  };
+      PubSub.publish("new-project-to-DOM", getProjectDetails(projectInstance));
+      writeToStorage("project", getProjectDetails(projectInstance));
+    };
 
   const writeToStorage = (instanceType, instanceDetails) => {
     let id;
