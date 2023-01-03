@@ -10,8 +10,9 @@
 // / highlight note-duedate on click on note-duedate__date
 // / write to local storage on current state
 // / read from local storage to render DOM
+// - star persistence by reference to local storage
 // - remove all filler data
-// - fix project getProjects() at factories.js
+// / fix project getProjects() at factories.js
 // - Fix note-view-description text alignment, currently using center???
 // - event listener on note-back-to-list to navigate back to loadNoteList()
 // - event listener on note-prev/next to navigate between several notes (maybe like a swiping animation)
