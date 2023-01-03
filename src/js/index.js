@@ -5,8 +5,15 @@
 // - tags, search/filter by tags
 // - draggable notes/projects
 // Low-level (immediate) features:
-// / Dynamic project-item-color coloration
-// / Refactor dom-generator, rename all instances of "folder" to "project"
+// / PubSub add classlist starred on new projects
+// - Fix multiple logging of events onclick of project-item star
+// - highlight note-duedate on click on note-duedate__date
+// - write to local storage on current state
+// - read from local storage to render DOM
+// - remove all filler data
+// - event listener on note-back-to-list to navigate back to loadNoteList()
+// - event listener on note-prev/next to navigate between several notes (maybe like a swiping animation)
+// - focus to edit project name on sidebar on click of add new project
 
 import { defaultProject, dir } from "./factories.js";
 import {
