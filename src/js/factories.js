@@ -12,17 +12,15 @@ const generateID = () =>
 
 export const callLocalStorage = () => {
   const set = (instance, id, value) => {
-    localStorage.setItem(`${instance}${id}`, value);
+    localStorage.setItem(`${instance}${id}`, JSON.stringify(value));
   };
 
   const get = (instance, id) => {
-    const key = `${instance}_${id}`;
-    localStorage.getItem(key);
+    return JSON.parse(localStorage.getItem(`${instance}${id}`));
   };
 
   const remove = (instance, id) => {
-    const key = `${instance}_${id}`;
-    localStorage.removeItem(key);
+    localStorage.removeItem(`${instance}${id}`);
   };
   return {
     set,
