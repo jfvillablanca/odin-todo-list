@@ -38,11 +38,13 @@ export const callLocalStorage = () => {
   };
 
   const getProjects = () => {
-    const projects = [];
-    for (let i = localStorage.length - 1; i >= 0; i--) {
-      projects.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    const unsortedProjects = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      unsortedProjects.push(
+        JSON.parse(localStorage.getItem(localStorage.key(i)))
+      );
     }
-    return projects;
+    return sortByTimestamp(unsortedProjects);
   };
 
   const remove = (instanceType, id) => {
