@@ -11,10 +11,12 @@
 // / write to local storage on current state
 // / read from local storage to render DOM
 // - remove all filler data
+// - fix project getProjects() at factories.js
 // - Fix note-view-description text alignment, currently using center???
 // - event listener on note-back-to-list to navigate back to loadNoteList()
 // - event listener on note-prev/next to navigate between several notes (maybe like a swiping animation)
 // - focus to edit project name on sidebar on click of add new project
+// - add delete button for project (side popup on hover?)
 // - low prio: change caret-color (caret block like vim???)/text selection color using ::selection
 
 import { defaultProject, dir, callLocalStorage } from "./factories.js";
