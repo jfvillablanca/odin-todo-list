@@ -9,7 +9,7 @@
 // / Fix multiple logging of events onclick of project-item star
 // / highlight note-duedate on click on note-duedate__date
 // / write to local storage on current state
-// - read from local storage to render DOM
+// / read from local storage to render DOM
 // - remove all filler data
 // - Fix note-view-description text alignment, currently using center???
 // - event listener on note-back-to-list to navigate back to loadNoteList()
@@ -132,18 +132,24 @@ const PubSub = require("vanilla-pubsub");
     addNewProject();
   });
 
-  (function readFromDirectory() {
-    const projects = dir.getProjectList();
-    projects.map((project) => {
-      callLocalStorage().set("project", project.get("id"), project);
-      PubSub.publish("new-project-to-DOM", {
-        projectID: project.get("id"),
-        projectName: project.get("name"),
-        projectStar: project.get("isStarred"),
-        projectNoteCount: project.get("notes").length,
-      });
-    });
+  (function checkForDefaultProject() {
+    if (callLocalStorage().get("project", "_default_") === null) {
+      callLocalStorage().set(
+        "project",
+        defaultProject.get("id"),
+        defaultProject
+      );
+    } else {
+      readFromStorage();
+    }
   })();
+
+  function readFromStorage() {
+    const projects = callLocalStorage().getProjects();
+    projects.map((project) => {
+      PubSub.publish("new-project-to-DOM", project);
+    });
+  }
 
   // Filler data:
 
