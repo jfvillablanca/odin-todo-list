@@ -154,7 +154,7 @@ const PubSub = require("vanilla-pubsub");
       callLocalStorage().set(
         "project",
         defaultProject.get("id"),
-        defaultProject
+        getProjectDetails(defaultProject)
       );
     } else {
       readFromStorage();
