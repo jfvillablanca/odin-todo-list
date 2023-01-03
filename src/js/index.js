@@ -41,7 +41,7 @@ const PubSub = require("vanilla-pubsub");
 
   // NOTE: Event Listeners
   addProjectButton.addEventListener("click", () => {
-    PubSub.publish("push-new-project-to-DOM");
+    PubSub.publish("push-project-to-storage");
   });
 
   // NOTE: PubSub
@@ -50,7 +50,7 @@ const PubSub = require("vanilla-pubsub");
     updateToolTip(obj.projectID, obj.projectName, obj.projectNoteCount);
   });
 
-  PubSub.subscribe("new-project-to-DOM", (obj) => {
+  PubSub.subscribe("insert-project-to-DOM", (obj) => {
     const newProjectDOMLI = projItemLI(
       obj.projectName,
       obj.projectNoteCount,
@@ -103,7 +103,7 @@ const PubSub = require("vanilla-pubsub");
 
 (function storageLogic() {
   // NOTE: PubSub
-  PubSub.subscribe("push-new-project-to-DOM", () => {
+  PubSub.subscribe("push-project-to-storage", () => {
     addNewProject();
   });
 
@@ -111,7 +111,7 @@ const PubSub = require("vanilla-pubsub");
   const readFromStorage = () => {
     const projectsDetailsForDOM = callLocalStorage().getProjects();
     projectsDetailsForDOM.map((projectDetailsForDOM) => {
-      PubSub.publish("new-project-to-DOM", projectDetailsForDOM);
+      PubSub.publish("insert-project-to-DOM", projectDetailsForDOM);
     });
   };
 
@@ -140,11 +140,11 @@ const PubSub = require("vanilla-pubsub");
   };
 
   const addNewProject = () => {
-      const projectInstance = dir.addProject();
+    const projectInstance = dir.addProject();
 
-      PubSub.publish("new-project-to-DOM", getProjectDetails(projectInstance));
-      writeToStorage("project", getProjectDetails(projectInstance));
-    };
+    PubSub.publish("insert-project-to-DOM", getProjectDetails(projectInstance));
+    writeToStorage("project", getProjectDetails(projectInstance));
+  };
 
   const writeToStorage = (instanceType, instanceDetails) => {
     let id;
