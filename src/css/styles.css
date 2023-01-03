@@ -440,6 +440,10 @@ body {
   grid-area: date;
 }
 
+.note-duedate__date:focus-visible {
+  outline: none;
+}
+
 .note-project {
   grid-area: fold;
 }
@@ -454,6 +458,13 @@ body {
 
   align-items: start;
   grid-area: desc;
+}
+
+.note-duedate.focused,
+.note-name:focus-visible,
+.note-project:focus-visible,
+.note-description:focus-visible {
+  outline: solid var(--color-orange);
 }
 
 .note-button-warning {

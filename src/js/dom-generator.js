@@ -149,8 +149,21 @@ export const loadNoteView = () => {
   noteDueDateInput.setAttribute("type", "date");
   const noteDueDate = document.createElement("div");
   noteDueDate.classList.add("note-duedate");
-  noteDueDate.setAttribute("contenteditable", "true");
+  // noteDueDate.setAttribute("contenteditable", "true");
   noteDueDate.appendChild(noteDueDateInput);
+
+  // HACK: Need refactor: possible problems with multiple attached event listeners
+  noteDueDateInput.addEventListener("click", () => {
+    noteDueDate.classList.add("focused");
+  });
+  noteDueDateInput.addEventListener("input", (event) => {
+    noteDueDate.classList.remove("focused");
+    console.log(event.target.valueAsDate);
+  });
+  noteDueDateInput.addEventListener("focusout", () => {
+    noteDueDate.classList.remove("focused");
+    // console.log(event.target.valueAsDate);
+  });
 
   // NOTE: noteProject
   const noteProjectText = document.createElement("div");
