@@ -19,12 +19,21 @@ export const callLocalStorage = () => {
     return JSON.parse(localStorage.getItem(`${instance}${id}`));
   };
 
+  const getProjects = () => {
+    const projects = [];
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+      projects.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    }
+    return projects;
+  };
+
   const remove = (instance, id) => {
     localStorage.removeItem(`${instance}${id}`);
   };
   return {
     set,
     get,
+    getProjects,
     remove,
   };
 };
