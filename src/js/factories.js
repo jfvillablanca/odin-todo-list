@@ -11,8 +11,15 @@ const generateID = () =>
   "_" + (Math.random() + 1).toString(36).substring(2) + "_";
 
 export const callLocalStorage = () => {
+  const now = new Date();
+
   const set = (instanceType, id, value) => {
-    localStorage.setItem(`${instanceType}${id}`, JSON.stringify(value));
+    const store = {
+      value,
+      timestamp: now.getTime(),
+    };
+    console.log(`set: ${id} ${store.timestamp}`);
+    localStorage.setItem(`${instanceType}${id}`, JSON.stringify(store));
   };
 
   const get = (instanceType, id) => {
