@@ -30,11 +30,17 @@ export const callLocalStorage = () => {
   const remove = (instanceType, id) => {
     localStorage.removeItem(`${instanceType}${id}`);
   };
+
+  const isEmpty = () => {
+    return localStorage.length === 0;
+  };
+
   return {
     set,
     get,
     getProjects,
     remove,
+    isEmpty,
   };
 };
 

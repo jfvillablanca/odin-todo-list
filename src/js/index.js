@@ -149,16 +149,14 @@ const PubSub = require("vanilla-pubsub");
 
   // NOTE: Check if local storage exists
   (function checkForDefaultProject() {
-    // FIXME: Refactor checking logic, make this more maintainable
-    if (callLocalStorage().get("project", "_default_") === null) {
+    if (callLocalStorage().isEmpty()) {
       callLocalStorage().set(
         "project",
         defaultProject.get("id"),
         getProjectDetails(defaultProject)
       );
-    } else {
-      readFromStorage();
     }
+    readFromStorage();
   })();
 
   // WARN: Filler data:
