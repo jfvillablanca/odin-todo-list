@@ -110,6 +110,7 @@ const PubSub = require("vanilla-pubsub");
     const projectID = project.get("id");
     const projectName = project.get("name");
     const projectNoteCount = project.get("notes").length;
+    // FIXME: Refactor me: Check what details are needed for DOM
     PubSub.publish("new-note-to-project", {
       project,
       projectID,
