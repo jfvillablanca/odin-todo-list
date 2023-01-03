@@ -96,23 +96,23 @@ const PubSub = require("vanilla-pubsub");
 })();
 
 (function storageLogic() {
-  const getProjectDetails = (projInstance) => {
+  const getProjectDetails = (projectInstance) => {
     return {
-      projectID: projInstance.get("id"),
-      projectName: projInstance.get("name"),
-      projectStar: projInstance.get("isStarred"),
-      projectNoteCount: projInstance.get("notes").length,
+      projectID: projectInstance.get("id"),
+      projectName: projectInstance.get("name"),
+      projectStar: projectInstance.get("isStarred"),
+      projectNoteCount: projectInstance.get("notes").length,
     };
   };
 
-  const addNewNote = (project) => {
-    const newNote = project.addNewTodo();
-    const projectID = project.get("id");
-    const projectName = project.get("name");
-    const projectNoteCount = project.get("notes").length;
+  const addNewNote = (projectInstance) => {
+    const newNote = projectInstance.addNewTodo();
+    const projectID = projectInstance.get("id");
+    const projectName = projectInstance.get("name");
+    const projectNoteCount = projectInstance.get("notes").length;
     // FIXME: Refactor me: Check what details are needed for DOM
     PubSub.publish("new-note-to-project", {
-      project,
+      projectInstance,
       projectID,
       projectName,
       projectNoteCount,
@@ -121,12 +121,12 @@ const PubSub = require("vanilla-pubsub");
   };
 
   const addNewProject = ({ name = "Project Name", isStarred = false } = {}) => {
-    const newProject = dir.addProject();
-    newProject.set("name", name);
-    newProject.set("isStarred", isStarred);
+    const projectInstance = dir.addProject();
+    projectInstance.set("name", name);
+    projectInstance.set("isStarred", isStarred);
 
-    PubSub.publish("new-project-to-DOM", getProjectDetails(newProject));
-    return newProject;
+    PubSub.publish("new-project-to-DOM", getProjectDetails(projectInstance));
+    return projectInstance;
   };
 
   PubSub.subscribe("push-new-project-to-DOM", () => {
@@ -146,9 +146,9 @@ const PubSub = require("vanilla-pubsub");
   })();
 
   function readFromStorage() {
-    const projects = callLocalStorage().getProjects();
-    projects.map((project) => {
-      PubSub.publish("new-project-to-DOM", project);
+    const projectsDetailsForDOM = callLocalStorage().getProjects();
+    projectsDetailsForDOM.map((projectDetailsForDOM) => {
+      PubSub.publish("new-project-to-DOM", projectDetailsForDOM);
     });
   }
 
