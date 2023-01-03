@@ -144,7 +144,15 @@ const PubSub = require("vanilla-pubsub");
     projectInstance.set("isStarred", isStarred);
 
     PubSub.publish("new-project-to-DOM", getProjectDetails(projectInstance));
-    return projectInstance;
+    writeToStorage("project", getProjectDetails(projectInstance));
+  };
+
+  const writeToStorage = (instanceType, instanceDetails) => {
+    let id;
+    if (instanceType === "project") {
+      id = instanceDetails.projectID;
+    }
+    callLocalStorage().set(instanceType, id, instanceDetails);
   };
 
   // NOTE: Check if local storage exists
