@@ -106,26 +106,13 @@ const PubSub = require("vanilla-pubsub");
     addNewProject();
   });
 
-  // NOTE: Check if local storage exists
-  (function checkForDefaultProject() {
-    if (callLocalStorage().get("project", "_default_") === null) {
-      callLocalStorage().set(
-        "project",
-        defaultProject.get("id"),
-        defaultProject
-      );
-    } else {
-      readFromStorage();
-    }
-  })();
-
   // NOTE: Storage functions
-  function readFromStorage() {
+  const readFromStorage = () => {
     const projectsDetailsForDOM = callLocalStorage().getProjects();
     projectsDetailsForDOM.map((projectDetailsForDOM) => {
       PubSub.publish("new-project-to-DOM", projectDetailsForDOM);
     });
-  }
+  };
 
   const getProjectDetails = (projectInstance) => {
     return {
@@ -159,6 +146,20 @@ const PubSub = require("vanilla-pubsub");
     PubSub.publish("new-project-to-DOM", getProjectDetails(projectInstance));
     return projectInstance;
   };
+
+  // NOTE: Check if local storage exists
+  (function checkForDefaultProject() {
+    // FIXME: Refactor checking logic, make this more maintainable
+    if (callLocalStorage().get("project", "_default_") === null) {
+      callLocalStorage().set(
+        "project",
+        defaultProject.get("id"),
+        defaultProject
+      );
+    } else {
+      readFromStorage();
+    }
+  })();
 
   // WARN: Filler data:
 
