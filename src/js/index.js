@@ -96,6 +96,15 @@ const PubSub = require("vanilla-pubsub");
 })();
 
 (function storageLogic() {
+  const getProjectDetails = (projInstance) => {
+    return {
+      projectID: projInstance.get("id"),
+      projectName: projInstance.get("name"),
+      projectStar: projInstance.get("isStarred"),
+      projectNoteCount: projInstance.get("notes").length,
+    };
+  };
+
   const addNewNote = (project) => {
     const newNote = project.addNewTodo();
     const projectID = project.get("id");
@@ -115,16 +124,7 @@ const PubSub = require("vanilla-pubsub");
     newProject.set("name", name);
     newProject.set("isStarred", isStarred);
 
-    const projectID = newProject.get("id");
-    const projectName = newProject.get("name");
-    const projectStar = newProject.get("isStarred");
-    const projectNoteCount = newProject.get("notes").length;
-    PubSub.publish("new-project-to-DOM", {
-      projectID,
-      projectName,
-      projectStar,
-      projectNoteCount,
-    });
+    PubSub.publish("new-project-to-DOM", getProjectDetails(newProject));
     return newProject;
   };
 
