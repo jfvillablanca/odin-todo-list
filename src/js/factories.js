@@ -10,6 +10,27 @@
 const generateID = () =>
   "_" + (Math.random() + 1).toString(36).substring(2) + "_";
 
+export const callLocalStorage = () => {
+  const set = (instance, id, value) => {
+    localStorage.setItem(`${instance}${id}`, value);
+  };
+
+  const get = (instance, id) => {
+    const key = `${instance}_${id}`;
+    localStorage.getItem(key);
+  };
+
+  const remove = (instance, id) => {
+    const key = `${instance}_${id}`;
+    localStorage.removeItem(key);
+  };
+  return {
+    set,
+    get,
+    remove,
+  };
+};
+
 function DirectoryUtils() {
   const projectDirectory = [];
 

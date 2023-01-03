@@ -8,7 +8,7 @@
 // / PubSub add classlist starred on new projects
 // / Fix multiple logging of events onclick of project-item star
 // / highlight note-duedate on click on note-duedate__date
-// - write to local storage on current state
+// / write to local storage on current state
 // - read from local storage to render DOM
 // - remove all filler data
 // - Fix note-view-description text alignment, currently using center???
@@ -16,7 +16,7 @@
 // - event listener on note-prev/next to navigate between several notes (maybe like a swiping animation)
 // - focus to edit project name on sidebar on click of add new project
 
-import { defaultProject, dir } from "./factories.js";
+import { defaultProject, dir, callLocalStorage } from "./factories.js";
 import {
   projItemLI,
   noteItemLI,
@@ -134,6 +134,7 @@ const PubSub = require("vanilla-pubsub");
   (function readFromDirectory() {
     const projects = dir.getProjectList();
     projects.map((project) => {
+      callLocalStorage().set("project", project.get("id"), project);
       PubSub.publish("new-project-to-DOM", {
         projectID: project.get("id"),
         projectName: project.get("name"),
