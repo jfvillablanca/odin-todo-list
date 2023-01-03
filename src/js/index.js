@@ -88,6 +88,8 @@ const PubSub = require("vanilla-pubsub");
 
   const appendToProjectList = (newProjectDOMLI) => {
     projectList.append(newProjectDOMLI);
+    changeProjectStarOpacity();
+    starListeners();
   };
 })();
 
@@ -158,5 +160,5 @@ const PubSub = require("vanilla-pubsub");
 
   addNewNote(project2);
 })();
-changeProjectStarOpacity();
-starListeners();
+// changeProjectStarOpacity();
+// starListeners();
