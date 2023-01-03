@@ -158,16 +158,4 @@ const PubSub = require("vanilla-pubsub");
   addNewNote(defaultProject);
   addNewNote(defaultProject);
   addNewNote(defaultProject);
-
-  const project1 = addNewProject({ name: "Work" });
-  const project2 = addNewProject({ name: "Personal" });
-
-  addNewNote(project1);
-  addNewNote(project1);
-  addNewNote(project1);
-  addNewNote(project1);
-
-  addNewNote(project2);
 })();
-// changeProjectStarOpacity();
-// starListeners();
