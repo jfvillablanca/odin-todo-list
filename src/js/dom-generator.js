@@ -24,7 +24,7 @@ export const formatDueDate = (dueDate) => {
   )}`;
 };
 
-export const projItemLI = (itemText, itemNumber, itemStarStatus) => {
+export const projItemLI = (itemName, itemNoteCount, itemStarStatus) => {
   const projectItemStar = document.createElement("img");
   projectItemStar.classList.add("project-item-star");
   projectItemStar.classList.add("listen-to-stars");
@@ -36,25 +36,25 @@ export const projItemLI = (itemText, itemNumber, itemStarStatus) => {
   projectItemColor.classList.add("project-item-color");
   // Add dynamic id assignment
 
-  const projectItemText = document.createElement("div");
-  projectItemText.classList.add("project-item-text");
-  projectItemText.textContent = itemText || "New Project";
+  const projectItemName = document.createElement("div");
+  projectItemName.classList.add("project-item-text");
+  projectItemName.textContent = itemName || "New Project";
 
-  const projectItemNum = document.createElement("div");
-  projectItemNum.classList.add("project-item-number");
-  projectItemNum.textContent = itemNumber || "0";
+  const projectItemNoteCount = document.createElement("div");
+  projectItemNoteCount.classList.add("project-item-number");
+  projectItemNoteCount.textContent = itemNoteCount || "0";
 
   const projectItemTooltip = document.createElement("div");
   projectItemTooltip.classList.add("tooltip");
-  projectItemTooltip.textContent = `${itemText} | ${itemNumber}`;
+  projectItemTooltip.textContent = `${itemName} | ${itemNoteCount}`;
 
   const projectItem = document.createElement("li");
   projectItem.setAttribute("data-id", "");
   projectItem.classList.add("project-item");
   projectItem.appendChild(projectItemStar);
   projectItem.appendChild(projectItemColor);
-  projectItem.appendChild(projectItemText);
-  projectItem.appendChild(projectItemNum);
+  projectItem.appendChild(projectItemName);
+  projectItem.appendChild(projectItemNoteCount);
   projectItem.appendChild(projectItemTooltip);
 
   return projectItem;
