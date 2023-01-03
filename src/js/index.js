@@ -36,10 +36,12 @@ const PubSub = require("vanilla-pubsub");
     ".project-add .add-item-icon"
   );
 
+  // NOTE: Event Listeners
   addProjectButton.addEventListener("click", () => {
     PubSub.publish("push-new-project-to-DOM");
   });
 
+  // NOTE: PubSub
   PubSub.subscribe("new-note-to-project", (obj) => {
     updateProjectNoteCount(obj.projectID, obj.projectNoteCount);
     updateToolTip(obj.projectID, obj.projectName, obj.projectNoteCount);
@@ -57,6 +59,7 @@ const PubSub = require("vanilla-pubsub");
     generateProjectColor(obj.projectID);
   });
 
+  // NOTE: DOM Functions
   const generateProjectColor = (id) => {
     const colors = [
       "rgb(139, 233, 253)", // --color-cyan
