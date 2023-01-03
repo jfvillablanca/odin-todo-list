@@ -28,6 +28,7 @@ export const projItemLI = (itemName, itemNoteCount, itemStarStatus) => {
   const projectItemStar = document.createElement("img");
   projectItemStar.classList.add("project-item-star");
   projectItemStar.classList.add("listen-to-stars");
+  projectItemStar.setAttribute("draggable", "false");
   itemStarStatus
     ? projectItemStar.setAttribute("src", StarOn)
     : projectItemStar.setAttribute("src", StarOff);
@@ -65,6 +66,7 @@ export const noteItemLI = () => {
   const noteItemStar = document.createElement("img");
   noteItemStar.classList.add("note-item-star");
   noteItemStar.classList.add("listen-to-stars");
+  noteItemStar.setAttribute("draggable", "false");
 
   // NOTE: noteItemName
   const noteItemName = document.createElement("div");
@@ -161,6 +163,7 @@ export const loadNoteView = () => {
   // NOTE: noteStarToggle -> set src attrib on fetch from storageLogic()
   const noteStarToggleImg = document.createElement("img");
   noteStarToggleImg.classList.add("note-startoggle__star");
+  noteStarToggleImg.setAttribute("draggable", "false");
   const noteStarToggle = document.createElement("div");
   noteStarToggle.classList.add("note-startoggle");
   noteStarToggle.classList.add("listen-to-stars");
@@ -207,6 +210,7 @@ const loadSidebar = () => {
   logoNameContainer.classList.add("logo-name");
 
   const logoIcon = document.createElement("img");
+  logoIcon.setAttribute("draggable", "false");
   logoIcon.classList.add("logo-name__icon");
   logoIcon.setAttribute("src", LogoIcon);
   logoIcon.setAttribute("alt", "todo logo");
@@ -219,11 +223,13 @@ const loadSidebar = () => {
   expandIcon.classList.add("expand__icon");
   expandIcon.setAttribute("src", ExpandIcon);
   expandIcon.setAttribute("alt", "expand sidebar");
+  expandIcon.setAttribute("draggable", "false");
 
   const collapseIcon = document.createElement("img");
   collapseIcon.classList.add("collapse__icon");
   collapseIcon.setAttribute("src", CollapseIcon);
   collapseIcon.setAttribute("alt", "collapse sidebar");
+  collapseIcon.setAttribute("draggable", "false");
 
   logoNameContainer.appendChild(logoIcon);
   logoNameContainer.appendChild(logoName);
@@ -245,6 +251,7 @@ const loadSidebar = () => {
   const projectAddButtonImg = document.createElement("img");
   projectAddButtonImg.classList.add("add-item-icon");
   projectAddButtonImg.setAttribute("src", AddIcon);
+  projectAddButtonImg.setAttribute("draggable", "false");
   projectAddButton.appendChild(projectAddButtonImg);
 
   // NOTE: projectSidebar
