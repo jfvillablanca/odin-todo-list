@@ -11,12 +11,12 @@ const generateID = () =>
   "_" + (Math.random() + 1).toString(36).substring(2) + "_";
 
 export const callLocalStorage = () => {
-  const set = (instance, id, value) => {
-    localStorage.setItem(`${instance}${id}`, JSON.stringify(value));
+  const set = (instanceType, id, value) => {
+    localStorage.setItem(`${instanceType}${id}`, JSON.stringify(value));
   };
 
-  const get = (instance, id) => {
-    return JSON.parse(localStorage.getItem(`${instance}${id}`));
+  const get = (instanceType, id) => {
+    return JSON.parse(localStorage.getItem(`${instanceType}${id}`));
   };
 
   const getProjects = () => {
@@ -27,8 +27,8 @@ export const callLocalStorage = () => {
     return projects;
   };
 
-  const remove = (instance, id) => {
-    localStorage.removeItem(`${instance}${id}`);
+  const remove = (instanceType, id) => {
+    localStorage.removeItem(`${instanceType}${id}`);
   };
   return {
     set,
