@@ -15,6 +15,7 @@
 // - event listener on note-back-to-list to navigate back to loadNoteList()
 // - event listener on note-prev/next to navigate between several notes (maybe like a swiping animation)
 // - focus to edit project name on sidebar on click of add new project
+// - low prio: change caret-color (caret block like vim???)/text selection color using ::selection
 
 import { defaultProject, dir, callLocalStorage } from "./factories.js";
 import {
