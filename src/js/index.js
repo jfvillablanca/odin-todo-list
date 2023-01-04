@@ -21,6 +21,7 @@
 // - Fix note-view-description text alignment, currently using center???
 // - focus to edit project name on sidebar on click of add new project
 // - add delete button for project (side popup on hover?)
+// - add project-item-color to local storage
 // - low prio: change caret-color (caret block like vim???)/text selection color using ::selection
 
 import { defaultProject, dir, callLocalStorage } from "./factories.js";
