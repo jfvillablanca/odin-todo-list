@@ -25,6 +25,7 @@
   --color-background-blk: rgb(31, 31, 31);
   --color-background: rgb(40, 42, 54);
   --color-background-alt: rgb(68, 71, 90);
+  --color-background-selected: rgb(89, 93, 118);
   --color-foreground: rgb(248, 248, 242);
   --color-button: rgb(183, 206, 206);
   --color-comment: rgb(98, 114, 164);
@@ -164,6 +165,10 @@ body {
   grid-template-columns: min-content min-content 3fr 1fr;
   align-items: center;
   gap: 2rem;
+}
+
+.project-item.selected {
+  background-color: var(--color-background-selected);
 }
 
 .project-list :first-child > .project-item-color {
