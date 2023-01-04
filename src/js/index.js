@@ -49,9 +49,16 @@ const PubSub = require("vanilla-pubsub");
   });
 
   // NOTE: PubSub
-  PubSub.subscribe("new-note-to-project", (obj) => {
-    updateProjectNoteCount(obj.projectID, obj.projectNoteCount);
-    updateToolTip(obj.projectID, obj.projectName, obj.projectNoteCount);
+  PubSub.subscribe("new-note-to-project", (projectInstance) => {
+    updateProjectNoteCount(
+      projectInstance.projectID,
+      projectInstance.projectNoteCount
+    );
+    updateToolTip(
+      projectInstance.projectID,
+      projectInstance.projectName,
+      projectInstance.projectNoteCount
+    );
   });
 
   PubSub.subscribe("insert-project-to-DOM", (obj) => {
