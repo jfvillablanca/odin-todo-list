@@ -50,7 +50,7 @@ const PubSub = require("vanilla-pubsub");
   });
 
   // NOTE: PubSub
-  PubSub.subscribe("new-note-to-project", (projectDetails) => {
+  PubSub.subscribe("insert-to-DOM-note-list", (projectDetails) => {
     updateProjectNoteCount(
       projectDetails.projectID,
       projectDetails.projectNoteCount
@@ -159,7 +159,7 @@ const PubSub = require("vanilla-pubsub");
     const projectName = projectInstance.get("name");
     const projectNoteCount = projectInstance.get("notes").length;
     // FIXME: Refactor me: Check what details are needed for DOM
-    PubSub.publish("new-note-to-project", {
+    PubSub.publish("insert-to-DOM-note-list", {
       projectInstance,
       projectID,
       projectName,
