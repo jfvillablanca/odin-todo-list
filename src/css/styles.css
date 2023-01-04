@@ -273,6 +273,8 @@ body {
 }
 
 .project-sidebar.collapse .logo-name {
+  margin-left: 0;
+  margin-right: 0;
   max-width: var(--dims-sidebar-collapsed-width);
   display: grid;
   grid-template-columns: 1fr;
