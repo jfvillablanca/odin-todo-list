@@ -184,10 +184,10 @@ const starToggle = (instance) => ({
 
 const noteCreator = (instance) => ({
   addNewTodo: ({
-    name = "What are you trying to accomplish today?",
+    name = "New task",
     dueDate = new Date(Date.now()),
     priority = "low",
-    description = "Feel free to describe :)",
+    description = "What are you trying to accomplish today?",
     isStarred = false,
     isCompleted = false,
     project = instance,
