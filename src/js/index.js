@@ -52,17 +52,27 @@ const PubSub = require("vanilla-pubsub");
   });
 
   // NOTE: PubSub
-  PubSub.subscribe("insert-to-DOM-note-list", (projectDetails) => {
-    updateProjectNoteCount(
-      projectDetails.projectID,
-      projectDetails.projectNoteCount
-    );
-    updateToolTip(
-      projectDetails.projectID,
-      projectDetails.projectName,
-      projectDetails.projectNoteCount
-    );
-  });
+  PubSub.subscribe(
+    "insert-to-DOM-note-list",
+    ([projectDetails, todoDetails]) => {
+      const newTodoDOMLI = noteItemLI(
+        todoDetails.todoName,
+        formatDueDate(todoDetails.todoDueDate),
+        todoDetails.todoPriority,
+        todoDetails.todoIsStarred
+      );
+      updateProjectNoteCount(
+        projectDetails.projectID,
+        projectDetails.projectNoteCount
+      );
+      updateToolTip(
+        projectDetails.projectID,
+        projectDetails.projectName,
+        projectDetails.projectNoteCount
+      );
+      appendToNoteList(newTodoDOMLI);
+    }
+  );
 
   PubSub.subscribe("insert-project-to-DOM", (obj) => {
     const newProjectDOMLI = projItemLI(
