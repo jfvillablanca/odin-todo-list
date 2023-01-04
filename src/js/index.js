@@ -30,6 +30,7 @@ import {
   noteListSelector,
   projItemLI,
   noteItemLI,
+  formatDueDate,
   changeProjectStarOpacity,
   starListeners,
 } from "./dom-generator.js";
