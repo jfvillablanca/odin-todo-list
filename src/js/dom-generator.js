@@ -236,6 +236,7 @@ export const noteListSelector = () => {
 export const projectListSelector = () => {
   return document.querySelector(".project-list");
 };
+
 const loadSidebar = () => {
   // NOTE: Logo Name
   const logoNameContainer = document.createElement("div");
