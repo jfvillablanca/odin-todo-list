@@ -11,6 +11,7 @@ import ExpandIcon from "../images/chevrons-right.svg";
 import CollapseIcon from "../images/chevrons-left.svg";
 import StarOn from "../images/star-clicked.svg";
 import StarOff from "../images/star.svg";
+const PubSub = require("vanilla-pubsub");
 
 export const formatDueDate = (dueDate) => {
   const options = {
@@ -341,11 +342,19 @@ const clickEvent = (event) => {
   }
   // NOTE: For project-item-star
   if ([...starElement.classList].includes("project-item-star")) {
+    let status;
+    const projectID = starElement.offsetParent.getAttribute("data-id");
     if (starElement.getAttribute("src") === StarOn) {
       starElement.classList.remove("starred");
+      status = false;
     } else if (starElement.getAttribute("src") === StarOff) {
       starElement.classList.add("starred");
+      status = true;
     }
+    PubSub.publish("toggle-project-star", {
+      status,
+      projectID,
+    });
   }
   starToggle(event.target);
 };
