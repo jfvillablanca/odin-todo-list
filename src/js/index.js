@@ -165,7 +165,7 @@ const PubSub = require("vanilla-pubsub");
   };
 
   const addNewNote = (projectInstance) => {
-    const newNote = projectInstance.addNewTodo();
+    const newTodoInstance = projectInstance.addNewTodo();
     const projectID = projectInstance.get("id");
     const projectName = projectInstance.get("name");
     const projectNoteCount = projectInstance.get("notes").length;
@@ -175,8 +175,9 @@ const PubSub = require("vanilla-pubsub");
       projectID,
       projectName,
       projectNoteCount,
-      newNote,
+      newTodoInstance,
     });
+    writeToStorage("todo", getTodoDetails(newTodoInstance));
   };
 
   const addNewProject = () => {
