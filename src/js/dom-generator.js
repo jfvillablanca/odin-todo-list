@@ -334,21 +334,18 @@ export const changeProjectStarOpacity = () => {
 };
 
 const clickEvent = (event) => {
+  const starElement = event.target;
   // NOTE: For note-startoggle__star
-  if (event.target.tagName === "DIV") {
-    starToggle(event.target.firstChild);
+  if (starElement.tagName === "DIV") {
+    starToggle(starElement.firstChild);
   }
   // NOTE: For project-item-star
-  if (
-    [...event.target.classList].includes("project-item-star") &&
-    event.target.getAttribute("src") === StarOn
-  ) {
-    event.target.classList.remove("starred");
-  } else if (
-    [...event.target.classList].includes("project-item-star") &&
-    event.target.getAttribute("src") === StarOff
-  ) {
-    event.target.classList.add("starred");
+  if ([...starElement.classList].includes("project-item-star")) {
+    if (starElement.getAttribute("src") === StarOn) {
+      starElement.classList.remove("starred");
+    } else if (starElement.getAttribute("src") === StarOff) {
+      starElement.classList.add("starred");
+    }
   }
   starToggle(event.target);
 };
