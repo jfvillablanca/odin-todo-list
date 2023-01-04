@@ -153,6 +153,19 @@ const PubSub = require("vanilla-pubsub");
     );
   });
 
+  PubSub.subscribe(
+    "push-todoID-to-project-array",
+    ([projectID, todoDetails]) => {
+      const storedState = callLocalStorage().get("project", projectID);
+      const storedNoteIDs = storedState.projectNoteIDs;
+      storedNoteIDs.push(todoDetails.todoID);
+      const updatedState = Object.assign({}, storedState, {
+        projectNoteIDs: storedNoteIDs,
+      });
+      callLocalStorage().set("project", projectID, updatedState, true);
+    }
+  );
+
   // NOTE: Storage functions
   const readFromStorage = () => {
     const projectsDetailsForDOM = callLocalStorage().getProjects();
