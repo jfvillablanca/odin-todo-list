@@ -16,7 +16,7 @@
 // - read/write todonote instances to local storage
 // - event listener on note-back-to-list to navigate back to loadNoteList()
 // - event listener on note-prev/next to navigate between several notes (maybe like a swiping animation)
-// - remove all filler data
+// * remove all filler data (partial: remaining is addNewNote in index and noteView())
 // / fix project getProjects() at factories.js
 // - Fix note-view-description text alignment, currently using center???
 // - focus to edit project name on sidebar on click of add new project

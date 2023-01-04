@@ -93,13 +93,6 @@ export const noteItemLI = (
   noteItemPriority.classList.add(itemPriority);
   noteItemPriority.textContent = itemPriority;
 
-  // WARN: Debugging
-  noteItemStar.setAttribute("src", StarOff);
-  // WARN: Filler data
-  noteItemName.textContent = "TODO ME";
-  noteItemDueDate.textContent = formatDueDate(Date.now());
-  noteItemPriority.textContent = "low";
-
   const noteItem = document.createElement("li");
   noteItem.classList.add("note-item");
   noteItem.appendChild(noteItemStar);
@@ -115,11 +108,6 @@ const loadNoteList = () => {
   const noteList = document.createElement("ul");
   noteList.classList.add("note-list");
 
-  // WARN: Filler data
-  noteList.appendChild(noteItemLI());
-  noteList.appendChild(noteItemLI());
-  noteList.appendChild(noteItemLI());
-  noteList.appendChild(noteItemLI());
 
   return noteList;
 };
