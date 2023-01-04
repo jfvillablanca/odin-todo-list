@@ -43,9 +43,11 @@ export const callLocalStorage = () => {
   const getProjects = () => {
     const unsortedProjects = [];
     for (let i = 0; i < localStorage.length; i++) {
-      unsortedProjects.push(
-        JSON.parse(localStorage.getItem(localStorage.key(i)))
-      );
+      if (localStorage.key(i).substring(0, "project".length) === "project") {
+        unsortedProjects.push(
+          JSON.parse(localStorage.getItem(localStorage.key(i)))
+        );
+      }
     }
     return sortByTimestamp(unsortedProjects);
   };
