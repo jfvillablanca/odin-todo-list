@@ -107,6 +107,22 @@ const PubSub = require("vanilla-pubsub");
     addNewProject();
   });
 
+  PubSub.subscribe("toggle-project-star", (stateChange) => {
+    // WARN: Should I store exclusively on local storage or add to program heap also???
+    // FIXME: starStatus persist but order of items do not??? troubleshoot by displaying name by integer/timestamp
+    const storedState = callLocalStorage().get(
+      "project",
+      stateChange.projectID
+    );
+    const updatedState = Object.assign({}, storedState, {
+      projectStar: stateChange.status,
+    });
+    callLocalStorage().set(
+      "project",
+      updatedState.projectID,
+      updatedState
+    );
+  });
   // NOTE: Storage functions
   const readFromStorage = () => {
     const projectsDetailsForDOM = callLocalStorage().getProjects();
