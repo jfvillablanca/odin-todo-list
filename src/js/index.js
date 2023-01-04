@@ -150,6 +150,17 @@ const PubSub = require("vanilla-pubsub");
       projectName: projectInstance.get("name"),
       projectStar: projectInstance.get("isStarred"),
       projectNoteCount: projectInstance.get("notes").length,
+
+  const getTodoDetails = (todoInstance) => {
+    return {
+      todoID: todoInstance.get("id"),
+      todoName: todoInstance.get("name"),
+      todoDueDate: todoInstance.get("dueDate"),
+      todoPriority: todoInstance.get("priority"),
+      todoDescription: todoInstance.get("description"),
+      todoIsStarred: todoInstance.get("isStarred"),
+      todoIsCompleted: todoInstance.get("isCompleted"),
+      todoProjectID: todoInstance.get("project").get("id"),
     };
   };
 
