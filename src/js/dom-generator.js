@@ -62,25 +62,36 @@ export const projItemLI = (itemName, itemNoteCount, itemStarStatus) => {
   return projectItem;
 };
 
-export const noteItemLI = () => {
+export const noteItemLI = (
+  itemName,
+  itemDueDate,
+  itemPriority,
+  itemStarStatus
+) => {
   // NOTE: noteItemStar -> set src attrib on fetch from storageLogic()
   const noteItemStar = document.createElement("img");
   noteItemStar.classList.add("note-item-star");
   noteItemStar.classList.add("listen-to-stars");
   noteItemStar.setAttribute("draggable", "false");
+  itemStarStatus
+    ? noteItemStar.setAttribute("src", StarOn)
+    : noteItemStar.setAttribute("src", StarOff);
 
   // NOTE: noteItemName
   const noteItemName = document.createElement("div");
   noteItemName.classList.add("note-item-name");
+  noteItemName.textContent = itemName;
 
   // NOTE: noteItemDueDate
   const noteItemDueDate = document.createElement("div");
   noteItemDueDate.classList.add("note-item-duedate");
+  noteItemDueDate.textContent = itemDueDate;
 
   // NOTE: noteItemDuePriority
   const noteItemPriority = document.createElement("div");
   noteItemPriority.classList.add("note-item-priority");
-  noteItemPriority.classList.add("low");
+  noteItemPriority.classList.add(itemPriority);
+  noteItemPriority.textContent = itemPriority;
 
   // WARN: Debugging
   noteItemStar.setAttribute("src", StarOff);
