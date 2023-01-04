@@ -124,6 +124,10 @@ const PubSub = require("vanilla-pubsub");
     changeProjectStarOpacity();
     starListeners();
   };
+
+  const appendToNoteList = (newTodoDOMLI) => {
+    noteListSelector().append(newTodoDOMLI);
+  };
 })();
 
 (function storageLogic() {
