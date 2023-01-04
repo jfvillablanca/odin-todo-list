@@ -13,9 +13,10 @@
 // / star persistence by reference to local storage
 // / display notes of defaultProject in noteList() (filler data)
 // / refactor pubsub add notes
-// / read/write todonote instances to local storage
+// / write todonote instances to local storage
 // / fix project getProjects() at factories.js
 // * remove all filler data (partial: remaining is addNewNote in index and noteView())
+// - read todonote from local storage and render to DOM
 // - create DOM state tracker
 // - event listener on note-back-to-list to navigate back to loadNoteList()
 // - event listener on note-prev/next to navigate between several notes (maybe like a swiping animation)
