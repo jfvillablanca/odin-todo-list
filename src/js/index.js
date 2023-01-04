@@ -161,6 +161,16 @@ const PubSub = require("vanilla-pubsub");
     });
   };
 
+  const writeToStorage = (instanceType, instanceDetails) => {
+    let id;
+    if (instanceType === "project") {
+      id = instanceDetails.projectID;
+    } else if (instanceType === "todo") {
+      id = instanceDetails.todoID;
+    }
+    callLocalStorage().set(instanceType, id, instanceDetails);
+  };
+
   const getProjectDetails = (projectInstance) => {
     return {
       projectID: projectInstance.get("id"),
@@ -199,16 +209,6 @@ const PubSub = require("vanilla-pubsub");
 
     PubSub.publish("insert-project-to-DOM", getProjectDetails(projectInstance));
     writeToStorage("project", getProjectDetails(projectInstance));
-  };
-
-  const writeToStorage = (instanceType, instanceDetails) => {
-    let id;
-    if (instanceType === "project") {
-      id = instanceDetails.projectID;
-    } else if (instanceType === "todo") {
-      id = instanceDetails.todoID;
-    }
-    callLocalStorage().set(instanceType, id, instanceDetails);
   };
 
   // NOTE: Check if local storage exists
