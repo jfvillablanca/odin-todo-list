@@ -55,12 +55,6 @@ const PubSub = require("vanilla-pubsub");
   PubSub.subscribe(
     "insert-to-DOM-note-list",
     ([projectDetails, todoDetails]) => {
-      const newTodoDOMLI = noteItemLI(
-        todoDetails.todoName,
-        formatDueDate(todoDetails.todoDueDate),
-        todoDetails.todoPriority,
-        todoDetails.todoIsStarred
-      );
       updateProjectNoteCount(
         projectDetails.projectID,
         projectDetails.projectNoteCount
@@ -70,7 +64,14 @@ const PubSub = require("vanilla-pubsub");
         projectDetails.projectName,
         projectDetails.projectNoteCount
       );
-      appendToNoteList(newTodoDOMLI);
+      appendToNoteList(
+        noteItemLI(
+          todoDetails.todoName,
+          formatDueDate(todoDetails.todoDueDate),
+          todoDetails.todoPriority,
+          todoDetails.todoIsStarred
+        )
+      );
     }
   );
 
