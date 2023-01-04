@@ -24,12 +24,14 @@ export const callLocalStorage = () => {
     return sortedProjects;
   };
 
-  const set = (instanceType, id, value) => {
+  const set = (instanceType, id, value, isUpdate = false) => {
+    // WARN: No error handling, if set() caller accidentally set argument isUpdate to true on non-existent item, will throw error?
     const store = {
       value,
-      timestamp: now.getTime(),
+      timestamp: !isUpdate
+        ? now.getTime()
+        : JSON.parse(localStorage.getItem(`${instanceType}${id}`)).timestamp,
     };
-    console.log(`set: ${id} ${store.timestamp}`);
     localStorage.setItem(`${instanceType}${id}`, JSON.stringify(store));
   };
 
