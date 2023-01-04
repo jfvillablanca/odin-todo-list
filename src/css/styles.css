@@ -152,6 +152,9 @@ body {
 }
 
 .project-item {
+  width: var(--dims-sidebar-width);
+  transition: width 0.5s ease;
+
   position: relative;
   padding: 0.9rem 2rem;
   line-height: 1.8rem;
@@ -282,7 +285,7 @@ body {
 }
 
 .project-sidebar.collapse .project-item {
-  max-width: var(--dims-sidebar-collapsed-width);
+  width: var(--dims-sidebar-collapsed-width);
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
