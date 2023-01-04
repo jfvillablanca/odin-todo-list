@@ -191,6 +191,8 @@ const PubSub = require("vanilla-pubsub");
     let id;
     if (instanceType === "project") {
       id = instanceDetails.projectID;
+    } else if (instanceType === "todo") {
+      id = instanceDetails.todoID;
     }
     callLocalStorage().set(instanceType, id, instanceDetails);
   };
