@@ -206,6 +206,10 @@ const PubSub = require("vanilla-pubsub");
 
   const addNewNote = (projectInstance) => {
     const newTodoInstance = projectInstance.addNewTodo();
+    PubSub.publish("push-todoID-to-project-array", [
+      projectInstance.get("id"),
+      getTodoDetails(newTodoInstance),
+    ]);
     PubSub.publish("insert-to-DOM-note-list", [
       {
         projectID: projectInstance.get("id"),
