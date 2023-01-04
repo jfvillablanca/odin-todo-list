@@ -36,7 +36,8 @@ export const callLocalStorage = () => {
   };
 
   const get = (instanceType, id) => {
-    return JSON.parse(localStorage.getItem(`${instanceType}${id}`));
+    const { value } = JSON.parse(localStorage.getItem(`${instanceType}${id}`));
+    return value;
   };
 
   const getProjects = () => {
