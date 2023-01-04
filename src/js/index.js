@@ -11,6 +11,7 @@
 // / write to local storage on current state
 // / read from local storage to render DOM
 // / star persistence by reference to local storage
+// - create DOM state tracker
 // - display notes of defaultProject in noteList() (filler data)
 // - refactor pubsub add notes
 // - read/write todonote instances to local storage
