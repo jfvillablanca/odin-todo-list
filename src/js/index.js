@@ -25,6 +25,8 @@
 
 import { defaultProject, dir, callLocalStorage } from "./factories.js";
 import {
+  projectListSelector,
+  noteListSelector,
   projItemLI,
   noteItemLI,
   changeProjectStarOpacity,
@@ -37,7 +39,6 @@ const PubSub = require("vanilla-pubsub");
 // These are just tests
 
 (function domLogic() {
-  const projectList = document.querySelector(".project-list");
   const addProjectButton = document.querySelector(
     ".project-add .add-item-icon"
   );
@@ -98,7 +99,7 @@ const PubSub = require("vanilla-pubsub");
   };
 
   const appendToProjectList = (newProjectDOMLI) => {
-    projectList.append(newProjectDOMLI);
+    projectListSelector().append(newProjectDOMLI);
     changeProjectStarOpacity();
     starListeners();
   };

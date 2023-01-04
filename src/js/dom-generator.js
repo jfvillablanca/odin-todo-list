@@ -99,7 +99,7 @@ export const noteItemLI = () => {
   return noteItem;
 };
 
-export const loadNoteList = () => {
+const loadNoteList = () => {
   // NOTE: noteList
   const noteList = document.createElement("ul");
   noteList.classList.add("note-list");
@@ -218,6 +218,13 @@ export const loadNoteView = () => {
   return noteView;
 };
 
+export const noteListSelector = () => {
+  return document.querySelector(".note-list");
+};
+
+export const projectListSelector = () => {
+  return document.querySelector(".project-list");
+};
 const loadSidebar = () => {
   // NOTE: Logo Name
   const logoNameContainer = document.createElement("div");
