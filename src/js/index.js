@@ -171,14 +171,15 @@ const PubSub = require("vanilla-pubsub");
     const projectID = projectInstance.get("id");
     const projectName = projectInstance.get("name");
     const projectNoteCount = projectInstance.get("notes").length;
-    // FIXME: Refactor me: Check what details are needed for DOM
-    PubSub.publish("insert-to-DOM-note-list", {
-      projectInstance,
-      projectID,
-      projectName,
-      projectNoteCount,
-      newTodoInstance,
-    });
+    PubSub.publish("insert-to-DOM-note-list", [
+      {
+        projectInstance,
+        projectID,
+        projectName,
+        projectNoteCount,
+      },
+      getTodoDetails(newTodoInstance),
+    ]);
     writeToStorage("todo", getTodoDetails(newTodoInstance));
   };
 
