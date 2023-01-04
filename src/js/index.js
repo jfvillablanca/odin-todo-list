@@ -49,15 +49,15 @@ const PubSub = require("vanilla-pubsub");
   });
 
   // NOTE: PubSub
-  PubSub.subscribe("new-note-to-project", (projectInstance) => {
+  PubSub.subscribe("new-note-to-project", (projectDetails) => {
     updateProjectNoteCount(
-      projectInstance.projectID,
-      projectInstance.projectNoteCount
+      projectDetails.projectID,
+      projectDetails.projectNoteCount
     );
     updateToolTip(
-      projectInstance.projectID,
-      projectInstance.projectName,
-      projectInstance.projectNoteCount
+      projectDetails.projectID,
+      projectDetails.projectName,
+      projectDetails.projectNoteCount
     );
   });
 
