@@ -1,6 +1,6 @@
 /* TODO:  
   - Fix collapse/expand icon transitions with keyframes.
-  - Fix main collapse transition
+  - Fix project-add button collapse
 */
 
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
@@ -25,6 +25,7 @@
   --color-background-blk: rgb(31, 31, 31);
   --color-background: rgb(40, 42, 54);
   --color-background-alt: rgb(68, 71, 90);
+  --color-background-selected: rgb(89, 93, 118);
   --color-foreground: rgb(248, 248, 242);
   --color-button: rgb(183, 206, 206);
   --color-comment: rgb(98, 114, 164);
@@ -70,8 +71,6 @@ body {
   background-color: var(--color-background-alt);
   width: var(--dims-sidebar-width);
   height: 100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
   transition: all 0.5s ease;
   color: var(--color-foreground);
   font-size: 3rem;
@@ -90,6 +89,8 @@ body {
   position: relative;
   margin-top: 1rem;
   margin-bottom: 2.1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   font-size: 4rem;
   font-weight: 600;
   min-height: 100%;
@@ -113,12 +114,14 @@ body {
   transform: translateX(calc((var(--dims-sidebar-width) / 2) + 2rem))
     scaleY(200%);
   transition: 0.5s ease;
+  z-index: 1;
 }
 
 .expand__icon {
   transform: translateX(calc((var(--dims-sidebar-collapsed-width) / 2) + 2rem))
     scaleY(200%);
   transition: 0.5s ease;
+  z-index: 1;
 }
 
 .project-sidebar .collapse__icon {
@@ -141,6 +144,7 @@ body {
 
 .project-header {
   margin-top: 6.1rem;
+  margin-left: 2rem;
   font-size: 3rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -149,8 +153,11 @@ body {
 }
 
 .project-item {
+  width: var(--dims-sidebar-width);
+  transition: width 0.5s ease;
+
   position: relative;
-  padding: 0.9rem 0;
+  padding: 0.9rem 2rem;
   line-height: 1.8rem;
   height: 3.6rem;
   white-space: nowrap;
@@ -158,6 +165,10 @@ body {
   grid-template-columns: min-content min-content 3fr 1fr;
   align-items: center;
   gap: 2rem;
+}
+
+.project-item.selected {
+  background-color: var(--color-background-selected);
 }
 
 .project-list :first-child > .project-item-color {
@@ -169,6 +180,10 @@ body {
 .project-item-star {
   opacity: 0;
   transition: 0.3s ease;
+}
+
+.project-list :first-child > .project-item-star {
+  visibility: hidden;
 }
 
 .project-item-star.starred,
@@ -266,6 +281,8 @@ body {
 }
 
 .project-sidebar.collapse .logo-name {
+  margin-left: 0;
+  margin-right: 0;
   max-width: var(--dims-sidebar-collapsed-width);
   display: grid;
   grid-template-columns: 1fr;
@@ -273,7 +290,7 @@ body {
 }
 
 .project-sidebar.collapse .project-item {
-  max-width: var(--dims-sidebar-collapsed-width);
+  width: var(--dims-sidebar-collapsed-width);
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
@@ -287,10 +304,19 @@ body {
   width: calc(var(--dims-container-width) - var(--dims-sidebar-width));
   height: 100%;
   transition: all 0.5s ease;
+  position: fixed;
+  right: 10%;
 
   display: grid;
   grid-template-rows: 1fr;
   place-items: center;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .note-list {
@@ -425,6 +451,10 @@ body {
   grid-area: date;
 }
 
+.note-duedate__date:focus-visible {
+  outline: none;
+}
+
 .note-project {
   grid-area: fold;
 }
@@ -439,6 +469,13 @@ body {
 
   align-items: start;
   grid-area: desc;
+}
+
+.note-duedate.focused,
+.note-name:focus-visible,
+.note-project:focus-visible,
+.note-description:focus-visible {
+  outline: solid var(--color-orange);
 }
 
 .note-button-warning {
@@ -459,7 +496,6 @@ body {
   width: calc(
     var(--dims-container-width) - var(--dims-sidebar-collapsed-width)
   );
-  transition: 0;
 }
 
 .project-sidebar .collapse__icon,

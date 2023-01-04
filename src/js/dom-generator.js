@@ -11,6 +11,7 @@ import ExpandIcon from "../images/chevrons-right.svg";
 import CollapseIcon from "../images/chevrons-left.svg";
 import StarOn from "../images/star-clicked.svg";
 import StarOff from "../images/star.svg";
+const PubSub = require("vanilla-pubsub");
 
 export const formatDueDate = (dueDate) => {
   const options = {
@@ -24,66 +25,73 @@ export const formatDueDate = (dueDate) => {
   )}`;
 };
 
-export const projItemLI = (itemText, itemNumber) => {
+export const projItemLI = (itemName, itemNoteCount, itemStarStatus) => {
   const projectItemStar = document.createElement("img");
   projectItemStar.classList.add("project-item-star");
   projectItemStar.classList.add("listen-to-stars");
-  // WARN: Debugging
-  projectItemStar.setAttribute("src", StarOn);
+  projectItemStar.setAttribute("draggable", "false");
+  itemStarStatus
+    ? projectItemStar.setAttribute("src", StarOn)
+    : projectItemStar.setAttribute("src", StarOff);
 
   const projectItemColor = document.createElement("div");
   projectItemColor.classList.add("project-item-color");
   // Add dynamic id assignment
 
-  const projectItemText = document.createElement("div");
-  projectItemText.classList.add("project-item-text");
-  projectItemText.textContent = itemText || "New Project";
+  const projectItemName = document.createElement("div");
+  projectItemName.classList.add("project-item-text");
+  projectItemName.textContent = itemName || "New Project";
 
-  const projectItemNum = document.createElement("div");
-  projectItemNum.classList.add("project-item-number");
-  projectItemNum.textContent = itemNumber || "0";
+  const projectItemNoteCount = document.createElement("div");
+  projectItemNoteCount.classList.add("project-item-number");
+  projectItemNoteCount.textContent = itemNoteCount || "0";
 
   const projectItemTooltip = document.createElement("div");
   projectItemTooltip.classList.add("tooltip");
-  projectItemTooltip.textContent = `${itemText} | ${itemNumber}`;
+  projectItemTooltip.textContent = `${itemName} | ${itemNoteCount}`;
 
   const projectItem = document.createElement("li");
   projectItem.setAttribute("data-id", "");
   projectItem.classList.add("project-item");
   projectItem.appendChild(projectItemStar);
   projectItem.appendChild(projectItemColor);
-  projectItem.appendChild(projectItemText);
-  projectItem.appendChild(projectItemNum);
+  projectItem.appendChild(projectItemName);
+  projectItem.appendChild(projectItemNoteCount);
   projectItem.appendChild(projectItemTooltip);
 
   return projectItem;
 };
 
-export const noteItemLI = () => {
+export const noteItemLI = (
+  itemName,
+  itemDueDate,
+  itemPriority,
+  itemStarStatus
+) => {
   // NOTE: noteItemStar -> set src attrib on fetch from storageLogic()
   const noteItemStar = document.createElement("img");
   noteItemStar.classList.add("note-item-star");
   noteItemStar.classList.add("listen-to-stars");
+  noteItemStar.setAttribute("draggable", "false");
+  itemStarStatus
+    ? noteItemStar.setAttribute("src", StarOn)
+    : noteItemStar.setAttribute("src", StarOff);
 
   // NOTE: noteItemName
   const noteItemName = document.createElement("div");
   noteItemName.classList.add("note-item-name");
+  noteItemName.textContent = itemName;
 
   // NOTE: noteItemDueDate
   const noteItemDueDate = document.createElement("div");
   noteItemDueDate.classList.add("note-item-duedate");
+  noteItemDueDate.textContent = itemDueDate;
 
   // NOTE: noteItemDuePriority
   const noteItemPriority = document.createElement("div");
   noteItemPriority.classList.add("note-item-priority");
-  noteItemPriority.classList.add("low");
-
-  // WARN: Debugging
-  noteItemStar.setAttribute("src", StarOff);
-  // WARN: Filler data
-  noteItemName.textContent = "TODO ME";
-  noteItemDueDate.textContent = formatDueDate(Date.now());
-  noteItemPriority.textContent = "low";
+  noteItemPriority.classList.add(itemPriority);
+  noteItemPriority.textContent = itemPriority;
 
   const noteItem = document.createElement("li");
   noteItem.classList.add("note-item");
@@ -95,16 +103,11 @@ export const noteItemLI = () => {
   return noteItem;
 };
 
-export const loadNoteList = () => {
+const loadNoteList = () => {
   // NOTE: noteList
   const noteList = document.createElement("ul");
   noteList.classList.add("note-list");
 
-  // WARN: Filler data
-  noteList.appendChild(noteItemLI());
-  noteList.appendChild(noteItemLI());
-  noteList.appendChild(noteItemLI());
-  noteList.appendChild(noteItemLI());
 
   return noteList;
 };
@@ -146,8 +149,21 @@ export const loadNoteView = () => {
   noteDueDateInput.setAttribute("type", "date");
   const noteDueDate = document.createElement("div");
   noteDueDate.classList.add("note-duedate");
-  noteDueDate.setAttribute("contenteditable", "true");
+  // noteDueDate.setAttribute("contenteditable", "true");
   noteDueDate.appendChild(noteDueDateInput);
+
+  // HACK: Need refactor: possible problems with multiple attached event listeners
+  noteDueDateInput.addEventListener("click", () => {
+    noteDueDate.classList.add("focused");
+  });
+  noteDueDateInput.addEventListener("input", (event) => {
+    noteDueDate.classList.remove("focused");
+    console.log(event.target.valueAsDate);
+  });
+  noteDueDateInput.addEventListener("focusout", () => {
+    noteDueDate.classList.remove("focused");
+    // console.log(event.target.valueAsDate);
+  });
 
   // NOTE: noteProject
   const noteProjectText = document.createElement("div");
@@ -160,6 +176,7 @@ export const loadNoteView = () => {
   // NOTE: noteStarToggle -> set src attrib on fetch from storageLogic()
   const noteStarToggleImg = document.createElement("img");
   noteStarToggleImg.classList.add("note-startoggle__star");
+  noteStarToggleImg.setAttribute("draggable", "false");
   const noteStarToggle = document.createElement("div");
   noteStarToggle.classList.add("note-startoggle");
   noteStarToggle.classList.add("listen-to-stars");
@@ -200,12 +217,21 @@ export const loadNoteView = () => {
   return noteView;
 };
 
+export const noteListSelector = () => {
+  return document.querySelector(".note-list");
+};
+
+export const projectListSelector = () => {
+  return document.querySelector(".project-list");
+};
+
 const loadSidebar = () => {
   // NOTE: Logo Name
   const logoNameContainer = document.createElement("div");
   logoNameContainer.classList.add("logo-name");
 
   const logoIcon = document.createElement("img");
+  logoIcon.setAttribute("draggable", "false");
   logoIcon.classList.add("logo-name__icon");
   logoIcon.setAttribute("src", LogoIcon);
   logoIcon.setAttribute("alt", "todo logo");
@@ -218,11 +244,13 @@ const loadSidebar = () => {
   expandIcon.classList.add("expand__icon");
   expandIcon.setAttribute("src", ExpandIcon);
   expandIcon.setAttribute("alt", "expand sidebar");
+  expandIcon.setAttribute("draggable", "false");
 
   const collapseIcon = document.createElement("img");
   collapseIcon.classList.add("collapse__icon");
   collapseIcon.setAttribute("src", CollapseIcon);
   collapseIcon.setAttribute("alt", "collapse sidebar");
+  collapseIcon.setAttribute("draggable", "false");
 
   logoNameContainer.appendChild(logoIcon);
   logoNameContainer.appendChild(logoName);
@@ -244,6 +272,7 @@ const loadSidebar = () => {
   const projectAddButtonImg = document.createElement("img");
   projectAddButtonImg.classList.add("add-item-icon");
   projectAddButtonImg.setAttribute("src", AddIcon);
+  projectAddButtonImg.setAttribute("draggable", "false");
   projectAddButton.appendChild(projectAddButtonImg);
 
   // NOTE: projectSidebar
@@ -312,27 +341,37 @@ export const changeProjectStarOpacity = () => {
   });
 };
 
+const clickEvent = (event) => {
+  const starElement = event.target;
+  // NOTE: For note-startoggle__star
+  if (starElement.tagName === "DIV") {
+    starToggle(starElement.firstChild);
+  }
+  // NOTE: For project-item-star
+  if ([...starElement.classList].includes("project-item-star")) {
+    let status;
+    const projectID = starElement.offsetParent.getAttribute("data-id");
+    if (starElement.getAttribute("src") === StarOn) {
+      starElement.classList.remove("starred");
+      status = false;
+    } else if (starElement.getAttribute("src") === StarOff) {
+      starElement.classList.add("starred");
+      status = true;
+    }
+    PubSub.publish("toggle-project-star", {
+      status,
+      projectID,
+    });
+  }
+  starToggle(event.target);
+};
+
 export const starListeners = () => {
   const stars = document.querySelectorAll(".listen-to-stars");
   stars.forEach((star) => {
-    star.addEventListener("click", (event) => {
-      // NOTE: For note-startoggle__star
-      if (event.target.tagName === "DIV") {
-        starToggle(event.target.firstChild);
-      }
-      // NOTE: For project-item-star
-      if (
-        [...event.target.classList].includes("project-item-star") &&
-        event.target.getAttribute("src") === StarOn
-      ) {
-        event.target.classList.remove("starred");
-      } else if (
-        [...event.target.classList].includes("project-item-star") &&
-        event.target.getAttribute("src") === StarOff
-      ) {
-        event.target.classList.add("starred");
-      }
-      starToggle(event.target);
-    });
+    star.removeEventListener("click", clickEvent);
+  });
+  stars.forEach((star) => {
+    star.addEventListener("click", clickEvent);
   });
 };

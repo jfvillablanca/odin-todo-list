@@ -10,6 +10,65 @@
 const generateID = () =>
   "_" + (Math.random() + 1).toString(36).substring(2) + "_";
 
+export const callLocalStorage = () => {
+  const now = new Date();
+
+  const sortByTimestamp = (unsortedProjects) => {
+    const sortedProjects = unsortedProjects
+      .sort((a, b) => {
+        return a.timestamp - b.timestamp;
+      })
+      .map((sortedProject) => {
+        return sortedProject.value;
+      });
+    return sortedProjects;
+  };
+
+  const set = (instanceType, id, value, isUpdate = false) => {
+    // WARN: No error handling, if set() caller accidentally set argument isUpdate to true on non-existent item, will throw error?
+    const store = {
+      value,
+      timestamp: !isUpdate
+        ? now.getTime()
+        : JSON.parse(localStorage.getItem(`${instanceType}${id}`)).timestamp,
+    };
+    localStorage.setItem(`${instanceType}${id}`, JSON.stringify(store));
+  };
+
+  const get = (instanceType, id) => {
+    const { value } = JSON.parse(localStorage.getItem(`${instanceType}${id}`));
+    return value;
+  };
+
+  const getProjects = () => {
+    const unsortedProjects = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      if (localStorage.key(i).substring(0, "project".length) === "project") {
+        unsortedProjects.push(
+          JSON.parse(localStorage.getItem(localStorage.key(i)))
+        );
+      }
+    }
+    return sortByTimestamp(unsortedProjects);
+  };
+
+  const remove = (instanceType, id) => {
+    localStorage.removeItem(`${instanceType}${id}`);
+  };
+
+  const isEmpty = () => {
+    return localStorage.length === 0;
+  };
+
+  return {
+    set,
+    get,
+    getProjects,
+    remove,
+    isEmpty,
+  };
+};
+
 function DirectoryUtils() {
   const projectDirectory = [];
 
@@ -125,10 +184,10 @@ const starToggle = (instance) => ({
 
 const noteCreator = (instance) => ({
   addNewTodo: ({
-    name = "What are you trying to accomplish today?",
+    name = "New task",
     dueDate = new Date(Date.now()),
     priority = "low",
-    description = "Feel free to describe :)",
+    description = "What are you trying to accomplish today?",
     isStarred = false,
     isCompleted = false,
     project = instance,
